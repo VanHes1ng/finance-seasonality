@@ -20,6 +20,7 @@ st.set_page_config(
 )
 
 image = Image.open('pexels-photo-691668.jpeg')
+st.image(image)
 
 # Set the title for the Streamlit app
 st.subheader("S&P500 Cycles")
