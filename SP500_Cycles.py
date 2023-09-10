@@ -58,6 +58,14 @@ data["Sortino Ratio"] = data["NDR_27"]/data["STD_27"]
 # Fill NaN values in Sortino Ratio with the last valid value (forward-fill)
 data["Sortino Ratio"].fillna(method='ffill', inplace=True)
 
+# MACD
+# Calculate 12-day Simple Moving Average (SMA)
+data["SMA_12"] = data["Close"].rolling(window=12).mean()
+# Calculate 26-day Simple Moving Average (SMA)
+data["SMA_26"] = data["Close"].rolling(window=26).mean()
+# MACD
+data["MACD"] = (data["SMA_12"]-data["SMA_26"]).rolling(window=9).mean()
+
 
 # Define a function to plot data using Plotly
 def plot(x, y):
@@ -87,3 +95,6 @@ plot(data.index, data["Sharpe Ratio"])
 
 # Plot the Sortino data
 plot(data.index, data["Sortino Ratio"])
+
+# Plot the Sortino data
+plot(data.index, data["MACD"])
