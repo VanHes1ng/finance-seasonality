@@ -33,11 +33,11 @@ start_date = st.sidebar.date_input("Start Date", pd.to_datetime('2021-01-01'), m
 end_date = st.sidebar.date_input("End Date", pd.to_datetime('2050-01-01'))
 
 st.sidebar.subheader("Weights")
-roc_w = st.sidebar.number_input('ROC Weight', 1, 100, 25)
-z_w   = st.sidebar.number_input('Z Score Weight', 1, 100, 30)
+roc_w = st.sidebar.number_input('ROC Weight', 1, 100, 10)
+z_w   = st.sidebar.number_input('Z Score Weight', 1, 100, 40)
 sr_w  = st.sidebar.number_input('Sharpe Score Weight', 1, 100, 100)
 sor_w = st.sidebar.number_input('Sortino Weight', 1, 100, 100)
-mac_w = st.sidebar.number_input('MACD Weight', 1, 100, 2)
+mac_w = st.sidebar.number_input('MACD Weight', 1, 100, 1)
 
 st.sidebar.subheader("Smooth AVG")
 your_window_length = st.sidebar.number_input('Window length', 1, 100, 40)
@@ -64,7 +64,7 @@ data["Z Score"] = ((data["Close"] - data["SMA_15"]) / data["STD_15"])
 # Calculate Sharpe Ratio
 data["DR_27"] = day_returns.rolling(window=27).mean()
 data["STD_27"] = day_returns.rolling(window=27).std()
-data["Sharpe Ratio"] = (data["DR_27"] / data["STD_27"])
+data["Sharpe Ratio"] = (data["DR_27"] / data["STD_27"])*2
 
 # Calculate Sortino Ratio
 data["NDR_27"] = negative_returns.rolling(window=27).std()
