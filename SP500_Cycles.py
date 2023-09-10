@@ -55,8 +55,8 @@ data["Sharpe Ratio"] = data["DR_27"]/data["STD_27"]
 data["NDR_27"] = negative_returns.rolling(window=27).mean()
 # Calculate Rolling Sortino
 data["Sortino Ratio"] = data["NDR_27"]/data["STD_27"]
-# Replace NaN values in Sortino Ratio with 0
-data["Sortino Ratio"].fillna(0, inplace=True)
+# Fill NaN values in Sortino Ratio with the last valid value (forward-fill)
+data["Sortino Ratio"].fillna(method='ffill', inplace=True)
 
 
 # Define a function to plot data using Plotly
