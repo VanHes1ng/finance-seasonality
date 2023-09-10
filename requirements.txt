@@ -8,4 +8,4 @@ numpy
 Matplotlib
 Seaborn
 scipy
-PIL
+Pillow
