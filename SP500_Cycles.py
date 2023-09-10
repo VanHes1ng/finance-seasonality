@@ -91,3 +91,32 @@ plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_sty
 plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
 plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
 plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
+
+data["AVG"] = (data["ROC"]+data["Z Score"]+data["Sharpe Ratio"]+data["Sortino Ratio"]+data["MACD"])/5
+data["AVG_6"] = data["AVG"].rolling(window=6).mean()
+
+# Define a function to plot data using Plotly with a secondary y-axis
+def plot_with_secondary_y(x, y1, y2, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y1_color='blue', y2_color='red'):
+    # Create a Plotly figure
+    fig = go.Figure()
+    
+    # Add the first trace (y1) to the primary y-axis
+    fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
+    
+    # Create a secondary y-axis
+    fig.update_layout(yaxis=dict(title=y1_name, titlefont=dict(color=y1_color)),
+                      yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right'))
+    
+    # Add the second trace (y2) to the secondary y-axis
+    fig.add_trace(go.Scatter(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color)))
+    
+    # Set the title of the chart
+    fig.update_layout(title=title)
+    
+    # Display the chart in the Streamlit app
+    st.plotly_chart(fig)
+
+# Plot the Closing Price and AVG/AVG_6 on the same chart with a secondary y-axis
+plot_with_secondary_y(data.index, data["Close"], data["AVG"], "Closing Price vs. AVG", y1_name="Closing Price", y2_name="AVG", y1_color="blue", y2_color="red")
+
+plot_with_secondary_y(data.index, data["Close"], data["AVG_6"], "Closing Price vs. AVG_6", y1_name="Closing Price", y2_name="AVG_6", y1_color="blue", y2_color="green")
