@@ -32,7 +32,7 @@ day_returns = data["Close"].pct_change()
 negative_returns = day_returns[day_returns < 0]
 
 # Calculate ROC (Rate of Change)
-data["ROC"] = (((data["Close"] - data["Close"].shift(16)) / data["Close"].shift(16)) * 100)
+data["ROC"] = (((data["Close"] - data["Close"].shift(16)) / data["Close"].shift(16)) * 100)*20
 
 
 # Z-Score
