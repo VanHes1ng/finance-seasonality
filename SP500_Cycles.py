@@ -95,14 +95,14 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
     
     # Create a secondary y-axis
-    fig.update_layout(yaxis=dict(title=y1_name, titlefont=dict(color=y1_color)),
-                      yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right'))
+    fig.update_layout(yaxis=dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=True), 
+                      yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False))  # Hide gridlines on secondary y-axis
     
     # Add the second trace (y2) to the secondary y-axis
     fig.add_trace(go.Scatter(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
     
     # Create a tertiary y-axis
-    fig.update_layout(yaxis3=dict(title=y3_name, titlefont=dict(color=y3_color), overlaying='y', side='left'))
+    fig.update_layout(yaxis3=dict(title=y3_name, titlefont=dict(color=y3_color), overlaying='y', side='left', showgrid=False))  # Hide gridlines on tertiary y-axis
     
     # Add the third trace (y3) to the tertiary y-axis
     fig.add_trace(go.Scatter(x=x, y=y3, mode='lines', name=y3_name, line=dict(color=y3_color), yaxis='y3'))
