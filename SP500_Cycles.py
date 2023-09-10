@@ -50,10 +50,14 @@ data["DR_27"] = day_returns.rolling(window=27).mean()
 data["STD_27"] = data["Close"].rolling(window=27).std()
 # Calculate Rolling Sharpe
 data["Sharpe Ratio"] = data["DR_27"]/data["STD_27"]
+
 # Calculate 27-day Simple Moving Average of negative daily returns(SMA)
 data["NDR_27"] = negative_returns.rolling(window=27).mean()
 # Calculate Rolling Sortino
 data["Sortino Ratio"] = data["NDR_27"]/data["STD_27"]
+# Replace NaN values in Sortino Ratio with 0
+data["Sortino Ratio"].fillna(0, inplace=True)
+
 
 # Define a function to plot data using Plotly
 def plot(x, y):
