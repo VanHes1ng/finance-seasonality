@@ -16,7 +16,7 @@ st.subheader("S&P500 Cycles")
 st.sidebar.header("Settings")
 
 # User Inputs
-st.set_page_config(layout="wide")
+
 # Allow the user to select a start date within the specified range
 start_date = st.sidebar.date_input("Start Date", pd.to_datetime('1990-01-01'), min_value=pd.to_datetime('1960-01-01'), max_value=pd.to_datetime('2035-01-01'))
 
@@ -124,3 +124,15 @@ plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_sty
 plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
 plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
 plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
+
+st.set_page_config(
+    page_title="Ex-stream-ly Cool App",
+    page_icon="🦈",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://www.extremelycoolapp.com/help',
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }
+)
