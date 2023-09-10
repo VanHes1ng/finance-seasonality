@@ -86,7 +86,7 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
     else:
         data_fig = go.Figure(data=[go.Scatter(x=x, y=y, mode='lines', line=dict(color=line_color, dash=line_style))])
     
-    data_fig.update_layout(title=title, width=1000, height=800)
+    data_fig.update_layout(title=title, width=1500, height=800)
     st.plotly_chart(data_fig)
 
 # Calculate a weighted average of indicators
