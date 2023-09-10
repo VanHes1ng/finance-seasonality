@@ -49,7 +49,7 @@ data["DR_27"] = day_returns.rolling(window=27).mean()
 # Calculate 27-day Rolling Standard Deviation
 data["STD_27"] = day_returns.rolling(window=27).std()
 # Calculate Rolling Sharpe
-data["Sharpe Ratio"] = (data["DR_27"]/data["STD_27"])*10
+data["Sharpe Ratio"] = (data["DR_27"]/data["STD_27"])*50
 
 # Calculate 27-day Simple Moving Average of negative daily returns(SMA)
 data["NDR_27"] = negative_returns.rolling(window=27).std()
