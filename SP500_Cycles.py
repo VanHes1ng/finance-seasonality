@@ -32,7 +32,7 @@ day_returns = data["Close"].pct_change()
 negative_returns = day_returns[day_returns < 0]
 
 # Calculate ROC (Rate of Change)
-data["ROC"] = (((data["Close"] - data["Close"].shift(16)) / data["Close"].shift(16)) * 100)*20
+data["ROC"] = (((data["Close"] - data["Close"].shift(16)) / data["Close"].shift(16)) * 100)
 
 
 # Z-Score
@@ -49,12 +49,12 @@ data["DR_27"] = day_returns.rolling(window=27).mean()
 # Calculate 27-day Rolling Standard Deviation
 data["STD_27"] = day_returns.rolling(window=27).std()
 # Calculate Rolling Sharpe
-data["Sharpe Ratio"] = (data["DR_27"]/data["STD_27"])
+data["Sharpe Ratio"] = (data["DR_27"]/data["STD_27"])*10
 
 # Calculate 27-day Simple Moving Average of negative daily returns(SMA)
 data["NDR_27"] = negative_returns.rolling(window=27).std()
 # Calculate Rolling Sortino
-data["Sortino Ratio"] = (data["DR_27"]/data["NDR_27"])
+data["Sortino Ratio"] = (data["DR_27"]/data["NDR_27"])*10
 # Fill NaN values in Sortino Ratio with the last valid value (forward-fill)
 data["Sortino Ratio"].fillna(method='ffill', inplace=True)
 
