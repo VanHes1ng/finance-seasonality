@@ -95,6 +95,10 @@ plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=Tru
 data["AVG"] = (data["ROC"]+data["Z Score"]+data["Sharpe Ratio"]+data["Sortino Ratio"]+data["MACD"])/5
 data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 
+# Calculate the EMA for AVG and AVG_6
+data["AVG"] = data["AVG"].ewm(span=3).mean()
+data["AVG_6"] = data["AVG_6"].ewm(span=3).mean()
+
 def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green'):
     # Create a Plotly figure
     fig = go.Figure()
