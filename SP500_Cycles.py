@@ -10,7 +10,7 @@ st.set_page_config(
     page_title="S&P Cycles",
     page_icon="🐉",
     layout="centered",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="wide",
     menu_items={
         'Get Help': "https://twitter.com/sxJEoRg7wwLR6ug",
         'Report a bug': "https://twitter.com/sxJEoRg7wwLR6ug",
