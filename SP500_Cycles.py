@@ -43,11 +43,11 @@ data["Z Score"] = (data["Close"] - data["SMA_15"])/data["STD_15"]
 
 # Sharpe Ratio
 # Calculate 15-day Simple Moving Average (SMA)
-data["SMA_27"] = data["Close"].rolling(window=27).mean()
+data["DR_27"] = day_returns.rolling(window=27).mean()
 # Calculate 15-day Rolling Standard Deviation
 data["STD_27"] = data["Close"].rolling(window=27).std()
 # Calculate Rolling Sharpe
-data["Sharpe Ratio"] = data["SMA_27"]/data["STD_27"]
+data["Sharpe Ratio"] = data["DR_27"]/data["STD_27"]
 
 
 # Define a function to plot data using Plotly
