@@ -47,9 +47,9 @@ data["Z Score"] = ((data["Close"] - data["SMA_15"])/data["STD_15"])*20
 # Calculate 27-day Simple Moving Average of daily returns(SMA)
 data["DR_27"] = day_returns.rolling(window=27).mean()
 # Calculate 27-day Rolling Standard Deviation
-data["STD_27"] = data["Close"].rolling(window=27).std()
+data["STD_27"] = day_returns.rolling(window=27).std()
 # Calculate Rolling Sharpe
-data["Sharpe Ratio"] = (data["DR_27"]/data["STD_27"])*101100
+data["Sharpe Ratio"] = (data["DR_27"]/data["STD_27"])*10
 
 # Calculate 27-day Simple Moving Average of negative daily returns(SMA)
 data["NDR_27"] = negative_returns.rolling(window=27).std()
