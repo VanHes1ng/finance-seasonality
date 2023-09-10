@@ -33,15 +33,15 @@ start_date = st.sidebar.date_input("Start Date", pd.to_datetime('2021-01-01'), m
 end_date = st.sidebar.date_input("End Date", pd.to_datetime('2050-01-01'))
 
 st.sidebar.subheader("Weights")
-roc_w = st.sidebar.number_input('ROC Weight', 1, 100, 1)
-z_w   = st.sidebar.number_input('Z Score Weight', 1, 100, 1)
-sr_w  = st.sidebar.number_input('Sharpe Score Weight', 1, 100, 1)
-sor_w = st.sidebar.number_input('Sortino Weight', 1, 100, 1)
-mac_w = st.sidebar.number_input('MACD Weight', 1, 100, 1)
+roc_w = st.sidebar.number_input('ROC Weight', 1, 100, 25)
+z_w   = st.sidebar.number_input('Z Score Weight', 1, 100, 30)
+sr_w  = st.sidebar.number_input('Sharpe Score Weight', 1, 100, 100)
+sor_w = st.sidebar.number_input('Sortino Weight', 1, 100, 100)
+mac_w = st.sidebar.number_input('MACD Weight', 1, 100, 2)
 
 st.sidebar.subheader("Smooth AVG")
-your_window_length = st.sidebar.number_input('Window length', 1, 100, 30)
-your_polyorder     = st.sidebar.number_input('Polyorder', 1, 100, 5)
+your_window_length = st.sidebar.number_input('Window length', 1, 100, 40)
+your_polyorder     = st.sidebar.number_input('Polyorder', 1, 100, 9)
 
 # Download S&P 500 data from Yahoo Finance
 ticker = "^GSPC"
