@@ -32,6 +32,8 @@ start_date = st.sidebar.date_input("Start Date", pd.to_datetime('2021-01-01'), m
 # Allow the user to select an end date
 end_date = st.sidebar.date_input("End Date", pd.to_datetime('2050-01-01'))
 
+st.sidebar.subheader("Weights")
+
 # Download S&P 500 data from Yahoo Finance
 ticker = "^GSPC"
 data = yf.download(ticker, start=start_date, end=end_date)
