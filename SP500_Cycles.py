@@ -22,9 +22,6 @@ st.set_page_config(
 image = Image.open('pexels-photo-691668.png')
 st.image(image)
 
-# Set the title for the Streamlit app
-st.subheader("S&P500 Cycles")
-
 # Create a sidebar for user settings
 st.sidebar.header("Settings")
 
