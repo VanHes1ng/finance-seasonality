@@ -33,6 +33,11 @@ start_date = st.sidebar.date_input("Start Date", pd.to_datetime('2021-01-01'), m
 end_date = st.sidebar.date_input("End Date", pd.to_datetime('2050-01-01'))
 
 st.sidebar.subheader("Weights")
+roc_w = st.number_input('ROC Weight', 1, 100, 1)
+z_w = st.number_input('Z Score Weight', 1, 100, 1)
+sr_w = st.number_input('Sharpe Score Weight', 1, 100, 1)
+sor_w = st.number_input('Sortino Weight', 1, 100, 1)
+mac_w = st.number_input('MACD Weight', 1, 100, 1)
 
 # Download S&P 500 data from Yahoo Finance
 ticker = "^GSPC"
@@ -96,7 +101,7 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
     # Display the chart in the Streamlit app
     st.plotly_chart(data_fig)
 
-data["AVG"] = (data["ROC"]+data["Z Score"]+data["Sharpe Ratio"]*10+data["Sortino Ratio"]*10+data["MACD"])/5
+data["AVG"] = (data["ROC"]*roc_w+data["Z Score"]*z_w+data["Sharpe Ratio"]**sr_w+data["Sortino Ratio"]*sor_w+data["MACD"]*mac_w)/5
 data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 
 def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green'):
