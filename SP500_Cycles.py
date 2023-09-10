@@ -68,7 +68,7 @@ data["MACD"] = (data["SMA_12"]-data["SMA_26"]).rolling(window=9).mean()
 
 
 # Define a function to plot data using Plotly
-def plot(x, y, title, line_color='blue', line_style='solid', marker_size=0, is_histogram=False):
+def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False):
     # Get the name of the y column
     y_column_name = y.name
     
@@ -76,7 +76,7 @@ def plot(x, y, title, line_color='blue', line_style='solid', marker_size=0, is_h
     if is_histogram:
         data_fig = go.Figure(data=[go.Bar(x=x, y=y, marker=dict(color=line_color))])
     else:
-        data_fig = go.Figure(data=[go.Scatter(x=x, y=y, mode='lines+markers', line=dict(color=line_color, dash=line_style), marker=dict(size=marker_size))])
+        data_fig = go.Figure(data=[go.Scatter(x=x, y=y, mode='lines', line=dict(color=line_color, dash=line_style))])
     
     # Set the title of the chart using the provided title
     data_fig.update_layout(title=title)
@@ -85,9 +85,9 @@ def plot(x, y, title, line_color='blue', line_style='solid', marker_size=0, is_h
     st.plotly_chart(data_fig)
 
 
-plot(data.index, data["Close"], title="Closing Price", line_color='red', line_style='solid', marker_size=0)
-plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid', marker_size=0)
-plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid', marker_size=0)
-plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid', marker_size=0)
-plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid', marker_size=0)
-plot(data.index, data["MACD"], title="MACD", line_color='blue', marker_size=0, is_histogram=True)
+plot(data.index, data["Close"], title="Closing Price", line_color='red', line_style='solid')
+plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid')
+plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid')
+plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
+plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
+plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
