@@ -7,14 +7,14 @@ import numpy as np
 
 
 st.set_page_config(
-    page_title="Ex-stream-ly Cool App",
-    page_icon="🧊",
-    layout="wide",
+    page_title="S&P Cycles",
+    page_icon="🐉",
+    layout="centered",
     initial_sidebar_state="expanded",
     menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
+        'Get Help': '',
+        'Report a bug': "",
+        'About': "S&P Cycles is not a financial advisor"
     }
 )
 
