@@ -27,9 +27,12 @@ day_returns = data["Close"].pct_change()
 # Calculate ROC (Rate of Change)
 data["ROC"] = ((data["Close"] - data["Close"].shift(16)) / data["Close"].shift(16)) * 100
 
-# Create a Plotly figure for ROC
-roc_fig = go.Figure(data=[go.Scatter(x=data.index, y=data["ROC"])])
-roc_fig.update_layout(title=ticker + " Rate of Change")
+def plot(x,y):
+    data_fig = go.Figure(data = [go.Scatter(x = data.index, y = data["Close"])])
+    data_fig.update_layout(title=ticker + " chart")
+    st.plotly_chart(data_fig)
+ 
 
-# Plot the ROC using Plotly
-st.plotly_chart(roc_fig)
+plot(data.index, data["Close"])
+
+plot(data.index, data["ROC"])
