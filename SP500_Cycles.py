@@ -12,8 +12,8 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded",
     menu_items={
-        'Get Help': '',
-        'Report a bug': "",
+        'Get Help': "https://twitter.com/sxJEoRg7wwLR6ug",
+        'Report a bug': "https://twitter.com/sxJEoRg7wwLR6ug",
         'About': "S&P Cycles is not a financial advisor"
     }
 )
