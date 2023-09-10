@@ -109,7 +109,7 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     
     # Set the title of the chart
     fig.update_layout(title=title)
-    
+    fig.update_layout(width=1100,height=900)
     # Display the chart in the Streamlit app
     st.plotly_chart(fig)
 
