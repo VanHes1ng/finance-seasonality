@@ -84,14 +84,6 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
     # Display the chart in the Streamlit app
     st.plotly_chart(data_fig)
 
-
-plot(data.index, data["Close"], title="Closing Price", line_color='red', line_style='solid')
-plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid')
-plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid')
-plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
-plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
-plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
-
 data["AVG"] = (data["ROC"]+data["Z Score"]+data["Sharpe Ratio"]+data["Sortino Ratio"]+data["MACD"])/5
 data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 
@@ -123,3 +115,11 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
 
 # Example usage with three y-series and three y-axes
 plot_with_secondary_y(data.index, data["Close"], data["AVG"], data["AVG_6"], "SPY Cycles", y1_name="Closing Price", y2_name="", y3_name="", y1_color="white", y2_color="turquoise", y3_color="red")
+
+
+plot(data.index, data["Close"], title="Closing Price", line_color='red', line_style='solid')
+plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid')
+plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid')
+plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
+plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
+plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
