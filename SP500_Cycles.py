@@ -68,33 +68,26 @@ data["MACD"] = (data["SMA_12"]-data["SMA_26"]).rolling(window=9).mean()
 
 
 # Define a function to plot data using Plotly
-def plot(x, y):
+def plot(x, y, title, line_color='blue', line_style='solid', marker_size=6, is_histogram=False):
     # Get the name of the y column
     y_column_name = y.name
     
     # Create a Plotly figure for the data
-    data_fig = go.Figure(data=[go.Scatter(x=x, y=y)])
+    if is_histogram:
+        data_fig = go.Figure(data=[go.Bar(x=x, y=y, marker=dict(color=line_color))])
+    else:
+        data_fig = go.Figure(data=[go.Scatter(x=x, y=y, mode='lines+markers', line=dict(color=line_color, dash=line_style), marker=dict(size=marker_size))])
     
-    # Set the title of the chart using the y column name
-    data_fig.update_layout(title=f"{y_column_name} chart")
+    # Set the title of the chart using the provided title
+    data_fig.update_layout(title=title)
     
     # Display the chart in the Streamlit app
     st.plotly_chart(data_fig)
 
-# Plot the closing price data
-plot(data.index, data["Close"])
 
-# Plot the ROC data
-plot(data.index, data["ROC"])
-
-# Plot the Z data
-plot(data.index, data["Z Score"])
-
-# Plot the Sharpe data
-plot(data.index, data["Sharpe Ratio"])
-
-# Plot the Sortino data
-plot(data.index, data["Sortino Ratio"])
-
-# Plot the Sortino data
-plot(data.index, data["MACD"])
+plot(data.index, data["Close"], title="Closing Price", line_color='red', line_style='dash', marker_size=8)
+plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='dot', marker_size=4)
+plot(data.index, data["Z Score"], title="Z Score", line_color='purple', marker_size=5)
+plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", marker_size=7)
+plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', marker_size=6)
+plot(data.index, data["MACD"], title="MACD", line_color='blue', marker_size=5, is_histogram=True)
