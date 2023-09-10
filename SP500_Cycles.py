@@ -33,11 +33,11 @@ start_date = st.sidebar.date_input("Start Date", pd.to_datetime('2021-01-01'), m
 end_date = st.sidebar.date_input("End Date", pd.to_datetime('2050-01-01'))
 
 st.sidebar.subheader("Weights")
-roc_w = st.number_input('ROC Weight', 1, 100, 1)
-z_w = st.number_input('Z Score Weight', 1, 100, 1)
-sr_w = st.number_input('Sharpe Score Weight', 1, 100, 1)
-sor_w = st.number_input('Sortino Weight', 1, 100, 1)
-mac_w = st.number_input('MACD Weight', 1, 100, 1)
+roc_w = st.sidebar.number_input('ROC Weight', 1, 100, 1)
+z_w = st.sidebar.number_input('Z Score Weight', 1, 100, 1)
+sr_w = st.sidebar.number_input('Sharpe Score Weight', 1, 100, 1)
+sor_w = st.sidebar.number_input('Sortino Weight', 1, 100, 1)
+mac_w = st.sidebar.number_input('MACD Weight', 1, 100, 1)
 
 # Download S&P 500 data from Yahoo Finance
 ticker = "^GSPC"
