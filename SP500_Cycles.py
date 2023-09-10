@@ -71,7 +71,7 @@ plot(data.index, data["Close"])
 plot(data.index, data["ROC"])
 
 # Plot the Z data
-plot(data.index, data["Z_Score"])
+plot(data.index, data["Z Score"])
 
 # Plot the Sharpe data
 plot(data.index, data["Sharpe Ratio"])
