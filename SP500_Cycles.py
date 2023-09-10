@@ -41,7 +41,7 @@ data["SMA_15"] = data["Close"].rolling(window=15).mean()
 # Calculate 15-day Rolling Standard Deviation
 data["STD_15"] = data["Close"].rolling(window=15).std()
 # Calculate Z scores
-data["Z Score"] = (data["Close"] - data["SMA_15"])/data["STD_15"]
+data["Z Score"] = ((data["Close"] - data["SMA_15"])/data["STD_15"])*20
 
 # Sharpe Ratio
 # Calculate 27-day Simple Moving Average of daily returns(SMA)
@@ -49,12 +49,12 @@ data["DR_27"] = day_returns.rolling(window=27).mean()
 # Calculate 27-day Rolling Standard Deviation
 data["STD_27"] = data["Close"].rolling(window=27).std()
 # Calculate Rolling Sharpe
-data["Sharpe Ratio"] = data["DR_27"]/data["STD_27"]
+data["Sharpe Ratio"] = (data["DR_27"]/data["STD_27"])*1000000
 
 # Calculate 27-day Simple Moving Average of negative daily returns(SMA)
 data["NDR_27"] = negative_returns.rolling(window=27).mean()
 # Calculate Rolling Sortino
-data["Sortino Ratio"] = data["NDR_27"]/data["STD_27"]
+data["Sortino Ratio"] = (data["NDR_27"]/data["STD_27"])*1000000
 # Fill NaN values in Sortino Ratio with the last valid value (forward-fill)
 data["Sortino Ratio"].fillna(method='ffill', inplace=True)
 
@@ -64,7 +64,7 @@ data["SMA_12"] = data["Close"].rolling(window=12).mean()
 # Calculate 26-day Simple Moving Average (SMA)
 data["SMA_26"] = data["Close"].rolling(window=26).mean()
 # MACD
-data["MACD"] = (data["SMA_12"]-data["SMA_26"]).rolling(window=9).mean()
+data["MACD"] = ((data["SMA_12"]-data["SMA_26"]).rolling(window=9).mean())/5
 
 
 # Define a function to plot data using Plotly
