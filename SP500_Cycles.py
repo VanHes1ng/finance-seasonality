@@ -3,6 +3,7 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 import plotly.graph_objects as go
+from scipy.signal import savgol_filter
 
 # Set up the Streamlit app configuration
 st.set_page_config(
@@ -33,10 +34,14 @@ end_date = st.sidebar.date_input("End Date", pd.to_datetime('2050-01-01'))
 
 st.sidebar.subheader("Weights")
 roc_w = st.sidebar.number_input('ROC Weight', 1, 100, 1)
-z_w = st.sidebar.number_input('Z Score Weight', 1, 100, 1)
-sr_w = st.sidebar.number_input('Sharpe Score Weight', 1, 100, 1)
+z_w   = st.sidebar.number_input('Z Score Weight', 1, 100, 1)
+sr_w  = st.sidebar.number_input('Sharpe Score Weight', 1, 100, 1)
 sor_w = st.sidebar.number_input('Sortino Weight', 1, 100, 1)
 mac_w = st.sidebar.number_input('MACD Weight', 1, 100, 1)
+
+st.sidebar.subheader("Smooth AVG")
+your_window_length = st.sidebar.number_input('Window length', 3, 10, 1)
+your_polyorder     = st.sidebar.number_input('Polyorder', 3, 10, 1)
 
 # Download S&P 500 data from Yahoo Finance
 ticker = "^GSPC"
@@ -86,6 +91,13 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
 # Calculate a weighted average of indicators
 data["AVG"] = (data["ROC"] * roc_w + data["Z Score"] * z_w + data["Sharpe Ratio"] ** sr_w + data["Sortino Ratio"] * sor_w + data["MACD"] * mac_w) / 5
 data["AVG_6"] = data["AVG"].rolling(window=6).mean()
+
+
+# Apply the Savitzky-Golay filter to AVG and AVG_6
+window_length = your_window_length
+polyorder = your_polyorder
+data["Smoothed_AVG"] = savgol_filter(data["AVG"], window_length, polyorder)
+data["Smoothed_AVG_6"] = savgol_filter(data["AVG_6"], window_length, polyorder)
 
 # Define a function to plot data with secondary y-axes
 def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green'):
