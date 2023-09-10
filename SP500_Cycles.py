@@ -28,7 +28,7 @@ day_returns = data["Close"].pct_change()
 data["ROC"] = ((data["Close"] - data["Close"].shift(16)) / data["Close"].shift(16)) * 100
 
 def plot(x,y):
-    data_fig = go.Figure(data = [go.Scatter(x = data.index, y = data["Close"])])
+    data_fig = go.Figure(data = [go.Scatter(x = x, y = y)])
     data_fig.update_layout(title=ticker + " chart")
     st.plotly_chart(data_fig)
  
