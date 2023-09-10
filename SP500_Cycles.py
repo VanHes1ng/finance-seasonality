@@ -40,8 +40,8 @@ sor_w = st.sidebar.number_input('Sortino Weight', 1, 100, 1)
 mac_w = st.sidebar.number_input('MACD Weight', 1, 100, 1)
 
 st.sidebar.subheader("Smooth AVG")
-your_window_length = st.sidebar.number_input('Window length', 3, 10, 1)
-your_polyorder     = st.sidebar.number_input('Polyorder', 3, 10, 1)
+your_window_length = st.sidebar.number_input('Window length', 1, 10, 3)
+your_polyorder     = st.sidebar.number_input('Polyorder', 1, 10, 3)
 
 # Download S&P 500 data from Yahoo Finance
 ticker = "^GSPC"
