@@ -116,7 +116,7 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
 # Example usage with three y-series and three y-axes
 plot_with_secondary_y(data.index, data["Close"], data["AVG"], data["AVG_6"], "SPY Cycles", y1_name="Closing Price", y2_name="", y3_name="", y1_color="white", y2_color="turquoise", y3_color="red")
 
-st.markdown("### Closing Price")
+st.markdown("### Indicators")
 
 plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid')
 plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid')
