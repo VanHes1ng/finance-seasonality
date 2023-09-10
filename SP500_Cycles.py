@@ -24,7 +24,12 @@ data = yf.download(ticker, start=start_date, end=end_date)
 # Set the app title and sidebar description
 day_returns = data["Close"].pct_change()
 
-# ROC (16)
-roc = ((data["Close"]-data["Close"][-16])/data["Close"][-16])*100
+# Calculate ROC (Rate of Change)
+data["ROC"] = ((data["Close"] - data["Close"].shift(16)) / data["Close"].shift(16)) * 100
 
-st.plotly_chart(roc)
+# Create a Plotly figure for ROC
+roc_fig = go.Figure(data=[go.Scatter(x=data.index, y=data["ROC"])])
+roc_fig.update_layout(title=ticker + " Rate of Change")
+
+# Plot the ROC using Plotly
+st.plotly_chart(roc_fig)
