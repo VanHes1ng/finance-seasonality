@@ -89,7 +89,7 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
     st.plotly_chart(data_fig)
 
 # Calculate a weighted average of indicators
-data["AVG"] = (data["ROC"] * roc_w + data["Z Score"] * z_w + data["Sharpe Ratio"] ** sr_w + data["Sortino Ratio"] * sor_w + data["MACD"] * mac_w) / 5
+data["AVG"] = (data["ROC"] * roc_w + data["Z Score"] * z_w + data["Sharpe Ratio"] * sr_w + data["Sortino Ratio"] * sor_w + data["MACD"] * mac_w) / 5
 data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 
 
