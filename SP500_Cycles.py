@@ -32,7 +32,7 @@ day_returns = data["Close"].pct_change()
 negative_returns = day_returns[day_returns < 0]
 
 # Calculate ROC (Rate of Change)
-data["ROC"] = ((data["Close"] - data["Close"].shift(16)) / data["Close"].shift(16)) * 100
+data["ROC"] = (((data["Close"] - data["Close"].shift(16)) / data["Close"].shift(16)) * 100)*2
 
 
 # Z-Score
@@ -49,12 +49,12 @@ data["DR_27"] = day_returns.rolling(window=27).mean()
 # Calculate 27-day Rolling Standard Deviation
 data["STD_27"] = day_returns.rolling(window=27).std()
 # Calculate Rolling Sharpe
-data["Sharpe Ratio"] = (data["DR_27"]/data["STD_27"])*50
+data["Sharpe Ratio"] = (data["DR_27"]/data["STD_27"])*20
 
 # Calculate 27-day Simple Moving Average of negative daily returns(SMA)
 data["NDR_27"] = negative_returns.rolling(window=27).std()
 # Calculate Rolling Sortino
-data["Sortino Ratio"] = (data["DR_27"]/data["NDR_27"])*22
+data["Sortino Ratio"] = (data["DR_27"]/data["NDR_27"])*20
 # Fill NaN values in Sortino Ratio with the last valid value (forward-fill)
 data["Sortino Ratio"].fillna(method='ffill', inplace=True)
 
@@ -64,7 +64,7 @@ data["SMA_12"] = data["Close"].rolling(window=12).mean()
 # Calculate 26-day Simple Moving Average (SMA)
 data["SMA_26"] = data["Close"].rolling(window=26).mean()
 # MACD
-data["MACD"] = ((data["SMA_12"]-data["SMA_26"]).rolling(window=9).mean())/5
+data["MACD"] = ((data["SMA_12"]-data["SMA_26"]).rolling(window=9).mean())
 
 
 # Define a function to plot data using Plotly
@@ -94,10 +94,6 @@ plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=Tru
 
 data["AVG"] = (data["ROC"]+data["Z Score"]+data["Sharpe Ratio"]+data["Sortino Ratio"]+data["MACD"])/5
 data["AVG_6"] = data["AVG"].rolling(window=6).mean()
-
-# Calculate the EMA for AVG and AVG_6
-data["AVG"] = data["AVG"].ewm(span=3).mean()
-data["AVG_6"] = data["AVG_6"].ewm(span=3).mean()
 
 def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green'):
     # Create a Plotly figure
