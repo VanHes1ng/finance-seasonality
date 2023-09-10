@@ -19,7 +19,7 @@ st.set_page_config(
     }
 )
 
-image = Image.open('pexels-photo-691668.png')
+image = Image.open('pngegg.png')
 st.image(image)
 
 # Create a sidebar for user settings
