@@ -105,7 +105,7 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
     
     fig.update_layout(
-        yaxis=dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=True),
+        yaxis=dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False),
         yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False)
     )
     
