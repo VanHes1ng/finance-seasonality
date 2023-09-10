@@ -16,7 +16,7 @@ st.subheader("S&P500 Cycles")
 st.sidebar.header("Settings")
 
 # User Inputs
-st. set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 # Allow the user to select a start date within the specified range
 start_date = st.sidebar.date_input("Start Date", pd.to_datetime('1990-01-01'), min_value=pd.to_datetime('1960-01-01'), max_value=pd.to_datetime('2035-01-01'))
 
