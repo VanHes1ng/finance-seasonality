@@ -80,7 +80,7 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
     
     # Set the title of the chart using the provided title
     data_fig.update_layout(title=title)
-    
+    data_fig.update_layout(width=1000,height=800)
     # Display the chart in the Streamlit app
     st.plotly_chart(data_fig)
 
@@ -114,7 +114,7 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     st.plotly_chart(fig)
 
 # Example usage with three y-series and three y-axes
-plot_with_secondary_y(data.index, data["Close"], data["AVG"], data["AVG_6"], "SPY Cycles", y1_name="Closing Price", y2_name="", y3_name="", y1_color="white", y2_color="turquoise", y3_color="red")
+plot_with_secondary_y(data.index, data["Close"], data["AVG"], data["AVG_6"], "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="white", y2_color="turquoise", y3_color="red")
 
 st.markdown("### Indicators")
 
