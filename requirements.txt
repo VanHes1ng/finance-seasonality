@@ -1,0 +1,10 @@
+yfinance
+altair
+pandas
+streamlit
+plotly
+monthly_returns_heatmap
+numpy
+Matplotlib
+Seaborn
+scipy
