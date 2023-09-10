@@ -125,9 +125,4 @@ plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
 plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
 plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
 
-st.set_page_config(
-    page_title="Ex-stream-ly Cool App",
-    page_icon="🦈",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+st.set_page_config(page_icon="🦈")
