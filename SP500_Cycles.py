@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from scipy.signal import savgol_filter
 from PIL import Image
 
-image = Image.open('sunrise.jpg')
+image = Image.open('https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
 
 # Set up the Streamlit app configuration
 st.set_page_config(
