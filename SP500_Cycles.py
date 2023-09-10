@@ -6,8 +6,6 @@ import plotly.graph_objects as go
 from scipy.signal import savgol_filter
 from PIL import Image
 
-image = Image.open('pexels-photo-691668.jpeg')
-
 # Set up the Streamlit app configuration
 st.set_page_config(
     page_title="S&P Cycles",
@@ -20,6 +18,8 @@ st.set_page_config(
         'About': "S&P Cycles is not a financial advisor"
     }
 )
+
+image = Image.open('pexels-photo-691668.jpeg')
 
 # Set the title for the Streamlit app
 st.subheader("S&P500 Cycles")
