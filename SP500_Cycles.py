@@ -85,9 +85,9 @@ def plot(x, y, title, line_color='blue', line_style='solid', marker_size=6, is_h
     st.plotly_chart(data_fig)
 
 
-plot(data.index, data["Close"], title="Closing Price", line_color='red', line_style='dash', marker_size=8)
-plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='dot', marker_size=4)
-plot(data.index, data["Z Score"], title="Z Score", line_color='purple', marker_size=5)
-plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", marker_size=7)
-plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', marker_size=6)
-plot(data.index, data["MACD"], title="MACD", line_color='blue', marker_size=5, is_histogram=True)
+plot(data.index, data["Close"], title="Closing Price", line_color='red', line_style='solid', marker_size=0)
+plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid', marker_size=0)
+plot(data.index, data["Z Score"], title="Z Score", line_color='purple', marker_size=0)
+plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", marker_size=0)
+plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', marker_size=0)
+plot(data.index, data["MACD"], title="MACD", line_color='blue', marker_size=0, is_histogram=True)
