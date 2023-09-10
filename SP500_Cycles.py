@@ -65,7 +65,7 @@ data["Z Score"] = ((data["Close"] - data["SMA_15"]) / data["STD_15"])
 # Calculate Sharpe Ratio
 data["DR_27"] = day_returns.rolling(window=27).mean()
 data["STD_27"] = day_returns.rolling(window=27).std()
-data["Sharpe Ratio"] = (data["DR_27"] / data["STD_27"])*2
+data["Sharpe Ratio"] = (data["DR_27"] / data["STD_27"])
 
 # Calculate Sortino Ratio
 data["NDR_27"] = negative_returns.rolling(window=27).std()
@@ -90,7 +90,7 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
     st.plotly_chart(data_fig)
 
 # Calculate a weighted average of indicators
-data["AVG"] = (data["ROC"] * roc_w + data["Z Score"] * z_w + data["Sharpe Ratio"] * sr_w + data["Sortino Ratio"] * sor_w + data["MACD"] * mac_w) / 5
+data["AVG"] = (data["ROC"] * roc_w + data["Z Score"] * z_w + data["Sharpe Ratio"] * 2 * sr_w + data["Sortino Ratio"] * sor_w + data["MACD"] * mac_w) / 5
 data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 
 
