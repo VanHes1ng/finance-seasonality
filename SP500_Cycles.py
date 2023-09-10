@@ -2,12 +2,21 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 import plotly.graph_objects as go
-import plotly.express as px
-from scipy.interpolate import CubicSpline
+
 import numpy as np
-import matplotlib.pyplot as plt
-import monthly_returns_heatmap as mrh
-import calendar
+
+
+st.set_page_config(
+    page_title="Ex-stream-ly Cool App",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://www.extremelycoolapp.com/help',
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }
+)
 
 # Set the title for the Streamlit app
 st.subheader("S&P500 Cycles")
@@ -124,5 +133,3 @@ plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_sty
 plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
 plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
 plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
-
-st.set_page_config(page_icon="🦈")
