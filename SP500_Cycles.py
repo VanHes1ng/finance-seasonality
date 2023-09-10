@@ -40,8 +40,8 @@ sor_w = st.sidebar.number_input('Sortino Weight', 1, 100, 1)
 mac_w = st.sidebar.number_input('MACD Weight', 1, 100, 1)
 
 st.sidebar.subheader("Smooth AVG")
-your_window_length = st.sidebar.number_input('Window length', 1, 100, 20)
-your_polyorder     = st.sidebar.number_input('Polyorder', 1, 100, 10)
+your_window_length = st.sidebar.number_input('Window length', 1, 100, 30)
+your_polyorder     = st.sidebar.number_input('Polyorder', 1, 100, 5)
 
 # Download S&P 500 data from Yahoo Finance
 ticker = "^GSPC"
@@ -94,10 +94,8 @@ data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 
 
 # Apply the Savitzky-Golay filter to AVG and AVG_6
-window_length = your_window_length
-polyorder = your_polyorder
-data["AVG"] = savgol_filter(data["AVG"], window_length, polyorder)
-data["AVG_6"] = savgol_filter(data["AVG_6"], window_length, polyorder)
+data["AVG"] = savgol_filter(data["AVG"], your_window_length, your_polyorder)
+data["AVG_6"] = savgol_filter(data["AVG_6"], your_window_length, your_polyorder)
 
 # Define a function to plot data with secondary y-axes
 def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green'):
