@@ -20,7 +20,7 @@ st.sidebar.header("Settings")
 start_date = st.sidebar.date_input("Start Date", pd.to_datetime('1990-01-01'), min_value=pd.to_datetime('1960-01-01'), max_value=pd.to_datetime('2035-01-01'))
 
 # Allow the user to select an end date
-end_date = st.sidebar.date_input("End Date", pd.to_datetime('2024-01-01'))
+end_date = st.sidebar.date_input("End Date", pd.to_datetime('2050-01-01'))
 
 # Download S&P 500 data from Yahoo Finance
 ticker = "^GSPC"
