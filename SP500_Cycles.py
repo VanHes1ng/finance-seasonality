@@ -96,8 +96,8 @@ data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 # Apply the Savitzky-Golay filter to AVG and AVG_6
 window_length = your_window_length
 polyorder = your_polyorder
-data["Smoothed_AVG"] = savgol_filter(data["AVG"], window_length, polyorder)
-data["Smoothed_AVG_6"] = savgol_filter(data["AVG_6"], window_length, polyorder)
+data["AVG"] = savgol_filter(data["AVG"], window_length, polyorder)
+data["AVG_6"] = savgol_filter(data["AVG_6"], window_length, polyorder)
 
 # Define a function to plot data with secondary y-axes
 def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green'):
