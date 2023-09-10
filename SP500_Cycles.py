@@ -59,12 +59,12 @@ data["DR_27"] = day_returns.rolling(window=27).mean()
 # Calculate 27-day Rolling Standard Deviation
 data["STD_27"] = day_returns.rolling(window=27).std()
 # Calculate Rolling Sharpe
-data["Sharpe Ratio"] = (data["DR_27"]/data["STD_27"])*10
+data["Sharpe Ratio"] = (data["DR_27"]/data["STD_27"])
 
 # Calculate 27-day Simple Moving Average of negative daily returns(SMA)
 data["NDR_27"] = negative_returns.rolling(window=27).std()
 # Calculate Rolling Sortino
-data["Sortino Ratio"] = (data["DR_27"]/data["NDR_27"])*10
+data["Sortino Ratio"] = (data["DR_27"]/data["NDR_27"])
 # Fill NaN values in Sortino Ratio with the last valid value (forward-fill)
 data["Sortino Ratio"].fillna(method='ffill', inplace=True)
 
@@ -94,7 +94,7 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
     # Display the chart in the Streamlit app
     st.plotly_chart(data_fig)
 
-data["AVG"] = (data["ROC"]+data["Z Score"]+data["Sharpe Ratio"]+data["Sortino Ratio"]+data["MACD"])/5
+data["AVG"] = (data["ROC"]+data["Z Score"]+data["Sharpe Ratio"]*10+data["Sortino Ratio"]*10+data["MACD"])/5
 data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 
 def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green'):
