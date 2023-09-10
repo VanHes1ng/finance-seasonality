@@ -28,5 +28,5 @@ day_returns = data["Close"].pct_change()
 roc = ((data["Close"]-data["Close"][-16])/data["Close"][-16])*100
 roc = (go.Figure(data=[go.Line(x=roc.index, y=roc)]))
 roc.update_layout(title = ticker + " Rate of Change")
-
+st.pyplot(roc)
 st.plotly_chart(roc)
