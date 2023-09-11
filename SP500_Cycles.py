@@ -20,7 +20,7 @@ st.set_page_config(
 )
 
 image = Image.open('pngegg.png')
-st.image(image)
+st.sidebar.image(image)
 
 # Create a sidebar for user settings
 st.sidebar.header("Settings")
