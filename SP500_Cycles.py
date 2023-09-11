@@ -140,7 +140,7 @@ if option in option_mapping:
     y2, y3 = data[option_mapping[option]]
 
 
-plot_with_secondary_y(data.index, data["Close"], y2=y2, y3=y3, title="SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="gray", y2_color="turquoise", y3_color="red")
+    plot_with_secondary_y(data.index, data["Close"], y2=y2, y3=y3, title="SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="gray", y2_color="turquoise", y3_color="red")
 
 st.markdown("### Indicators")
 
