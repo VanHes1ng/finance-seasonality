@@ -105,7 +105,7 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
     
     fig.update_layout(
-        yaxis=dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False),
+        yaxis =dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False),
         yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False)
     )
     
@@ -120,8 +120,29 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     fig.update_layout(title=title, width=width, height=height)
     st.plotly_chart(fig)
 
-# Example usage with three y-series and three y-axes
-plot_with_secondary_y(data.index, data["Close"], data["AVG"], data["AVG_6"], "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="gray", y2_color="turquoise", y3_color="red")
+# Define a dictionary to map options to column names
+option_mapping = {
+    'AVG': ['AVG', 'AVG_6'],
+    'ROC': ['ROC', 'ROC'],
+    'MACD': ['MACD', 'MACD'],
+    'Sharpe Ratio': ['Sharpe Ratio', 'Sharpe Ratio'],
+    'Sortino Ratio': ['Sortino Ratio', 'Sortino Ratio'],
+    'Z Score': ['Z Score', 'Z Score']
+}
+
+# Get the selected option from the user
+option = st.selectbox(
+    'Plotting Indicator:',
+    ('AVG', 'ROC', 'Sortino', 'Sharpe', 'MACD', 'Z Score'))
+
+# Check if the selected option is in the mapping
+if option in option_mapping:
+    y2, y3 = data[option_mapping[option]]
+else:
+    # Handle the case when the selected option is not found
+    st.error(f"Option '{option}' not found in the mapping")
+
+plot_with_secondary_y(data.index, data["Close"], y2, y3, "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="gray", y2_color="turquoise", y3_color="red")
 
 st.markdown("### Indicators")
 
