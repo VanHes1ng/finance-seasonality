@@ -19,7 +19,7 @@ st.set_page_config(
     }
 )
 
-st.title(':green[SPY] Economic Cycles', divider='rainbow')
+st.header(':green[SPY] Economic Cycles', divider='rainbow')
 st.subheader(':gray[Special Edition]')
 
 image = Image.open('pngegg.png')
