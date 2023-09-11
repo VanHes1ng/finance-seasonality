@@ -147,7 +147,7 @@ if option == 'Z Score':
     y2 = data["Z Score"]
     y3 = data["Z Score"] 
 
-plot_with_secondary_y(data.index, data["Close"], y2, y3, "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="gray", y2_color="turquoise", y3_color="red")
+plot_with_secondary_y(data.index, data["Close"], y2, y3, "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="black", y2_color="#02b32e", y3_color="red")
 
 st.markdown("### Indicators")
 
