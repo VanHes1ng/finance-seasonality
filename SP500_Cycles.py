@@ -19,7 +19,8 @@ st.set_page_config(
     }
 )
 
-st.header(':green[SPY Economic Cycles]', divider='rainbow')
+st.header(':green[SPY] Economic Cycles', divider='rainbow')
+st.subheader(':green[mean reversion analysis]')
 
 image = Image.open('pngegg.png')
 st.sidebar.image(image)
