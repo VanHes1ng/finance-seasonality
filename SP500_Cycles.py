@@ -19,7 +19,7 @@ st.set_page_config(
     }
 )
 
-st.title("SPY Economic Cycles", color = "green")
+st.title(":green[SPY Economic Cycles]")
 
 image = Image.open('pngegg.png')
 st.sidebar.image(image)
