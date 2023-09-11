@@ -167,7 +167,7 @@ plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=Tru
 st.image(image)
 
 st.write(
-    "About",
+    "About\n",
     "\n S&P Cycles is not a financial advisor", 
     "\nMade with Streamlit v1.26.0 https://streamlit.io",
     "\nCopyright 2023 Snowflake Inc. All rights reserved."
