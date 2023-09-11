@@ -20,7 +20,7 @@ st.set_page_config(
 )
 
 st.header(':green[SPY] Economic Cycles', divider='rainbow')
-st.subheader(':gray[s&p500]')
+st.subheader(':gray[Special Edition]')
 
 image = Image.open('pngegg.png')
 st.sidebar.image(image)
