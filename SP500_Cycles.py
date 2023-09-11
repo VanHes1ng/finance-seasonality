@@ -120,27 +120,31 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     fig.update_layout(title=title, width=width, height=height)
     st.plotly_chart(fig)
 
-# Define a dictionary to map options to column names
-option_mapping = {
-    'AVG': ['AVG', 'AVG_6'],
-    'ROC': ['ROC', 'ROC'],
-    'MACD': ['MACD', 'MACD'],
-    'Sharpe Ratio': ['Sharpe Ratio', 'Sharpe Ratio'],
-    'Sortino Ratio': ['Sortino Ratio', 'Sortino Ratio'],
-    'Z Score': ['Z Score', 'Z Score']
-}
-
-# Get the selected option from the user
+#  Usage with three y-series and three y-axes
 option = st.selectbox(
-    'Plotting Indicator:',
+    'Ploting Indicator:',
     ('AVG', 'ROC', 'Sortino', 'Sharpe', 'MACD', 'Z Score'))
 
-# Check if the selected option is in the mapping
-if option in option_mapping:
-    y2, y3 = data[option_mapping[option]]
+if option == 'AVG':
+    y2 = data["AVG"]
+    y3 = data["AVG_6"]
+if option == 'ROC':
+    y2 = data["ROC"]
+    y3 = data["ROC"]
+if option == 'MACD':
+    y2 = data["MACD"]
+    y3 = data["MACD"]
+if option == 'Sharpe Ratio':
+    y2 = data["Sharpe Ratio"]
+    y3 = data["Sharpe Ratio"]
+if option == 'Sortino Ratio':
+    y2 = data["Sortino Ratio"]
+    y3 = data["Sortino Ratio"]
+if option == 'Z Score':
+    y2 = data["Z Score"]
+    y3 = data["Z Score"] 
 
-
-    plot_with_secondary_y(data.index, data["Close"], y2=y2, y3=y3, title="SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="gray", y2_color="turquoise", y3_color="red")
+plot_with_secondary_y(data.index, data["Close"], y2, y3, "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="gray", y2_color="turquoise", y3_color="red")
 
 st.markdown("### Indicators")
 
