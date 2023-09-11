@@ -138,9 +138,7 @@ option = st.selectbox(
 # Check if the selected option is in the mapping
 if option in option_mapping:
     y2, y3 = data[option_mapping[option]]
-else:
-    # Handle the case when the selected option is not found
-    st.error(f"Option '{option}' not found in the mapping")
+
 
 plot_with_secondary_y(data.index, data["Close"], y2, y3, "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="gray", y2_color="turquoise", y3_color="red")
 
