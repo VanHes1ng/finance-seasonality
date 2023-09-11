@@ -19,6 +19,8 @@ st.set_page_config(
     }
 )
 
+st.title("SPY Economic Cycles", color = "green")
+
 image = Image.open('pngegg.png')
 st.sidebar.image(image)
 
