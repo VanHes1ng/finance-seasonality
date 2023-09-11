@@ -134,10 +134,10 @@ if option == 'ROC':
 if option == 'MACD':
     y2 = data["MACD"]
     y3 = data["MACD"]
-if option == 'Sharpe Ratio':
+if option == 'Sharpe':
     y2 = data["Sharpe Ratio"]
     y3 = data["Sharpe Ratio"]
-if option == 'Sortino Ratio':
+if option == 'Sortino':
     y2 = data["Sortino Ratio"]
     y3 = data["Sortino Ratio"]
 if option == 'Z Score':
