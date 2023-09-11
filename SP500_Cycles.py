@@ -168,7 +168,7 @@ st.image(image)
 
 st.write(
     "About\n",
-    "S&P Cycles is not a financial advisor\n", 
-    "Made with Streamlit v1.26.0 https://streamlit.io\n",
-    "Copyright 2023 Snowflake Inc. All rights reserved.\n"
+    "\nS&P Cycles is not a financial advisor\n", 
+    "\nMade with Streamlit v1.26.0 https://streamlit.io\n",
+    "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
 )
