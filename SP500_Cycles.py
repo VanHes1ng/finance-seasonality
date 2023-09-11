@@ -126,8 +126,16 @@ plot_with_secondary_y(data.index, data["Close"], data["AVG"], data["AVG_6"], "SP
 st.markdown("### Indicators")
 
 # Plot individual indicators
+col1, col2 = st.columns(3)
+
+with col1:
+   plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
+
+with col2:
+   plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
+
 plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid')
 plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid')
-plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
-plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
+#plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
+#plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
 plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
