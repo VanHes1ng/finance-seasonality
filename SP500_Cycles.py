@@ -177,4 +177,4 @@ chart_data = pd.DataFrame(
     data["Close"],
     columns=['Close'])
 
-st.line_chart(chart_data)
+st.line_chart(chart_data, use_container_width=False)
