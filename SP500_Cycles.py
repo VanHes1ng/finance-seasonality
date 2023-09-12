@@ -152,7 +152,7 @@ plot_with_secondary_y(data.index, data["Close"], y2, y3, "SPY Cycles", y1_name="
 st.markdown("### Indicators")
 
 # Plot individual indicators
-col1, col2, col3, col4 = st.columns(4)
+col1, col2 = st.columns(4)
 
 with col1:
    plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid', width = 700, height = 600)
