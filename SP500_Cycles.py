@@ -186,4 +186,4 @@ col1, col2 = st.columns(2)
 with col1:
     st.line_chart(chart_data)
 with col2:
-    st.line_chart(chart_data1, color=["#0e734f", "#b3100b"])
+    st.line_chart(chart_data1+chart_data, color=["#0e734f", "#b3100b"])
