@@ -173,7 +173,8 @@ st.write(
     "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
 )
 
-roc = pd.DataFrame(data["ROC"])
+chart_data = pd.DataFrame(
+    data["Close"],
+    columns=['Close'])
 
-st.line_chart(roc, "Data", "ROC")
-
+st.line_chart(chart_data)
