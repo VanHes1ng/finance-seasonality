@@ -178,7 +178,7 @@ chart_data = pd.DataFrame(
     columns=['Close'])
 
 chart_data1 = pd.DataFrame(
-    data["AVG"],
+    data,
     columns=['AVG'])
 
 col1, col2 = st.columns(2)
