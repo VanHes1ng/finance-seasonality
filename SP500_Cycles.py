@@ -156,7 +156,7 @@ with open('style.css')as f:
 st.markdown("### Indicators")
 
 # Plot individual indicators
-col1, col2 = st.columns(2)
+col1, col2 = st.columns(2, gap='small')
 
 with col1:
    plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid', width = 700, height = 600)
