@@ -159,9 +159,10 @@ with col1:
 with col2:
    plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid', width = 700, height = 600)
 with col1:
-    plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid', height = 800)
+    plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid', width = 700, height = 600)
 with col2: 
-    plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid', height = 800)
+    plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid', width = 700, height = 600)
+    
 plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True, height = 800)
 
 st.image(image)
