@@ -1,6 +1,6 @@
 [data-testid=metric-container] {
     box-shadow: 0 0 3px #4a5761;
-    padding: 50px;
+    padding: 100px;
 }
 
 .plot-container>div {
