@@ -177,4 +177,12 @@ chart_data = pd.DataFrame(
     data["Close"],
     columns=['Close'])
 
-st.line_chart(chart_data, width=1000)
+chart_data1 = pd.DataFrame(
+    data["AVG"],
+    columns=['AVG'])
+
+col1, col2 = st.columns(2)
+with col1:
+    st.line_chart(chart_data, width=500)
+with col2:
+    st.line_chart(chart_data1, width=500)
