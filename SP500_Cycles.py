@@ -81,7 +81,7 @@ data["SMA_26"] = data["Close"].rolling(window=26).mean()
 data["MACD"] = ((data["SMA_12"] - data["SMA_26"]).rolling(window=9).mean())
 
 # Define a function to plot data using Plotly
-def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False,width=1500, height=1000):
+def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False):
     y_column_name = y.name  # Get the name of the y column
     
     if is_histogram:
@@ -159,15 +159,15 @@ st.markdown("### Indicators")
 col1, col2 = st.columns(2, gap='small')
 
 with col1:
-   plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid', width = 750, height = 600)
+   plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
 with col2:
-   plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid', width = 750, height = 600)
+   plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
 with col1:
-    plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid', width = 750, height = 600)
+    plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid')
 with col2: 
-    plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid', width = 750, height = 600)
+    plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid')
 
-plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True, height = 800)
+plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
 
 st.image(image,width=1000)
 
