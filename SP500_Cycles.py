@@ -179,7 +179,7 @@ chart_data = pd.DataFrame(
 
 chart_data1 = pd.DataFrame(
     data,
-    columns=['AVG'])
+    columns=['AVG', 'AVG_6'])
 
 col1, col2 = st.columns(2)
 with col1:
