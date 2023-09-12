@@ -38,7 +38,7 @@ end_date = st.sidebar.date_input("End Date", pd.to_datetime('2050-01-01'))
 
 st.sidebar.subheader("Weights")
 roc_w = st.sidebar.number_input('ROC Weight', 1, 100, 10)
-z_w   = st.sidebar.number_input('Z Score Weight', 1, 100, 40)
+z_w   = st.sidebar.number_input('Z Score Weight', 1, 100, 70)
 sr_w  = st.sidebar.number_input('Sharpe Score Weight', 1, 100, 50)
 sor_w = st.sidebar.number_input('Sortino Weight', 1, 100, 100)
 mac_w = st.sidebar.number_input('MACD Weight', 1, 100, 1)
