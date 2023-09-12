@@ -172,19 +172,3 @@ st.write(
     "\nMade with Streamlit v1.26.0 https://streamlit.io\n",
     "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
 )
-
-chart_data = pd.DataFrame(
-    data,
-    columns=['Sortino Ratio'])
-
-chart_data1 = pd.DataFrame(
-    data,
-    columns=['Sharpe Ratio']
-    )
-
-col1, col2 = st.columns(2)
-with col1:
-    st.line_chart(chart_data, color="#b3100b")
-
-with col2:
-    st.line_chart(chart_data1)
