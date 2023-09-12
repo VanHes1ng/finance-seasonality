@@ -2,3 +2,7 @@
     box-shadow: 0 0 3px #4a5761;
     padding: 50px;
 }
+
+.plot-container>div {
+    box-shadow: 0 0 3px #4a5761;
+}
