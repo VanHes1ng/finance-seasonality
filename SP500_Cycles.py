@@ -165,7 +165,7 @@ with col2:
 
 plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True, height = 800)
 
-st.image(image)
+st.image(image,width=700)
 
 st.write(
     "About\n",
