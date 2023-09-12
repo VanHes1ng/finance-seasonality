@@ -149,6 +149,10 @@ if option == 'Z Score':
 
 plot_with_secondary_y(data.index, data["Close"], y2, y3, "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="#2d3745", y2_color="#02b32e", y3_color="red")
 
+# Style
+with open('style.css')as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html = True)
+
 st.markdown("### Indicators")
 
 # Plot individual indicators
