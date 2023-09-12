@@ -172,3 +172,8 @@ st.write(
     "\nMade with Streamlit v1.26.0 https://streamlit.io\n",
     "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
 )
+
+roc = pd.DataFrame(data["ROC"])
+
+st.line_chart(roc, "Data", "ROC")
+
