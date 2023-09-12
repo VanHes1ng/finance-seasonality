@@ -174,7 +174,7 @@ st.write(
 )
 
 chart_data = pd.DataFrame(
-    data["Close"],
-    columns=['Close'])
+    data["Close", "AVG"],
+    columns=['Close', 'AVG'])
 
 st.line_chart(chart_data, use_container_width=False)
