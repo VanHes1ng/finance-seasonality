@@ -179,7 +179,7 @@ chart_data = pd.DataFrame(
 
 chart_data1 = pd.DataFrame(
     data,
-    columns=['Sortino Ratio']
+    columns=['Sharpe Ratio']
     )
 
 col1, col2 = st.columns(2)
