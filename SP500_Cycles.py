@@ -183,6 +183,6 @@ chart_data1 = pd.DataFrame(
 
 col1, col2 = st.columns(2)
 with col1:
-    st.line_chart(chart_data, width=500)
+    st.line_chart(chart_data)
 with col2:
-    st.line_chart(chart_data1, width=500)
+    st.line_chart(chart_data1)
