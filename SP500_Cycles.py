@@ -184,7 +184,7 @@ chart_data1 = pd.DataFrame(
 
 col1, col2 = st.columns(2)
 with col1:
-    st.line_chart(chart_data)
+    st.line_chart(chart_data, color="red")
 
 with col2:
     st.line_chart(chart_data1)
