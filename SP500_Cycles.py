@@ -102,7 +102,7 @@ data["AVG"] = savgol_filter(data["AVG"], your_window_length, your_polyorder)
 data["AVG_6"] = savgol_filter(data["AVG_6"], your_window_length, your_polyorder)
 
 # Define a function to plot data with secondary y-axes
-def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green',width=1700, height=800):
+def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green',width=1600, height=800):
     fig = go.Figure()
     
     fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
@@ -159,13 +159,13 @@ st.markdown("### Indicators")
 col1, col2 = st.columns(2, gap='small')
 
 with col1:
-   plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid', width = 850, height = 600)
+   plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid', width = 800, height = 600)
 with col2:
-   plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid', width = 850, height = 600)
+   plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid', width = 800, height = 600)
 with col1:
-    plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid', width = 850, height = 600)
+    plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid', width = 800, height = 600)
 with col2: 
-    plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid', width = 850, height = 600)
+    plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid', width = 800, height = 600)
 
 plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True, height = 800)
 
