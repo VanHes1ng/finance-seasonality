@@ -22,8 +22,17 @@ st.set_page_config(
 
 # Define a function to download S&P 500 data
 def download_data(ticker, start_date, end_date):
-    data = yf.download(ticker, start=start_date, end=end_date)
-    return data
+    try:
+        st.info("Downloading data...")
+        data = yf.download(ticker, start=start_date, end=end_date)
+        if data is None:
+            st.error("Failed to retrieve data from Yahoo Finance.")
+            st.stop()
+        st.success("Data downloaded successfully!")
+        return data
+    except Exception as e:
+        st.error(f"An error occurred: {str(e)}")
+        st.stop()
 
 # Define a function to calculate weighted average of indicators
 def calculate_weighted_avg(data, weights):
@@ -84,6 +93,10 @@ option = st.selectbox(
 year = st.slider("Start Year", min_value=1960, max_value=2023, value=2022, step=1)
 start_date = st.sidebar.date_input("Start Date", datetime.date(year, 1, 1), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2050, 1, 1))
 end_date = st.sidebar.date_input("End Date", datetime.date(2050, 1, 1))
+
+if end_date <= start_date:
+    st.error("End date must be after start date.")
+    st.stop()
 
 st.sidebar.subheader("Weights")
 weights = {
@@ -177,6 +190,7 @@ plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=Tru
 # Additional information
 image = Image.open('pngegg.png')
 st.sidebar.image(image)
+
 st.image(image)
 
 st.write(
