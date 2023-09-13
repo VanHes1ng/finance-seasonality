@@ -22,17 +22,8 @@ st.set_page_config(
 
 # Define a function to download S&P 500 data
 def download_data(ticker, start_date, end_date):
-    try:
-        st.info("Downloading data...")
-        data = yf.download(ticker, start=start_date, end=end_date)
-        if data is None:
-            st.error("Failed to retrieve data from Yahoo Finance.")
-            st.stop()
-        st.success("Data downloaded successfully!")
-        return data
-    except Exception as e:
-        st.error(f"An error occurred: {str(e)}")
-        st.stop()
+    data = yf.download(ticker, start=start_date, end=end_date)
+    return data
 
 # Define a function to calculate weighted average of indicators
 def calculate_weighted_avg(data, weights):
