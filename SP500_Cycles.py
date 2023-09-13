@@ -121,7 +121,7 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     fig.add_trace(go.Scatter(x=x, y=y3, mode='lines', name=y3_name, line=dict(color=y3_color), yaxis='y3'))
     
     fig.update_layout(title=title, width=width, height=height)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True, theme=None)
 
 #  Usage with three y-series and three y-axes
 option = st.selectbox(
