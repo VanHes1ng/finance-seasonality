@@ -33,7 +33,7 @@ st.sidebar.header("Settings")
 # User Inputs
 
 # Allow the user to select a start date within the specified range
-year = st.slider("Start Year", min_value=1960, max_value=2050, value=2022, step=1)
+year = st.slider("Start Year", min_value=1960, max_value=2023, value=2022, step=1)
           
 start_date = st.sidebar.date_input("Start Date", datetime.date(year, 1, 1), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2050, 1, 1))
 
