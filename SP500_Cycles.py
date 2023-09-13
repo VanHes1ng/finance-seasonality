@@ -69,6 +69,9 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     fig.update_layout(title=title)
     st.plotly_chart(fig, use_container_width=True)
 
+
+
+
 # Main content
 st.header(':green[SPY] Economic Cycles', divider='rainbow')
 st.subheader(':gray[Special Edition]')
@@ -99,9 +102,14 @@ st.sidebar.subheader("Smooth AVG")
 window_length = st.sidebar.number_input('Window length', 1, 100, 40)
 polyorder = st.sidebar.number_input('Polyorder', 1, 100, 6)
 
+
+
 # Download S&P 500 data
 ticker = "^GSPC"
 data = download_data(ticker, start_date, end_date)
+
+
+
 
 # Calculate daily returns
 day_returns = data["Close"].pct_change()
@@ -131,6 +139,8 @@ data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 # Apply the Savitzky-Golay filter to AVG and AVG_6
 apply_savgol_filter(data, "AVG", window_length, polyorder)
 apply_savgol_filter(data, "AVG_6", window_length, polyorder)
+
+
 
 
 # Plot the main chart
