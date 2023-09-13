@@ -5,6 +5,8 @@ import pandas as pd
 import plotly.graph_objects as go
 from scipy.signal import savgol_filter
 from PIL import Image
+import datetime
+
 
 # Set up the Streamlit app configuration
 st.set_page_config(
@@ -31,10 +33,10 @@ st.sidebar.header("Settings")
 # User Inputs
 
 # Allow the user to select a start date within the specified range
-start_date = st.sidebar.date_input("Start Date", pd.to_datetime('2022-01-01'), min_value=pd.to_datetime('1960-01-01'), max_value=pd.to_datetime('2035-01-01'))
+start_date = st.sidebar.date_input("Start Date", datetime.date(2022, 1, 1), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2050, 1, 1))
 
 # Allow the user to select an end date
-end_date = st.sidebar.date_input("End Date", pd.to_datetime('2050-01-01'))
+end_date = st.sidebar.date_input("End Date", datetime.date(2050, 1, 1))
 
 st.sidebar.subheader("Weights")
 roc_w = st.sidebar.number_input('ROC Weight', 1, 100, 10)
