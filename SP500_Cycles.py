@@ -32,10 +32,11 @@ st.sidebar.header("Settings")
 
 # User Inputs
 
-# Allow the user to select a start date within the specified range
+# Allow the user to select an indicator to over plot on Main Chart
 option = st.selectbox(
     'Ploting Indicator:',
     ('AVG', 'ROC', 'Sortino', 'Sharpe', 'MACD', 'Z Score'))
+# Allow the user to select a start date within the specified range
 year = st.slider("Start Year", min_value=1960, max_value=2023, value=2022, step=1)
           
 start_date = st.sidebar.date_input("Start Date", datetime.date(year, 1, 1), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2050, 1, 1))
@@ -131,6 +132,7 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     st.plotly_chart(fig, use_container_width=True)
 
 
+# Ploting Mail chart
 if option == 'AVG':
     y2 = data["AVG"]
     y3 = data["AVG_6"]
@@ -172,7 +174,7 @@ with col2:
 
 plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
 
-st.image(image,width=1000)
+st.image(image)
 
 st.write(
     "About\n",
