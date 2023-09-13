@@ -33,6 +33,9 @@ st.sidebar.header("Settings")
 # User Inputs
 
 # Allow the user to select a start date within the specified range
+option = st.selectbox(
+    'Ploting Indicator:',
+    ('AVG', 'ROC', 'Sortino', 'Sharpe', 'MACD', 'Z Score'))
 year = st.slider("Start Year", min_value=1960, max_value=2023, value=2022, step=1)
           
 start_date = st.sidebar.date_input("Start Date", datetime.date(year, 1, 1), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2050, 1, 1))
@@ -127,10 +130,6 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     fig.update_layout(title=title)
     st.plotly_chart(fig, use_container_width=True)
 
-#  Usage with three y-series and three y-axes
-option = st.selectbox(
-    'Ploting Indicator:',
-    ('AVG', 'ROC', 'Sortino', 'Sharpe', 'MACD', 'Z Score'))
 
 if option == 'AVG':
     y2 = data["AVG"]
