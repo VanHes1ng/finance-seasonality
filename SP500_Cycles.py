@@ -102,25 +102,25 @@ data["AVG"] = savgol_filter(data["AVG"], your_window_length, your_polyorder)
 data["AVG_6"] = savgol_filter(data["AVG_6"], your_window_length, your_polyorder)
 
 # Define a function to plot data with secondary y-axes
-def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green',width=1500, height=800):
+def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green'):
     fig = go.Figure()
     
-    fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
+    fig.add_trace(go.Line(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
     
     fig.update_layout(
         yaxis =dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False),
         yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False)
     )
     
-    fig.add_trace(go.Scatter(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
+    fig.add_trace(go.Line(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
     
     fig.update_layout(
         yaxis3=dict(title=y3_name, titlefont=dict(color=y3_color), overlaying='y', side='left', showgrid=False, showticklabels=False)
     )
     
-    fig.add_trace(go.Scatter(x=x, y=y3, mode='lines', name=y3_name, line=dict(color=y3_color), yaxis='y3'))
+    fig.add_trace(go.Line(x=x, y=y3, mode='lines', name=y3_name, line=dict(color=y3_color), yaxis='y3'))
     
-    fig.update_layout(title=title, width=width, height=height)
+    fig.update_layout(title=title)
     st.plotly_chart(fig, use_container_width=True)
 
 #  Usage with three y-series and three y-axes
