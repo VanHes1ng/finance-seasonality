@@ -85,9 +85,6 @@ year = st.slider("Start Year", min_value=1960, max_value=2023, value=2022, step=
 start_date = st.sidebar.date_input("Start Date", datetime.date(year, 1, 1), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2050, 1, 1))
 end_date = st.sidebar.date_input("End Date", datetime.date(2050, 1, 1))
 
-if end_date <= start_date:
-    st.error("End date must be after start date.")
-    st.stop()
 
 st.sidebar.subheader("Weights")
 weights = {
