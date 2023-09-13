@@ -69,6 +69,10 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     fig.update_layout(title=title)
     st.plotly_chart(fig, use_container_width=True)
 
+# Main content
+st.header(':green[SPY] Economic Cycles', divider='rainbow')
+st.subheader(':gray[Special Edition]')
+
 # Sidebar
 st.sidebar.header("Settings")
 
@@ -127,12 +131,6 @@ data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 apply_savgol_filter(data, "AVG", window_length, polyorder)
 apply_savgol_filter(data, "AVG_6", window_length, polyorder)
 
-# Main content
-st.header(':green[SPY] Economic Cycles', divider='rainbow')
-st.subheader(':gray[Special Edition]')
-
-image = Image.open('pngegg.png')
-st.sidebar.image(image)
 
 # Plot the main chart
 if option == 'AVG':
@@ -177,6 +175,8 @@ with col2:
 plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
 
 # Additional information
+image = Image.open('pngegg.png')
+st.sidebar.image(image)
 st.image(image)
 
 st.write(
