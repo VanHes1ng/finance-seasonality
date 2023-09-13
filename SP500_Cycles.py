@@ -78,6 +78,8 @@ st.subheader(':gray[Special Edition]')
 
 # Sidebar
 st.sidebar.header("Settings")
+image = Image.open('pngegg.png')
+st.sidebar.image(image)
 
 # User Inputs
 option = st.selectbox(
@@ -186,9 +188,6 @@ with col2:
 plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
 
 # Additional information
-image = Image.open('pngegg.png')
-st.sidebar.image(image)
-
 st.image(image)
 
 st.write(
