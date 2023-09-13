@@ -77,9 +77,9 @@ st.header(':green[SPY] Economic Cycles', divider='rainbow')
 st.subheader(':gray[Special Edition]')
 
 # Sidebar
-st.sidebar.header("Settings")
 image = Image.open('pngegg.png')
 st.sidebar.image(image)
+st.sidebar.header("Settings")
 
 # User Inputs
 option = st.selectbox(
