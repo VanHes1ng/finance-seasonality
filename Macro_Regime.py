@@ -1,9 +1,7 @@
 # Import necessary libraries
 import streamlit as st
-
 import pandas as pd
 import plotly.graph_objects as go
-from PIL import Image
 from fredapi import Fred
 
 # Set up the Streamlit app configuration
@@ -19,33 +17,38 @@ st.set_page_config(
     }
 )
 
+# Initialize Fred API
+fred = Fred(api_key="YOUR_API_KEY")  # Replace with your actual API key
 
 def get_data(ticker):
     start = '2022-01-31'
     end = '2023-01-31'
-    data[ticker] = pd.DataFrame(Fred.get_series(
+    data = pd.DataFrame(fred.get_series(
         ticker,
         observation_start=start,
-        observation_end=end)).resample("M")
-    data
+        observation_end=end)).resample("M").mean()  # Apply an aggregation function, e.g., mean()
+    return data
 
 # Economic Indicators
-list = ["TCU",	
-	"CCSA",	
-	"EXHOSLUSM495S",	
-	"INDPRO",	
-	"JTSHIL",	
-	"JTSJOL",	
-	"MRTSSM44X72USS",	
-	"NCBEILQ027S",	
-	"PERMIT",	
-	"STLFSI4",	
-	"TEMPHELPS",	
-	"TOTALSA",	
-	"EXHOSLUSM495S",	
-	"UMCSENT"]
+indicator_list = ["TCU",	
+    "CCSA",	
+    "EXHOSLUSM495S",	
+    "INDPRO",	
+    "JTSHIL",	
+    "JTSJOL",	
+    "MRTSSM44X72USS",	
+    "NCBEILQ027S",	
+    "PERMIT",	
+    "STLFSI4",	
+    "TEMPHELPS",	
+    "TOTALSA",	
+    "EXHOSLUSM495S",	
+    "UMCSENT"]
 
-for ind in list:
-    data = get_data(ind)
+data = {}  # Create a dictionary to store data for each indicator
 
+for ind in indicator_list:
+    data[ind] = get_data(ind)
+
+# Now you can access the data dictionary for each indicator
 st.write(data)
