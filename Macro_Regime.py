@@ -34,7 +34,7 @@ def get_data(ticker):
 indicator_list = ["CAPUTLG3311A2S",	
     "CCSA",	
     "INDPRO",	
-
+    "JTSHIL",	
     "JTSJOL",	
     "MRTSSM44X72USS",	
     "NCBEILQ027S",	
@@ -56,10 +56,7 @@ data = {}  # Create a dictionary to store data for each indicator
 for ind in indicator_list:
     data[ind] = get_data(ind)
 
-data["NFCI"] = data["NFCI"] *-1
-data["BAMLH0A0HYM2EY"] = data["BAMLH0A0HYM2EY"] *-1
-data["CCSA"] = data["CCSA"] *-1
-data["STLFSI4"] = data["STLFSI4"] *-1
+
 
 # Fill NaN values with forward-fill
 for ind, df in data.items():
