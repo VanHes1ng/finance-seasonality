@@ -49,7 +49,8 @@ indicator_list = ["CAPUTLG3311A2S",
     "RSXFS",
     "CSCICP03USM665S",
     "NFCI",
-    "BAMLH0A0HYM2EY"]
+    "BAMLH0A0HYM2EY",
+    "T10Y2Y"]
 
 data = pd.DataFrame()  # Create a dictionary to store data for each indicator
 
@@ -60,6 +61,7 @@ data["NFCI"] = data["NFCI"] *-1
 data["BAMLH0A0HYM2EY"] = data["BAMLH0A0HYM2EY"] *-1
 data["CCSA"] = data["CCSA"] *-1
 data["STLFSI4"] = data["STLFSI4"] *-1
+data["T10Y2Y"] = data["T10Y2Y"] *-1
 
 # Fill NaN values with forward-fill
 for ind, df in data.items():
