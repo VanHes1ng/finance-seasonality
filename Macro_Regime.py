@@ -85,3 +85,7 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
     st.plotly_chart(data_fig, use_container_width=True, theme=None)
 
 plot(data.index, data["AVG"], "AVG")
+
+roc = (data["AVG"]-data["AVG"][-17])/data["AVG"][-17]
+
+plot(data.index, roc, "Roc")
