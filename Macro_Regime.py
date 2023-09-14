@@ -68,14 +68,12 @@ for ind, df in data.items():
 # Concatenate all dataframes in the data dictionary
 combined_data = pd.concat(data.values(), axis=1)
 
-# Sum all the data for each date across all tickers
-summed_data = combined_data.sum()
-
 # Get the number of tickers
 num_tickers = len(data)
 
 # Calculate the average by dividing the summed values by the number of tickers
-average_data = summed_data / num_tickers
+average_data = combined_data / num_tickers
+
 
 
 # Define a function to plot data using Plotly
