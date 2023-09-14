@@ -44,17 +44,45 @@ indicator_list = ["TCU",
     "TEMPHELPS",	
     "TOTALSA",	
     "EXHOSLUSM495S",	
-    "UMCSENT"]
+    "UMCSENT",
+    "CPIAUCSL",
+    "UMCSENT",
+    "PCUOMFGOMFG",
+    "RSXFS",
+    "CSCICP03USM665S",
+    "NFCI",
+    "BAMLH0A0HYM2EY"]
 
 data = {}  # Create a dictionary to store data for each indicator
 
 for ind in indicator_list:
     data[ind] = get_data(ind)
 
+data["NFCI"] = data["NFCI"] *-1
+data["BAMLH0A0HYM2EY"] = data["BAMLH0A0HYM2EY"] *-1
+
 # Fill NaN values with linear interpolation
 for ind, df in data.items():
     data[ind] = df.interpolate(method='linear')
 
-# Now you can access the data dictionary for each indicator
-st.write(data)
-print(data)
+# Concatenate all dataframes in the data dictionary
+combined_data = pd.concat(data.values(), axis=1)
+
+# Calculate the mean along the columns (axis=1)
+average_data = combined_data.mean(axis=1)
+
+print(average_data)
+
+# Define a function to plot data using Plotly
+def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False):
+    y_column_name = y.name  # Get the name of the y column
+    
+    if is_histogram:
+        data_fig = go.Figure(data=[go.Bar(x=x, y=y, marker=dict(color=line_color))])
+    else:
+        data_fig = go.Figure(data=[go.Line(x=x, y=y, mode='lines', line=dict(color=line_color, dash=line_style))])
+    
+    data_fig.update_layout(title=title)
+    st.plotly_chart(data_fig, use_container_width=True, theme=None)
+
+plot(average_data.index, average_data, "AVG")
