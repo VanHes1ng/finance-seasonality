@@ -62,19 +62,18 @@ data["CCSA"] = data["CCSA"] *-1
 data["STLFSI4"] = data["STLFSI4"] *-1
 
 
-st.write(data)
-
 # Fill NaN values with forward-fill
 for ind, df in data.items():
     data[ind] = df.fillna(method='ffill')
 
+st.dataframe(data)
+
 # Concatenate all dataframes in the data dictionary
 combined_data = pd.concat(data.values(), axis=1)
 
+
 # Calculate the mean along the columns (axis=1)
 average_data = combined_data.mean(axis=1)
-
-average_data = average_data.fillna(method='ffill')
 
 print(average_data)
 
