@@ -51,7 +51,8 @@ indicator_list = ["CAPUTLG3311A2S",
     "NFCI",
     "BAMLH0A0HYM2EY",
     "T10Y2Y",
-    "FEDFUNDS"]
+    "FEDFUNDS",
+    "BUSINV"]
 
 data = pd.DataFrame()  # Create a dictionary to store data for each indicator
 
