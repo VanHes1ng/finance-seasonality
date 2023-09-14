@@ -27,7 +27,7 @@ def get_data(ticker):
     data = pd.DataFrame(fred.get_series(
         ticker,
         observation_start=start,
-        observation_end=end)).resample("W") 
+        observation_end=end)).resample("W").mean() 
     return data
 
 # Economic Indicators
@@ -53,3 +53,4 @@ for ind in indicator_list:
 
 # Now you can access the data dictionary for each indicator
 st.write(data)
+print(data)
