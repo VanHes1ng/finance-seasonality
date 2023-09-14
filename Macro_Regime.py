@@ -42,7 +42,7 @@ indicator_list = ["CAPUTLG3311A2S",
     "STLFSI4",	
     "TEMPHELPS",	
     "TOTALSA",	
-    "EXHOSLUSM495S",	
+
     "UMCSENT",
     "CPIAUCSL",
     "PCUOMFGOMFG",
