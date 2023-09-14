@@ -80,7 +80,6 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
         data_fig = go.Figure(data=[go.Line(x=x, y=y, mode='lines', line=dict(color=line_color, dash=line_style))])
     
     data_fig.update_layout(title=title)
-    data_fig.add_trace(go.Line(x=x, y=roc.rolling(5).mean(), mode='lines', name="", line=dict(color="red"), yaxis='y2'))
 
     st.plotly_chart(data_fig, use_container_width=True, theme=None)
 
