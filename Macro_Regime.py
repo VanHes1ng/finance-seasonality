@@ -30,20 +30,20 @@ def get_data(ticker):
     data
 
 # Economic Indicators
-list = [	"	TCU,	"	
-	"	CCSA,	"	
-	"	EXHOSLUSM495S,	"	
-	"	INDPRO,	"	
-	"	JTSHIL,	"	
-	"	JTSJOL,	"	
-	"	MRTSSM44X72USS,	"	
-	"	NCBEILQ027S,	"	
-	"	PERMIT,	"	
-	"	STLFSI4,	"	
-	"	TEMPHELPS,	"	
-	"	TOTALSA,	"	
-	"	EXHOSLUSM495S,	"	
-	"	UMCSENT	"	]
+list = ["TCU",	
+	"CCSA",	
+	"EXHOSLUSM495S",	
+	"INDPRO",	
+	"JTSHIL",	
+	"JTSJOL",	
+	"MRTSSM44X72USS",	
+	"NCBEILQ027S",	
+	"PERMIT",	
+	"STLFSI4",	
+	"TEMPHELPS",	
+	"TOTALSA",	
+	"EXHOSLUSM495S",	
+	"UMCSENT"]
 
 for ind in list:
     data = get_data(ind)
