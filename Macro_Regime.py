@@ -33,7 +33,6 @@ def get_data(ticker):
 # Economic Indicators
 indicator_list = ["CAPUTLG3311A2S",	
     "CCSA",	
-    "EXHOSLUSM495S",	
     "INDPRO",	
     "JTSHIL",	
     "JTSJOL",	
