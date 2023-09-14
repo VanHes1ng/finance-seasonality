@@ -65,6 +65,8 @@ data["STLFSI4"] = data["STLFSI4"] *-1
 for ind, df in data.items():
     data[ind] = df.fillna(method='ffill')
 
+data = data.mean(axis = 0, skipna = False)
+
 st.dataframe(data)
 
 
