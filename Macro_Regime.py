@@ -44,14 +44,20 @@ indicator_list = ["CAPUTLG3311A2S",
     "TOTALSA",	
     "EXHOSLUSM495S",	
     "UMCSENT",
-    "CPIAUCSL"]
+    "CPIAUCSL",
+    "PCUOMFGOMFG",
+    "RSXFS",
+    "CSCICP03USM665S",
+    "NFCI",
+    "BAMLH0A0HYM2EY"]
 
 data = {}  # Create a dictionary to store data for each indicator
 
 for ind in indicator_list:
     data[ind] = get_data(ind)
 
-
+data["NFCI"] = data["NFCI"] *-1
+data["BAMLH0A0HYM2EY"] = data["BAMLH0A0HYM2EY"] *-1
 data["CCSA"] = data["CCSA"] *-1
 data["STLFSI4"] = data["STLFSI4"] *-1
 
