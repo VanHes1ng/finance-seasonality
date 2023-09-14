@@ -38,7 +38,7 @@ indicator_list = ["CAPUTLG3311A2S",
     "JTSJOL",	
     "MRTSSM44X72USS",	
     "NCBEILQ027S",	
-    "PERMIT",	
+	
     "STLFSI4",	
     "TEMPHELPS",	
     "TOTALSA",	
