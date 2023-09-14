@@ -75,7 +75,6 @@ combined_data = pd.concat(data.values(), axis=1)
 # Calculate the mean along the columns (axis=1)
 average_data = combined_data.mean(axis=1)
 
-print(average_data)
 
 # Define a function to plot data using Plotly
 def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False):
