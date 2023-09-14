@@ -67,6 +67,7 @@ for ind, df in data.items():
     df = df.reindex(data[ind].index, fill_value=None)
     data[ind] = df
 
+st.dataframe(data)
 # Concatenate all dataframes in the data dictionary
 combined_data = pd.concat(data.values(), axis=1)
 
