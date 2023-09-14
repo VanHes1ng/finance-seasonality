@@ -75,11 +75,12 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
     y_column_name = y.name  # Get the name of the y column
     
     if is_histogram:
-        data_fig = go.Figure(data=[go.Bar(x=x, y=y, marker=dict(color=line_color))])
+        data_fig = go.Figure(data=[go.Line(x=x, y=y, marker=dict(color=line_color))])
     else:
-        data_fig = go.Figure(data=[go.Scatter(x=x, y=y, mode='lines', line=dict(color=line_color, dash=line_style))])
+        data_fig = go.Figure(data=[go.Line(x=x, y=y, mode='lines', line=dict(color=line_color, dash=line_style))])
     
     data_fig.update_layout(title=title)
+    data_fig.add_scatter(data.index, roc.rolling(5).mean().shift(2))
     st.plotly_chart(data_fig, use_container_width=True, theme=None)
 
 plot(data.index, data["AVG"], "AVG")
