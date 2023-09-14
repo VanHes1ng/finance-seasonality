@@ -86,6 +86,7 @@ plot(data.index, data["AVG"], "AVG")
 
 roc =(data["AVG"] - data["AVG"].shift(20)) / data["AVG"].shift(20)
 
+roc =roc.rolling(5)
 roc1 =(roc - roc.shift(20)) / roc.shift(20)
 
 
