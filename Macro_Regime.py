@@ -86,6 +86,6 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
 
 plot(data.index, data["AVG"], "AVG")
 
-roc = (((data["AVG"] - data["AVG"].shift(16)) / data["AVG"].shift(16)) * 100)
+roc = (((data["AVG"] - data["AVG"].shift(20)) / data["AVG"].shift(20)) * 100)
 
 plot(data.index, roc, "Roc")
