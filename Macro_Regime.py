@@ -61,19 +61,20 @@ data["BAMLH0A0HYM2EY"] = data["BAMLH0A0HYM2EY"] *-1
 data["CCSA"] = data["CCSA"] *-1
 data["STLFSI4"] = data["STLFSI4"] *-1
 
-
-# Fill NaN values with forward-fill
+# Fill NaN values with forward-fill and ensure all dataframes have the same index
 for ind, df in data.items():
-    data[ind] = df.fillna(method='ffill')
-
-# Ensure all dataframes have the same index (dates)
-for ind, df in data.items():
-    data[ind] = df.reindex(data[ind].index, fill_value=None)
+    df = df.fillna(method='ffill')
+    df = df.reindex(data[ind].index, fill_value=None)
+    data[ind] = df
 
 # Concatenate all dataframes in the data dictionary
 combined_data = pd.concat(data.values(), axis=1)
 
 average_data = combined_data.mean()
+
+# Print the index of each DataFrame for debugging
+for ind, df in data.items():
+    st.write(f"Index of {ind}: {df.index}")
 
 # Define a function to plot data using Plotly
 def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False):
