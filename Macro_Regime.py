@@ -61,9 +61,9 @@ for ind in indicator_list:
 data["NFCI"] = data["NFCI"] *-1
 data["BAMLH0A0HYM2EY"] = data["BAMLH0A0HYM2EY"] *-1
 
-# Fill NaN values with linear interpolation
+# Fill NaN values with forward-fill
 for ind, df in data.items():
-    data[ind] = df.interpolate(method='linear')
+    data[ind] = df.fillna(method='ffill')
 
 # Concatenate all dataframes in the data dictionary
 combined_data = pd.concat(data.values(), axis=1)
