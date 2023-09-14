@@ -62,7 +62,7 @@ data["CCSA"] = data["CCSA"] *-1
 data["STLFSI4"] = data["STLFSI4"] *-1
 
 
-st.write(pd.DataFrame(data))
+st.write(data)
 
 # Fill NaN values with forward-fill
 for ind, df in data.items():
