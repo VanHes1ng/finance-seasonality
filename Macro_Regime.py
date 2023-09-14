@@ -70,7 +70,7 @@ for ind, df in data.items():
 # Concatenate all dataframes in the data dictionary
 combined_data = pd.concat(data.values(), axis=1)
 
-
+avg = combined_data/len(indicator_list)
 
 # Define a function to plot data using Plotly
 def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False):
