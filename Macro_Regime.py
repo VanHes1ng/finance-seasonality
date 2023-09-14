@@ -21,9 +21,12 @@ st.set_page_config(
 
 
 def get_data(ticker):
-    fred = Fred(api_key='20256d454ab4cfe9d4a9672dff8337b0')
-    data = fred.get_series(ticker)
-    data
+    start = '2022-01-31'
+    end = '2023-01-31'
+    monthyl_yield_curve = pd.DataFrame(fred.get_series(
+        ticker,
+        observation_start=start,
+        observation_end=end)).resample("M")
 
 
 # Economic Indicators
@@ -44,6 +47,5 @@ list = [	"	TCU,	"
 
 for ind in list:
     data = get_data(ind)
-    data = pd.DataFrame(data=data)
 
 st.write(data)
