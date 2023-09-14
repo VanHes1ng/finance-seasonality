@@ -1,21 +1,49 @@
 # Import necessary libraries
 import streamlit as st
-import yfinance as yf
+
 import pandas as pd
 import plotly.graph_objects as go
 from PIL import Image
-import datetime
+from fredapi import Fred
 
 # Set up the Streamlit app configuration
 st.set_page_config(
-    page_title="S&P Cycles",
+    page_title="Macro Regime",
     page_icon="🐉",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
         'Get Help': "https://twitter.com/sxJEoRg7wwLR6ug",
         'Report a bug': "https://twitter.com/sxJEoRg7wwLR6ug",
-        'About': "S&P Cycles is not a financial advisor"
+        'About': "Macro Regime is not a financial advisor"
     }
 )
 
+
+def get_data(ticker):
+    fred = Fred(api_key='20256d454ab4cfe9d4a9672dff8337b0')
+    data = fred.get_series(ticker)
+    data
+
+
+# Economic Indicators
+list = [	"	TCU,	"	
+	"	CCSA,	"	
+	"	EXHOSLUSM495S,	"	
+	"	INDPRO,	"	
+	"	JTSHIL,	"	
+	"	JTSJOL,	"	
+	"	MRTSSM44X72USS,	"	
+	"	NCBEILQ027S,	"	
+	"	PERMIT,	"	
+	"	STLFSI4,	"	
+	"	TEMPHELPS,	"	
+	"	TOTALSA,	"	
+	"	EXHOSLUSM495S,	"	
+	"	UMCSENT	"	]
+
+for ind in list:
+    data = get_data(ind)
+    data = pd.DataFrame(data=data)
+
+st.write(data)
