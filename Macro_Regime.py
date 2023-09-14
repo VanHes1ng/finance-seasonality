@@ -42,18 +42,11 @@ indicator_list = ["CAPUTLG3311A2S",
     "STLFSI4",	
     "TEMPHELPS",	
     "TOTALSA",	
-    #"EXHOSLUSM495S",	
     "UMCSENT",
-    #"CPIAUCSL",
-    #"PCUOMFGOMFG",
-    #"RSXFS",
-    #"CSCICP03USM665S",
     "NFCI",
     "BAMLH0A0HYM2EY",
     "T10Y2Y",
-    "FEDFUNDS",
-    #"BUSINV"
-    ]
+    "FEDFUNDS"]
 
 data = pd.DataFrame()  # Create a dictionary to store data for each indicator
 
@@ -94,3 +87,4 @@ plot(data.index, data["AVG"], "AVG")
 roc =(data["AVG"] - data["AVG"].shift(20)) / data["AVG"].shift(20)
 
 plot(data.index, roc, "Roc")
+
