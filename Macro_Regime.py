@@ -49,17 +49,13 @@ indicator_list = ["TCU",
     "UMCSENT",
     "PCUOMFGOMFG",
     "RSXFS",
-    "CSCICP03USM665S",
-    "NFCI",
-    "BAMLH0A0HYM2EY"]
+    "CSCICP03USM665S"]
 
 data = {}  # Create a dictionary to store data for each indicator
 
 for ind in indicator_list:
     data[ind] = get_data(ind)
 
-data["NFCI"] = data["NFCI"] *-1
-data["BAMLH0A0HYM2EY"] = data["BAMLH0A0HYM2EY"] *-1
 
 # Fill NaN values with forward-fill
 for ind, df in data.items():
