@@ -9,3 +9,4 @@ Matplotlib
 Seaborn
 scipy
 Pillow
+fredapi
