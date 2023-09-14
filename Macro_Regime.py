@@ -67,6 +67,8 @@ for ind, df in data.items():
 
 data["AVG"] = data.sum(axis=1)
 
+data["AVG"] = data["AVG"].div(len(indicator_list))
+
 st.dataframe(data)
 
 
