@@ -18,7 +18,7 @@ st.set_page_config(
 )
 
 # Initialize Fred API
-fred = Fred(api_key="YOUR_API_KEY")  # Replace with your actual API key
+fred = Fred(api_key="20256d454ab4cfe9d4a9672dff8337b0")  # Replace with your actual API key
 
 def get_data(ticker):
     start = '2022-01-31'
