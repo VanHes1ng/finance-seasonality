@@ -27,7 +27,7 @@ def get_data(ticker):
     data = pd.DataFrame(fred.get_series(
         ticker,
         observation_start=start,
-        observation_end=end)).resample("M").mean()  # Apply an aggregation function, e.g., mean()
+        observation_end=end)).resample("W") 
     return data
 
 # Economic Indicators
