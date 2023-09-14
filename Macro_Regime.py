@@ -51,6 +51,10 @@ data = {}  # Create a dictionary to store data for each indicator
 for ind in indicator_list:
     data[ind] = get_data(ind)
 
+# Fill NaN values with forward-fill
+for ind, df in data.items():
+    data[ind] = df.fillna(method='ffill')
+
 # Now you can access the data dictionary for each indicator
 st.write(data)
 print(data)
