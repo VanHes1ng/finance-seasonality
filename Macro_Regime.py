@@ -65,7 +65,10 @@ data["STLFSI4"] = data["STLFSI4"] *-1
 # Fill NaN values with forward-fill
 for ind, df in data.items():
     data[ind] = df.fillna(method='ffill')
-st.dataframe(data)
+
+# Ensure all dataframes have the same index (dates)
+for ind, df in data.items():
+    data[ind] = df.reindex(data[ind].index, fill_value=None)
 
 # Concatenate all dataframes in the data dictionary
 combined_data = pd.concat(data.values(), axis=1)
