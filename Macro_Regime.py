@@ -23,7 +23,7 @@ st.set_page_config(
 def get_data(ticker):
     start = '2022-01-31'
     end = '2023-01-31'
-    data = pd.DataFrame(Fred.get_series(
+    data[ticker] = pd.DataFrame(Fred.get_series(
         ticker,
         observation_start=start,
         observation_end=end)).resample("M")
