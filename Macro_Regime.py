@@ -22,7 +22,7 @@ st.set_page_config(
 fred = Fred(api_key="20256d454ab4cfe9d4a9672dff8337b0")  # Replace with your actual API key
 
 def get_data(ticker):
-    start = '1990-01-31'
+    start = '2001-01-01'
     end = '2025-01-01'
     data = pd.DataFrame(fred.get_series(
         ticker,
@@ -61,21 +61,8 @@ data["BAMLH0A0HYM2EY"] = data["BAMLH0A0HYM2EY"] *-1
 data["CCSA"] = data["CCSA"] *-1
 data["STLFSI4"] = data["STLFSI4"] *-1
 
-# Fill NaN values with forward-fill and ensure all dataframes have the same index
-for ind, df in data.items():
-    df = df.fillna(method='ffill')
-    df = df.reindex(data[ind].index, fill_value=None)
-    data[ind] = df
-
 st.dataframe(data)
-# Concatenate all dataframes in the data dictionary
-combined_data = pd.concat(data.values(), axis=1)
 
-average_data = combined_data.mean()
-
-# Print the index of each DataFrame for debugging
-for ind, df in data.items():
-    st.write(f"Index of {ind}: {df.index}")
 
 # Define a function to plot data using Plotly
 def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False):
@@ -89,4 +76,3 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
     data_fig.update_layout(title=title)
     st.plotly_chart(data_fig, use_container_width=True, theme=None)
 
-plot(average_data.index, average_data, "AVG")
