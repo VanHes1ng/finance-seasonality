@@ -60,6 +60,7 @@ for ind in indicator_list:
 
 data["NFCI"] = data["NFCI"] *-1
 data["BAMLH0A0HYM2EY"] = data["BAMLH0A0HYM2EY"] *-1
+data["CCSA"] = data["CCSA"] *-1
 
 # Fill NaN values with forward-fill
 for ind, df in data.items():
