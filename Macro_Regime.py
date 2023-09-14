@@ -23,7 +23,7 @@ fred = Fred(api_key="20256d454ab4cfe9d4a9672dff8337b0")  # Replace with your act
 
 def get_data(ticker):
     start = '1960-01-31'
-    end = '2023-01-31'
+    end = '2025-01-01'
     data = pd.DataFrame(fred.get_series(
         ticker,
         observation_start=start,
