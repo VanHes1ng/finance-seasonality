@@ -23,11 +23,11 @@ st.set_page_config(
 def get_data(ticker):
     start = '2022-01-31'
     end = '2023-01-31'
-    monthyl_yield_curve = pd.DataFrame(fred.get_series(
+    data = pd.DataFrame(Fred.get_series(
         ticker,
         observation_start=start,
         observation_end=end)).resample("M")
-
+    data
 
 # Economic Indicators
 list = [	"	TCU,	"	
