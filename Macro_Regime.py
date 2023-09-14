@@ -84,3 +84,4 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
     data_fig.update_layout(title=title)
     st.plotly_chart(data_fig, use_container_width=True, theme=None)
 
+plot(data.index, data["AVG"], "AVG")
