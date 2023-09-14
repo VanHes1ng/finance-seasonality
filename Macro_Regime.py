@@ -61,11 +61,11 @@ data["BAMLH0A0HYM2EY"] = data["BAMLH0A0HYM2EY"] *-1
 data["CCSA"] = data["CCSA"] *-1
 data["STLFSI4"] = data["STLFSI4"] *-1
 
-st.dataframe(data)
+
 # Fill NaN values with forward-fill
 for ind, df in data.items():
     data[ind] = df.fillna(method='ffill')
-
+st.dataframe(data)
 
 # Concatenate all dataframes in the data dictionary
 combined_data = pd.concat(data.values(), axis=1)
