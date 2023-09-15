@@ -100,3 +100,7 @@ data["ROC1"] = data["ROC"].shift(1)
 plot(data.index, data["ROC"], data["ROC1"], "ROC")
 
 plot(data.index, data["AVG"], data["AVG"], "AVG")
+
+spy = get_data("SP500")
+
+plot(spy.index, spy["SP500"], data["AVG"], "SPY")
