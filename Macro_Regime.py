@@ -74,14 +74,17 @@ st.dataframe(data)
 def plot(x, y1, y2, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y1_color='blue', y2_color='red'):
     fig = go.Figure()
     
-    fig.add_trace(go.Line(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
+    fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
+    
+    y1_range = [min(y1 + y2), max(y1 + y2)]  # Set the range for the primary y-axis to cover both y1 and y2
+    y2_range = [min(y1 + y2), max(y1 + y2)]  # Set the range for the secondary y-axis to cover both y1 and y2
     
     fig.update_layout(
-        yaxis =dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False, zeroline=True),
-        yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False, zeroline=True)
+        yaxis=dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False, zeroline=True, range=y1_range),
+        yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False, zeroline=True, range=y2_range)
     )
     
-    fig.add_trace(go.Line(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
+    fig.add_trace(go.Scatter(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
     
     fig.update_layout(title=title)
     st.plotly_chart(fig, use_container_width=True)
