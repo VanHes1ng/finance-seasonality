@@ -77,16 +77,13 @@ def plot(x, y1, y2, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis',
     fig.add_trace(go.Line(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
     
     fig.update_layout(
-        yaxis =dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False),
-        yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False)
+        yaxis =dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False, zeroline=True),
+        yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False, zeroline=True)
     )
     
     fig.add_trace(go.Line(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
     
     fig.update_layout(title=title)
-    fig.update_xaxes(showgrid=False, zeroline=True)
-    fig.update_yaxes(showgrid=False, zeroline=True)
- 
     st.plotly_chart(fig, use_container_width=True)
 
 
