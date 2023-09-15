@@ -71,7 +71,7 @@ st.dataframe(data)
 
 
 # Define a function to plot data using Plotly
-def plot(x, y1, y2, title, y1_range, y2_range, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y1_color='blue', y2_color='red'):
+def plot(x, y1, y2, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y1_color='blue', y2_color='red'):
     fig = go.Figure()
     
     fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
