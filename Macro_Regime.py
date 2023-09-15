@@ -93,9 +93,9 @@ def roc(src, len, smooth):
 
 
 
-data["ROC"] = roc(data["AVG"], 10, 5)
+data["ROC"] = roc(data["AVG"], 5, 5)
 
-data["ROC1"] = data["ROC"] - data["ROC"].shift(10)
+data["ROC1"] = data["ROC"] - data["ROC"].shift(5)
 
 plot(data.index, data["ROC"], data["ROC1"], "ROC")
 
