@@ -76,8 +76,8 @@ def plot(x, y1, y2, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis',
     
     fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
     
-    y1_range = [min(y1 + y2), max(y1 + y2)]  # Set the range for the primary y-axis to cover both y1 and y2
-    y2_range = [min(y1 + y2), max(y1 + y2)]  # Set the range for the secondary y-axis to cover both y1 and y2
+    y1_range = [-50, 100]   # Set the range for the primary y-axis to cover both y1 and y2
+    y2_range = [-50, 100]  # Set the range for the secondary y-axis to cover both y1 and y2
     
     fig.update_layout(
         yaxis=dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False, zeroline=True, range=y1_range),
