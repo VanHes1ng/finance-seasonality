@@ -87,7 +87,7 @@ def roc(src, len, smooth):
     return roc
 
 
-plot(data.index, data["AVG"], data["AVG"], "AVG", "")
+plot(data.index, data["AVG"], data["AVG"], "AVG", "AVG")
 
 data["ROC"] = roc(data["AVG"], 20, 5)
 
