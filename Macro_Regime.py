@@ -71,10 +71,14 @@ st.dataframe(data)
 
 
 # Define a function to plot data using Plotly
-def plot(x, y, title, line_color='blue', line_style='solid'):
+def plot(x, y1, y2, title, title1, line_color1='blue', line_color2='red', line_style='solid'):
 
-    data_fig = go.Figure(data=[go.Line(x=x, y=y, mode='lines', line=dict(color=line_color, dash=line_style))])
+    data_fig = go.Figure()
+    data_fig.add_trace(go.Line(x=x, y=y1, mode='lines', line_style=line_style, line_color=line_color1))
     data_fig.update_layout(title=title)
+
+    data_fig.add_trace(go.Line(x=x, y=y2, mode='lines', line_style=line_style, line_color=line_color2))
+    data_fig.update_layout(title=title1)
 
     st.plotly_chart(data_fig, use_container_width=True, theme=None)
 
@@ -89,6 +93,5 @@ data["ROC"] = roc(data["AVG"], 20, 5)
 
 data["ROC1"] = roc(data["ROC"], 20,5)
 
-plot(data.index, data["ROC"], "Roc")
-plot(data.index, data["ROC1"], "Roc1")
+plot(data.index, data["ROC"], data["ROC1"], "Roc")
 
