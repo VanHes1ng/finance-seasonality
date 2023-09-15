@@ -82,8 +82,8 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
 
     st.plotly_chart(data_fig, use_container_width=True, theme=None)
 
-def roc(src, len, smooth):
-    roc = ((src - src.shift(len)) / src.shift(len)).rolling(smooth).mean()
+def roc(src, len):
+    roc = ((src - src.shift(len)) / src.shift(len))
     roc
 
 
