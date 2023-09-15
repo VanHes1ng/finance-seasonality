@@ -72,8 +72,7 @@ st.dataframe(data)
 
 # Define a function to plot data using Plotly
 def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False):
-    y_column_name = y.name  # Get the name of the y column
-    
+
     if is_histogram:
         data_fig = go.Figure(data=[go.Line(x=x, y=y, marker=dict(color=line_color))])
     else:
