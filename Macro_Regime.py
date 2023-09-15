@@ -93,7 +93,7 @@ def roc(src, len, smooth):
 
 
 
-data["ROC"] = roc(data["AVG"], 20, 5)
+data["ROC"] = roc(data["AVG"], 15, 5)
 
 data["ROC1"] = data["ROC"].shift(1)
 
