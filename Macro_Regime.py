@@ -71,13 +71,9 @@ st.dataframe(data)
 
 
 # Define a function to plot data using Plotly
-def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False):
+def plot(x, y, title, line_color='blue', line_style='solid'):
 
-    if is_histogram:
-        data_fig = go.Figure(data=[go.Line(x=x, y=y, marker=dict(color=line_color))])
-    else:
-        data_fig = go.Figure(data=[go.Line(x=x, y=y, mode='lines', line=dict(color=line_color, dash=line_style))])
-    
+    data_fig = go.Figure(data=[go.Line(x=x, y=y, mode='lines', line=dict(color=line_color, dash=line_style))])
     data_fig.update_layout(title=title)
 
     st.plotly_chart(data_fig, use_container_width=True, theme=None)
