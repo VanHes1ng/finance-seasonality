@@ -83,7 +83,7 @@ def plot(x, y1, y2, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis',
     
     fig.add_trace(go.Scatter(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
     
-    fig.update_layout(title=title, height=400)
+    fig.update_layout(title=title, height=700)
     st.plotly_chart(fig, use_container_width=True)
 
 
