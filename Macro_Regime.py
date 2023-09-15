@@ -84,7 +84,10 @@ def plot(x, y1, y2, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis',
     fig.add_trace(go.Line(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
     
     fig.update_layout(title=title)
-    st.plotly_chart(fig, use_container_width=True)
+    fig.update_xaxes(showgrid=False, zeroline=False)
+    fig.update_yaxes(showgrid=False, zeroline=False)
+    fig.show()    
+    #st.plotly_chart(fig, use_container_width=True)
 
 
 def roc(src, len, smooth):
