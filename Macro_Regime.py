@@ -83,11 +83,16 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
 
     st.plotly_chart(data_fig, use_container_width=True, theme=None)
 
+def roc(src, len, smooth):
+    roc = ((src - src.shift(20)) / src.shift(len)).rolling(smooth).mean()
+    roc
+
+
 plot(data.index, data["AVG"], "AVG")
 
-roc =(data["AVG"] - data["AVG"].shift(20)) / data["AVG"].shift(20)
+roc = roc(data["AVG"], 20, 5)
 
 
-plot(data.index, roc.rolling(5).mean(), "Roc")
+plot(data.index, roc, "Roc")
 
 
