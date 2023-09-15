@@ -86,6 +86,7 @@ def plot(x, y1, y2, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis',
     fig.update_layout(title=title)
     st.plotly_chart(fig, use_container_width=True)
 
+
 def roc(src, len, smooth):
     roc = ((src / src.shift(len) -1)*100).rolling(smooth).mean()
     return roc
@@ -94,7 +95,7 @@ def roc(src, len, smooth):
 
 data["ROC"] = roc(data["AVG"], 20, 5)
 
-data["ROC1"] = roc(data["ROC"], 20,5)
+data["ROC1"] = data["ROC"]-data["ROC"].shift(20)
 
 plot(data.index, data["ROC"], data["ROC1"], "ROC")
 
