@@ -97,7 +97,7 @@ data["ROC"] = roc(data["AVG"], 4, 5)
 
 data["ROC1"] = data["ROC"] - data["ROC"].shift(4)
 
-plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
+plot(data.index, data["ROC"], data["ROC1"], "ROC", [min(-80), 120])
 
 
 
