@@ -99,3 +99,4 @@ data["ROC1"] = data["ROC"].shift(1)
 
 plot(data.index, data["ROC"], data["ROC1"], "ROC")
 
+plot(data.index, data["AVG"], data["AVG"], "AVG")
