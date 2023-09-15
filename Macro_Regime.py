@@ -91,7 +91,7 @@ plot(data.index, data["AVG"], "AVG")
 
 data["ROC"] = roc(data["AVG"], 20, 5)
 
-data["ROC1"] = ((data["ROC"] / data["ROC"].shift(20) -1)*100).rolling(5).mean()
+data["ROC1"] = roc(data["ROC"], 20,5)
 
 plot(data.index, data["ROC"], "Roc")
 plot(data.index, data["ROC1"], "Roc1")
