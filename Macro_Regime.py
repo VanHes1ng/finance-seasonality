@@ -89,9 +89,9 @@ def roc(src, len, smooth):
 
 plot(data.index, data["AVG"], "AVG")
 
-roc = ((data["AVG"] - data["AVG"].shift(20)) / data["AVG"].shift(20)).rolling(5).mean()
+data["ROC"] = ((data["AVG"] - data["AVG"].shift(20)) / data["AVG"].shift(20)).rolling(5).mean()
 
 
-plot(data.index, roc, "Roc")
+plot(data.index, data["ROC"], "Roc")
 
 
