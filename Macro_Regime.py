@@ -94,5 +94,5 @@ roc = roc(data["AVG"], 20, 5)
 
 
 plot(data.index, roc, "Roc")
-
+plot(data.index, roc.shift(2), "Roc")
 
