@@ -77,8 +77,8 @@ def plot(x, y1, y2, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis',
     fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
     
     fig.update_layout(
-        yaxis=dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False, zeroline=True, high = 200),
-        yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False, zeroline=True, high = 200)
+        yaxis=dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False, zeroline=True, height = 200),
+        yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False, zeroline=True, height = 200)
     )
     
     fig.add_trace(go.Scatter(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
