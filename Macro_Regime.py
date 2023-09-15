@@ -71,19 +71,19 @@ st.dataframe(data)
 
 
 # Define a function to plot data using Plotly
-def plot(x, y1, y2, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y1_color='blue', y2_color='red'):
+def plot(x, y1, y2, title, range, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y1_color='blue', y2_color='red'):
     fig = go.Figure()
     
     fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
-    
+
     fig.update_layout(
-        yaxis=dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False, zeroline=True),
-        yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False, zeroline=True)
+        yaxis=dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False, zeroline=True, range=range),
+        yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False, zeroline=True, range=range)
     )
     
     fig.add_trace(go.Scatter(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
     
-    fig.update_layout(title=title, height=700)
+    fig.update_layout(title=title)
     st.plotly_chart(fig, use_container_width=True)
 
 
@@ -97,10 +97,10 @@ data["ROC"] = roc(data["AVG"], 4, 5)
 
 data["ROC1"] = data["ROC"] - data["ROC"].shift(4)
 
-plot(data.index, data["ROC"], data["ROC1"], "ROC")
+plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
 
-plot(data.index, data["AVG"], data["AVG"], "AVG")
+plot(data.index, data["AVG"], data["AVG"], [min(data["AVG"]), max(data["AVG"])])
 
 data["SPY"] = get_data("SP500")
 
-plot(data.index, data["SPY"], data["AVG"], "SPY")
+plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["SPY"])])
