@@ -99,7 +99,7 @@ data["ROC1"] = data["ROC"] - data["ROC"].shift(4)
 
 plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
 
-plot(data.index, data["AVG"], data["AVG"], [min(data["AVG"]), max(data["AVG"])])
+
 
 data["SPY"] = get_data("SP500")
 
