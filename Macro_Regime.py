@@ -71,16 +71,20 @@ st.dataframe(data)
 
 
 # Define a function to plot data using Plotly
-def plot(x, y1, y2, title, title1, line_color1='blue', line_color2='red', line_style='solid'):
-
-    data_fig = go.Figure()
-    data_fig.add_trace(go.Line(x=x, y=y1, mode='lines', line_style=line_style, line_color=line_color1))
-    data_fig.update_layout(title=title)
-
-    data_fig.add_trace(go.Line(x=x, y=y2, mode='lines', line_style=line_style, line_color=line_color2))
-    data_fig.update_layout(title=title1)
-
-    st.plotly_chart(data_fig, use_container_width=True, theme=None)
+def plot(x, y1, y2, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y1_color='blue', y2_color='red'):
+    fig = go.Figure()
+    
+    fig.add_trace(go.Line(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
+    
+    fig.update_layout(
+        yaxis =dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False),
+        yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False)
+    )
+    
+    fig.add_trace(go.Line(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
+    
+    fig.update_layout(title=title)
+    st.plotly_chart(fig, use_container_width=True)
 
 def roc(src, len, smooth):
     roc = ((src / src.shift(len) -1)*100).rolling(smooth).mean()
@@ -92,5 +96,5 @@ data["ROC"] = roc(data["AVG"], 20, 5)
 
 data["ROC1"] = roc(data["ROC"], 20,5)
 
-plot(data.index, data["ROC"], data["ROC1"], "Roc1", "Roc2")
+plot(data.index, data["ROC"], data["ROC1"])
 
