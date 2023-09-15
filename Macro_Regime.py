@@ -101,6 +101,6 @@ plot(data.index, data["ROC"], data["ROC1"], "ROC")
 
 plot(data.index, data["AVG"], data["AVG"], "AVG")
 
-spy = get_data("SP500")
+data["SPY"] = get_data("SP500")
 
-plot(spy.index, spy["SP500"], data["AVG"], "SPY")
+plot(data.index, data["SPY"], data["AVG"], "SPY")
