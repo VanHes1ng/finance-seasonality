@@ -109,4 +109,4 @@ plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
 
 data["SPY"] = get_data("SP500")
 
-plot(data.index, data["SPY"], data["AVG"].rolling(2).mean(), "SPY", [min(data["SPY"]), max(data["SPY"])])
+plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["SPY"])])
