@@ -80,7 +80,7 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     
     fig.update_layout(title=title)
 
-    fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolor='gray')
+    fig.update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='gray')
 
     st.plotly_chart(fig, use_container_width=True)
 
