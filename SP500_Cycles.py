@@ -55,7 +55,7 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
                     open=data['Open'],
                     high=data['High'],
                     low=data['Low'],
-                    close=data['Close'])])
+                    close=data['Adj Close'])])
     
     fig.update_layout(
         yaxis =dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False),
