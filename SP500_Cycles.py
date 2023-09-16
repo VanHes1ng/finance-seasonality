@@ -114,24 +114,24 @@ data = download_data(ticker, start_date, end_date)
 
 
 # Calculate daily returns
-day_returns = data["Close"].pct_change()
+day_returns = data["Adj Close"].pct_change()
 
 # Calculate negative returns
 negative_returns = day_returns[day_returns < 0]
 
 # Calculate indicators
-data["ROC"] = (((data["Close"] - data["Close"].shift(16)) / data["Close"].shift(16)) * 100)
-data["SMA_15"] = data["Close"].rolling(window=15).mean()
-data["STD_15"] = data["Close"].rolling(window=15).std()
-data["Z Score"] = ((data["Close"] - data["SMA_15"]) / data["STD_15"])
+data["ROC"] = (((data["Adj Close"] - data["Adj Close"].shift(16)) / data["Adj Close"].shift(16)) * 100)
+data["SMA_15"] = data["Adj Close"].rolling(window=15).mean()
+data["STD_15"] = data["Adj Close"].rolling(window=15).std()
+data["Z Score"] = ((data["Adj Close"] - data["SMA_15"]) / data["STD_15"])
 data["DR_27"] = day_returns.rolling(window=27).mean()
 data["STD_27"] = day_returns.rolling(window=27).std()
 data["Sharpe Ratio"] = (data["DR_27"] / data["STD_27"])
 data["NDR_27"] = negative_returns.rolling(window=27).std()
 data["Sortino Ratio"] = (data["DR_27"] / data["NDR_27"])
 data["Sortino Ratio"].fillna(method='ffill', inplace=True)
-data["SMA_12"] = data["Close"].rolling(window=12).mean()
-data["SMA_26"] = data["Close"].rolling(window=26).mean()
+data["SMA_12"] = data["Adj Close"].rolling(window=12).mean()
+data["SMA_26"] = data["Adj Close"].rolling(window=26).mean()
 data["MACD"] = ((data["SMA_12"] - data["SMA_26"]).rolling(window=9).mean())
 
 # Calculate weighted average of indicators
@@ -165,7 +165,7 @@ elif option == 'Z Score':
     y2 = data["Z Score"]
     y3 = data["Z Score"]
 
-plot_with_secondary_y(data.index, data["Close"], y2, y3, "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="#2d3745", y2_color="#02b32e", y3_color="red")
+plot_with_secondary_y(data.index, data["Adj Close"], y2, y3, "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="#2d3745", y2_color="#02b32e", y3_color="red")
 
 # Style
 with open('style.css') as f:
