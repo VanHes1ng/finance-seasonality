@@ -51,11 +51,11 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
 def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green'):
     fig = go.Figure()
     
-    fig.add_trace(data=[go.Candlestick(x=x,
-                open=data['Open'],
-                high=data['High'],
-                low=data['Low'],
-                close=y1)])
+    fig = go.Figure(data=[go.Candlestick(x=x,
+                    open=data['Open'],
+                    high=data['High'],
+                    low=data['Low'],
+                    close=data['Close'])])
     
     fig.update_layout(
         yaxis =dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False),
