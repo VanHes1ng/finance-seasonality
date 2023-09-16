@@ -60,9 +60,9 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     cs = fig.data[0]
     # Set line and fill colors
     cs.increasing.fillcolor = '#91a4c4'
-    cs.increasing.line.color = '#3D9970'
-    cs.decreasing.fillcolor = '#FF4136'
-    cs.decreasing.line.color = '#FF4136'
+    cs.increasing.line.color = '#91a4c4'
+    cs.decreasing.fillcolor = '#5b667a'
+    cs.decreasing.line.color = '#5b667a'
     fig.update_layout(
         yaxis =dict(title=y1_name, titlefont=dict(color=y1_color), showgrid=False),
         yaxis2=dict(title=y2_name, titlefont=dict(color=y2_color), overlaying='y', side='right', showgrid=False)
