@@ -60,8 +60,8 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
 
     # Set Candlestick Color
     cs = fig.data[0]
-    cs.increasing.fillcolor = '#c7ced9'
-    cs.increasing.line.color = '#c7ced9'
+    cs.increasing.fillcolor = '#ffffff'
+    cs.increasing.line.color = '#15171a'
     cs.decreasing.fillcolor = '#5b667a'
     cs.decreasing.line.color = '#5b667a'
 
