@@ -59,7 +59,7 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     fig.update_layout(xaxis_rangeslider_visible=False)
     cs = fig.data[0]
     # Set line and fill colors
-    cs.increasing.fillcolor = '#3D9970'
+    cs.increasing.fillcolor = '#91a4c4'
     cs.increasing.line.color = '#3D9970'
     cs.decreasing.fillcolor = '#FF4136'
     cs.decreasing.line.color = '#FF4136'
