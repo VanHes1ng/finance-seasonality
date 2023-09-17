@@ -130,14 +130,6 @@ fig = px.scatter(df, x='x', y='y', title='Grid with Zero at the Center')
 fig.update_xaxes(range=[-100, 100])
 fig.update_yaxes(range=[-100, 100])
 
-# Create a separate trace for the zero marker using Plotly Express
-zero_marker = px.scatter(x=[0], y=[0], text=['Zero'], title='Zero Marker')
-zero_marker.update_traces(textfont=dict(size=12, color='red'))
-
-# Append the zero marker trace to the original figure
-for trace in zero_marker.data:
-    fig.add_trace(trace)
-
 # Add X and Y axes lines
 fig.add_shape(
     type="line",
@@ -145,7 +137,7 @@ fig.add_shape(
     y0=0,
     x1=100,
     y1=0,
-    line=dict(color="black", width=2)
+    line=dict(color="black", width=1)
 )
 fig.add_shape(
     type="line",
@@ -153,8 +145,16 @@ fig.add_shape(
     y0=-100,
     x1=0,
     y1=100,
-    line=dict(color="black", width=2)
+    line=dict(color="black", width=1)
 )
+
+# Create a separate trace for the zero marker using Plotly Express
+zero_marker = px.scatter(x=[0], y=[0], text=['Zero'], title='Zero Marker')
+zero_marker.update_traces(textfont=dict(size=12, color='red'))
+
+# Append the zero marker trace to the original figure
+for trace in zero_marker.data:
+    fig.add_trace(trace)
 
 # Streamlit app
 st.title("Grid with Zero at the Center")
