@@ -5,8 +5,8 @@ import yfinance as yf
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-import matplotlib.pyplot as plt
-import seaborn as sns
+import plotly.express as px
+import plotly.figure_factory as ff
 
 # Function to fetch historical stock price data from Yahoo Finance
 def fetch_stock_data(symbol, start_date, end_date):
@@ -62,23 +62,29 @@ def main():
     
     st.write("## Confusion Matrix")
     cm = confusion_matrix(y_test, y_pred)
-    st.write(cm)
     
-    # Visualize confusion matrix
+    # Visualize confusion matrix as a Plotly heatmap
     st.write("### Confusion Matrix Heatmap")
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(cm, annot=True, cmap="Blues", fmt="d")
-    st.pyplot()
+    fig_cm = ff.create_annotated_heatmap(
+        z=cm,
+        x=['Predicted 0', 'Predicted 1'],
+        y=['Actual 0', 'Actual 1'],
+        colorscale='Blues'
+    )
+    fig_cm.update_layout(xaxis_title='Predicted', yaxis_title='Actual')
+    st.plotly_chart(fig_cm)
     
     # Visualize stock price data
     st.write("## SPY Stock Price Data")
-    st.line_chart(df['Close'])
+    fig_stock_price = px.line(df, x=df.index, y='Close', title='SPY Stock Price')
+    st.plotly_chart(fig_stock_price)
     
     # Visualize the logistic regression model's predictions
     st.write("## Model Predictions vs. Actual")
-    predictions = model.predict(X)
-    df['Predicted_Up'] = predictions
-    st.line_chart(df[['Price_Up', 'Predicted_Up']])
+    df['Predicted_Up'] = model.predict(X)
+    
+    fig_predictions = px.line(df, x=df.index, y=['Price_Up', 'Predicted_Up'], title='Model Predictions vs. Actual')
+    st.plotly_chart(fig_predictions)
     
 if __name__ == "__main__":
     main()
