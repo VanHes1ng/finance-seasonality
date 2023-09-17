@@ -117,23 +117,20 @@ plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["S
 x_values = list(range(-100, 101))
 y_values = list(range(-100, 101))
 
-# Create a zero marker at the center
-zero_marker = go.Scatter(x=[0], y=[0], text=['Zero'], mode='text', textfont=dict(size=12, color='red'))
+# Create a DataFrame with the grid data
+grid_data = {'x': x_values, 'y': y_values}
+df = pd.DataFrame(grid_data)
 
-# Create a scatter plot for the grid
-fig = go.Figure(data=go.Scatter(x=x_values, y=y_values, mode='markers'))
-
-# Add the zero marker to the figure
-fig.add_trace(zero_marker)
+# Create a scatter plot using Plotly Express
+fig = px.scatter(df, x='x', y='y', title='Grid with Zero at the Center')
 
 # Customize the layout
-fig.update_layout(
-    xaxis=dict(range=[-100, 100]),
-    yaxis=dict(range=[-100, 100]),
-    title='Grid with Zero at the Center',
-    xaxis_title='X-Axis',
-    yaxis_title='Y-Axis'
-)
+fig.update_xaxes(range=[-100, 100])
+fig.update_yaxes(range=[-100, 100])
 
-# Show the plot
+# Add a marker for zero at the center
+fig.add_trace(px.scatter(x=[0], y=[0], text=['Zero'], mode='text', textfont=dict(size=12, color='red'))['data'][0])
+
+# Streamlit app
+st.title("Grid with Zero at the Center")
 st.plotly_chart(fig, use_container_width=True)
