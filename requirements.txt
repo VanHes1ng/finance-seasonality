@@ -10,3 +10,4 @@ Seaborn
 scipy
 Pillow
 fredapi
+sklearn
