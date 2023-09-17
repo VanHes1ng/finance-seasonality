@@ -187,6 +187,9 @@ recovery.update_traces(textfont=dict(size=25, color='BLUE'))
 contruction = px.scatter(x=[45], y=[-50], text=['CONTRUCTION'], title='Zero Marker')
 contruction.update_traces(textfont=dict(size=25, color='red'))
 
+expansion = px.scatter(x=[45], y=[-50], text=['GROWTH'], title='Zero Marker')
+expansion.update_traces(textfont=dict(size=25, color='green'))
+
 
 # Append the zero marker trace to the original figure
 for trace in decline.data:
@@ -196,6 +199,9 @@ for trace in recovery.data:
     fig.add_trace(trace)
 
 for trace in contruction.data:
+    fig.add_trace(trace)
+
+for trace in expansion.data:
     fig.add_trace(trace)
 
 # Streamlit app
