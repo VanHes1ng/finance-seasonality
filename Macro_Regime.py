@@ -114,8 +114,8 @@ plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["S
 
 
 # Create a grid
-x_values = list(range(-50, 101))
-y_values = list(range(-100, 50))
+x_values = list(range(-100, 101))
+y_values = list(range(-100, 101))
 
 # Create a zero marker at the center
 zero_marker = go.Scatter(x=[0], y=[0], text=['Zero'], mode='text', textfont=dict(size=12, color='red'))
