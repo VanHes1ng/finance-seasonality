@@ -123,6 +123,8 @@ for i in indicator_list:
 # Create a DataFrame with the grid data
 grid_data = {'x': x_values, 'y': y_values}
 
+st.write(grid_data)
+
 grid_data1 = pd.DataFrame(grid_data,index=indicator_list)
 
 st.write(grid_data1)
