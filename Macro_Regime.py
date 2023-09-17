@@ -131,6 +131,8 @@ for i in indicator_list:
 grid_data = pd.DataFrame(last_values)
 grid_data.set_index('Indicator', inplace=True)  # Set the indicator names as the index
 
+st.write(grid_data)
+
 # Create a scatter plot using Plotly Express for the grid
 fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='Grid with Zero at the Center')
 
