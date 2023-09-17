@@ -204,8 +204,6 @@ for trace in contruction.data:
 for trace in expansion.data:
     fig.add_trace(trace)
 
-fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='Economic Cycles')
-
 
 # Streamlit app
 st.title("Grid Macro Economic")
