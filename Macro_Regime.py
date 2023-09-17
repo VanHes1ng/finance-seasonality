@@ -119,9 +119,9 @@ for i in indicator_list:
 # Create a DataFrame with the grid data
 grid_data = {'x': x_values, 'y': y_values}
 
-grid_data = pd.DataFrame(grid_data,index=indicator_list)
+grid_data1 = pd.DataFrame(grid_data,index=indicator_list)
 
-st.write(grid_data)
+st.write(grid_data1)
 
 # Create a scatter plot using Plotly Express for the grid
 fig = px.scatter(grid_data, x='x', y='y', title='Grid with Zero at the Center')
