@@ -145,7 +145,7 @@ avg_data = pd.DataFrame({'Last_X': [x_avg], 'Last_Y': [y_avg]}, index=['avg'])
 st.write(grid_data)
 
 # Create a scatter plot using Plotly Express for the grid
-fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='Grid with Zero at the Center')
+fig = px.scatter(grid_data, x='Change(4)', y='Rate of Change(4)', title='Economic Cycles')
 
 # Customize the layout
 fig.update_xaxes(range=[-60, 60])
@@ -170,12 +170,12 @@ fig.add_shape(
 )
 
 # Add a point for the average values with red color
-avg_trace = go.Scatter(x=avg_data['Change(4)'], y=avg_data['Rate of Change'], text='avg', mode='markers', marker=dict(color='red'))
+avg_trace = go.Scatter(x=avg_data['Last_X'], y=avg_data['Last_Y'], text='avg', mode='markers', marker=dict(color='red'))
 fig.add_trace(avg_trace)
 
 avg_trace1 = go.Scatter(x=data["last_Roc1"], y=data["last_Roc"], text='avg', mode='markers', marker=dict(color='orange'))
 fig.add_trace(avg_trace1)
 
 # Streamlit app
-st.title("Grid with Zero at the Center")
+st.title("Economic Grid Model")
 st.plotly_chart(fig)
