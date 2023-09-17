@@ -179,16 +179,16 @@ fig.add_trace(avg_trace1)
 
 # Create a separate trace for the zero marker using Plotly Express
 decline = px.scatter(x=[-45], y=[50], text=['DECLINE'], title='Zero Marker')
-decline.update_traces(textfont=dict(size=25, color='orange'))
+decline.update_traces(textfont=dict(size=20, color='orange'))
 
 recovery = px.scatter(x=[45], y=[-50], text=['RECOVERY'], title='Zero Marker')
-recovery.update_traces(textfont=dict(size=25, color='BLUE'))
+recovery.update_traces(textfont=dict(size=20, color='BLUE'))
 
 contruction = px.scatter(x=[-45], y=[-50], text=['CONTRUCTION'], title='Zero Marker')
-contruction.update_traces(textfont=dict(size=25, color='red'))
+contruction.update_traces(textfont=dict(size=20, color='red'))
 
 expansion = px.scatter(x=[45], y=[50], text=['GROWTH'], title='Zero Marker')
-expansion.update_traces(textfont=dict(size=25, color='green'))
+expansion.update_traces(textfont=dict(size=20, color='green'))
 
 
 # Append the zero marker trace to the original figure
