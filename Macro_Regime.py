@@ -113,8 +113,8 @@ plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["S
 grid_data = pd.DataFrame(index=indicator_list)
 
 for i in indicator_list:
-    grid_data['x'] = 1
-    grid_data['y'] = 1
+    grid_data['x'] = roc(data[i], 4, 5)
+    grid_data['y'] = grid_data['x'] - grid_data['x'].shift(4)
 
 
 # Create a scatter plot using Plotly Express for the grid
