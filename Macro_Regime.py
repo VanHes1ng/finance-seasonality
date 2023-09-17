@@ -180,6 +180,7 @@ fig.add_trace(avg_trace1)
 # Create a separate trace for the zero marker using Plotly Express
 decline = px.scatter(x=[-45], y=[50], text=['DECLINE'], title='Zero Marker')
 decline.update_traces(textfont=dict(size=20, color='orange'))
+fig.add_trace(decline)
 
 recovery = px.scatter(x=[45], y=[-50], text=['RECOVERY'], title='Zero Marker')
 recovery.update_traces(textfont=dict(size=20, color='BLUE'))
@@ -192,8 +193,7 @@ expansion.update_traces(textfont=dict(size=20, color='green'))
 
 
 # Append the zero marker trace to the original figure
-for trace in decline.data:
-    fig.add_trace(trace)
+
 
 for trace in recovery.data:
     fig.add_trace(trace)
