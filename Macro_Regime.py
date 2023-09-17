@@ -110,7 +110,8 @@ data["SPY"] = get_data("SP500")
 
 plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["SPY"])])
 
-grid_data = pd.DataFrame()
+grid_data = pd.DataFrame(index=indicator_list)
+
 for i in indicator_list:
     y_values = roc(data[i], 4, 5)
     x_values = y_values - y_values.shift(4)
