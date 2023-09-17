@@ -115,14 +115,9 @@ for i in indicator_list:
     y_values = roc(data[i], 4, 5)
     x_values = y_values - y_values.shift(4)
 
-
 # Create a DataFrame with the grid data
 grid_data = {'x': x_values, 'y': y_values}
 grid_data = pd.DataFrame(grid_data)
-
-st.write(grid_data.tail(1))
-
-grid_data = grid_data.iloc[-1]
 
 # Create a scatter plot using Plotly Express for the grid
 fig = px.scatter(grid_data, x='x', y='y', title='Grid with Zero at the Center')
