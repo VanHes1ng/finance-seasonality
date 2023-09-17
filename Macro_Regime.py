@@ -170,8 +170,8 @@ fig.add_shape(
 )
 
 # Create a separate trace for the zero marker using Plotly Express
-zero_marker = px.scatter(x=[50], y=[-50], text=['DECLINE'], title='Zero Marker')
-zero_marker.update_traces(textfont=dict(size=30, color='orange'))
+zero_marker = px.scatter(x=[-50], y=[50], text=['DECLINE'], title='Zero Marker')
+zero_marker.update_traces(textfont=dict(size=25, color='orange'))
 
 # Append the zero marker trace to the original figure
 for trace in zero_marker.data:
