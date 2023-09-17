@@ -78,7 +78,7 @@ st.dataframe(data)
 
 
 # Define a function to plot data using Plotly
-def plot(x, y1, y2, y3, title, range, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name = 'Third Y-Axis', y1_color='blue', y2_color='red'):
+def plot(x, y1, y2, title, range, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y1_color='blue', y2_color='red'):
     fig = go.Figure()
     
     fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name=y1_name, line=dict(color=y1_color)))
@@ -90,7 +90,6 @@ def plot(x, y1, y2, y3, title, range, y1_name='Primary Y-Axis', y2_name='Seconda
     
     fig.add_trace(go.Scatter(x=x, y=y2, mode='lines', name=y2_name, line=dict(color=y2_color), yaxis='y2'))
     
-    fig.add_trace(go.Scatter(x=x, y=y3, mode='lines', name=y3_name, line=dict(color="orange"), yaxis='y3'))
     
     fig.update_layout(title=title)
     st.plotly_chart(fig, use_container_width=True)
@@ -207,9 +206,9 @@ for trace in expansion.data:
 
 # Streamlit app
 
-plot(data.index, data["SPY"], data["AVG"], data["AVG"], "SPY", [min(data["SPY"]), max(data["SPY"])])
+plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["SPY"])])
 
-plot(data.index, data["ROC"], data["ROC1"], last_values['Last_Y'], "ROC", [-80, 120])
+plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
 
 st.title("Grid Macro Economic")
 st.plotly_chart(fig)
