@@ -122,6 +122,7 @@ grid_data = pd.DataFrame(grid_data)
 
 st.write(grid_data.iloc[-1])
 
+grid_data = grid_data.iloc[-1]
 
 # Create a scatter plot using Plotly Express for the grid
 fig = px.scatter(grid_data, x='x', y='y', title='Grid with Zero at the Center')
