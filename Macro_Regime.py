@@ -120,7 +120,7 @@ for i in indicator_list:
 grid_data = {'x': x_values, 'y': y_values}
 grid_data = pd.DataFrame(grid_data)
 
-st.write(grid_data.iloc[-1])
+st.write(grid_data.tail(1))
 
 grid_data = grid_data.iloc[-1]
 
