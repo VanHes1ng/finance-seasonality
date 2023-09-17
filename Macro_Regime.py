@@ -118,7 +118,7 @@ for i in indicator_list:
 
 # Create a DataFrame with the grid data
 grid_data = {'x': x_values, 'y': y_values}
-
+grid_data = pd.DataFrame(grid_data)
 st.write(grid_data)
 
 # Create a scatter plot using Plotly Express for the grid
