@@ -112,18 +112,19 @@ plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["S
 
 
 
+
 # Create a grid
 x_values = list(range(-100, 101))
 y_values = list(range(-100, 101))
 
 # Create a zero marker at the center
-zero_marker = {'x': [0], 'y': [0], 'text': ['Zero'], 'mode': 'text'}
+zero_marker = go.Scatter(x=[0], y=[0], text=['Zero'], mode='text', textfont=dict(size=12, color='red'))
 
 # Create a scatter plot for the grid
-fig = px.scatter(x=x_values + zero_marker['x'], y=y_values + zero_marker['y'])
+fig = go.Figure(data=go.Scatter(x=x_values, y=y_values, mode='markers'))
 
-# Add a marker for zero at the center
-fig.add_trace(px.scatter(zero_marker, textfont=dict(size=12, color='red'))['data'][0])
+# Add the zero marker to the figure
+fig.add_trace(zero_marker)
 
 # Customize the layout
 fig.update_layout(
@@ -135,4 +136,4 @@ fig.update_layout(
 )
 
 # Show the plot
-st.plotly_chart(fig, use_container_width=True)
+fig.show()
