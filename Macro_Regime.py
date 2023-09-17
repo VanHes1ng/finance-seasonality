@@ -131,6 +131,14 @@ for i in indicator_list:
 grid_data = pd.DataFrame(last_values)
 grid_data.set_index('Indicator', inplace=True)  # Set the indicator names as the index
 
+# Calculate the average of last_x and last_y values in grid_data
+x_avg = grid_data['Last_X'].mean()
+y_avg = grid_data['Last_Y'].mean()
+
+# Create a new DataFrame for the averages
+avg_data = pd.DataFrame({'Last_X': [x_avg], 'Last_Y': [y_avg]}, index=['avg'])
+
+
 st.write(grid_data)
 
 # Create a scatter plot using Plotly Express for the grid
@@ -165,6 +173,9 @@ zero_marker.update_traces(textfont=dict(size=12, color='red'))
 # Append the zero marker trace to the original figure
 for trace in zero_marker.data:
     fig.add_trace(trace)
+
+# Add a point for the average values
+fig.add_trace(px.scatter(avg_data, x='Last_X', y='Last_Y', text='avg', title='Average', marker_color='red').data[0])
 
 # Streamlit app
 st.title("Grid with Zero at the Center")
