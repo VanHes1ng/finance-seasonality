@@ -207,7 +207,7 @@ for trace in expansion.data:
 
 # Streamlit app
 
-plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["SPY"])])
+plot(data.index, data["SPY"], data["AVG"], data["AVG"], "SPY", [min(data["SPY"]), max(data["SPY"])])
 
 plot(data.index, data["ROC"], data["ROC1"], last_values['Last_Y'], "ROC", [-80, 120])
 
