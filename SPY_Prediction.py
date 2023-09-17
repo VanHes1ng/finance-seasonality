@@ -15,7 +15,7 @@ def fetch_stock_data(symbol, start_date, end_date):
 
 # Function to preprocess data and create features
 def preprocess_data(df):
-    df['Price_Up'] = df['Close'] < df['Close'].shift(-1)
+    df['Price_Up'] = df['Close'] > df['Close'].shift(-1)
     df['Price_Up'] = df['Price_Up'].astype(int)
     return df
 
