@@ -1,65 +1,84 @@
+# Import necessary libraries
 import streamlit as st
-import numpy as np
 import pandas as pd
-from sklearn.linear_model import LogisticRegression
-import matplotlib.pyplot as plt
-import seaborn as sns
 import yfinance as yf
 from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-# Load the SPY data
-spy_data = pd.DataFrame(yf.download('SPY', '2015-01-01', '2023-09-16'))
+# Function to fetch historical stock price data from Yahoo Finance
+def fetch_stock_data(symbol, start_date, end_date):
+    df = yf.download(symbol, start=start_date, end=end_date)
+    return df
 
-# Preprocess the data
-# Create a dummy variable for the direction of the market
-spy_data['direction'] = spy_data['Close'].pct_change()
-spy_data['direction'] = spy_data['direction'].apply(lambda x: 1 if x > 0 else 0)
+# Function to preprocess data and create features
+def preprocess_data(df):
+    df['Price_Up'] = df['Close'] < df['Close'].shift(-1)
+    df['Price_Up'] = df['Price_Up'].astype(int)
+    return df
 
-# Create a list of features
-features = ['Close', 'Open', 'High', 'Low', 'Volume']
-
-# Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(spy_data[features], spy_data['direction'], test_size=0.25, random_state=42)
-
-# Create multiple logistic regression models
-# Create a list of models
-models = []
-for i in range(10):
+# Function to build and train a logistic regression model
+def build_logistic_regression_model(X_train, y_train):
     model = LogisticRegression()
     model.fit(X_train, y_train)
-    models.append(model)
+    return model
 
-# Evaluate the models
-# Calculate the accuracy of each model on the test set
-accuracies = []
-for model in models:
-    accuracy = model.score(X_test, y_test)
-    accuracies.append(accuracy)
-
-# Print the accuracy of each model
-for i in range(len(models)):
-    print(f'Model {i+1} accuracy: {accuracies[i]}')
-
-# Plot the results using streamlit
-# Create a streamlit app
-st.title('Multiple Logic Regression Models for SPY')
-
-# Create a dropdown menu to select the model
-model_index = st.selectbox('Select model:', range(len(models)))
-
-# Calculate the predictions for the selected model
-predictions = models[model_index].predict(X_test)
-
-# Plot the predictions vs. the actual values
-plt.figure(figsize=(10, 6))
-plt.scatter(X_test['Close'], predictions, c='blue', label='Predictions')
-plt.scatter(X_test['Close'], y_test, c='red', label='Actual')
-plt.xlabel('Close')
-plt.ylabel('Direction')
-plt.legend()
-st.pyplot(plt)
-
-# Calculate the confusion matrix for the selected model
-confusion_matrix = pd.crosstab(y_test, predictions, rownames=['Actual'], colnames=['Predicted'])
-st.dataframe(confusion_matrix)
-
+# Main Streamlit app
+def main():
+    st.title("SPY Stock Price Prediction with Logistic Regression")
+    
+    # Sidebar inputs
+    start_date = st.sidebar.date_input("Start Date", pd.to_datetime("2010-01-01"))
+    end_date = st.sidebar.date_input("End Date", pd.to_datetime("2021-12-31"))
+    
+    # Fetch historical stock price data
+    st.sidebar.write("Fetching data... (This may take a moment)")
+    df = fetch_stock_data("SPY", start_date, end_date)
+    
+    # Preprocess data
+    df = preprocess_data(df)
+    
+    # Select features and target
+    X = df[['Open', 'High', 'Low', 'Volume']]
+    y = df['Price_Up']
+    
+    # Split data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    
+    # Build and train the logistic regression model
+    model = build_logistic_regression_model(X_train, y_train)
+    
+    # Model evaluation
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    
+    st.write("## Model Evaluation")
+    st.write(f"Accuracy: {accuracy:.2f}")
+    
+    st.write("## Classification Report")
+    st.write(classification_report(y_test, y_pred))
+    
+    st.write("## Confusion Matrix")
+    cm = confusion_matrix(y_test, y_pred)
+    st.write(cm)
+    
+    # Visualize confusion matrix
+    st.write("### Confusion Matrix Heatmap")
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(cm, annot=True, cmap="Blues", fmt="d")
+    st.pyplot()
+    
+    # Visualize stock price data
+    st.write("## SPY Stock Price Data")
+    st.line_chart(df['Close'])
+    
+    # Visualize the logistic regression model's predictions
+    st.write("## Model Predictions vs. Actual")
+    predictions = model.predict(X)
+    df['Predicted_Up'] = predictions
+    st.line_chart(df[['Price_Up', 'Predicted_Up']])
+    
+if __name__ == "__main__":
+    main()
