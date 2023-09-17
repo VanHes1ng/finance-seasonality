@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from fredapi import Fred
+import plotly.express as px
 
 # Set up the Streamlit app configuration
 st.set_page_config(
@@ -98,7 +99,6 @@ def roc(src, len, smooth):
     return roc
 
 
-
 data["ROC"] = roc(data["AVG"], 4, 5)
 
 data["ROC1"] = data["ROC"] - data["ROC"].shift(4)
@@ -106,7 +106,33 @@ data["ROC1"] = data["ROC"] - data["ROC"].shift(4)
 plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
 
 
-
 data["SPY"] = get_data("SP500")
 
 plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["SPY"])])
+
+
+
+# Create a grid
+x_values = list(range(-100, 101))
+y_values = list(range(-100, 101))
+
+# Create a zero marker at the center
+zero_marker = {'x': [0], 'y': [0], 'text': ['Zero'], 'mode': 'text'}
+
+# Create a scatter plot for the grid
+fig = px.scatter(x=x_values + zero_marker['x'], y=y_values + zero_marker['y'])
+
+# Add a marker for zero at the center
+fig.add_trace(px.scatter(zero_marker, textfont=dict(size=12, color='red'))['data'][0])
+
+# Customize the layout
+fig.update_layout(
+    xaxis=dict(range=[-100, 100]),
+    yaxis=dict(range=[-100, 100]),
+    title='Grid with Zero at the Center',
+    xaxis_title='X-Axis',
+    yaxis_title='Y-Axis'
+)
+
+# Show the plot
+fig.show()
