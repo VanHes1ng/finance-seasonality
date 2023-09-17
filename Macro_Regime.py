@@ -113,8 +113,8 @@ plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["S
 
 
 # Create a grid
-x_values = list(range(-100, 101))
-y_values = list(range(-100, 101))
+x_values = -50
+y_values = 50
 
 # Create a zero marker at the center
 zero_marker = {'x': [0], 'y': [0], 'text': ['Zero'], 'mode': 'text'}
