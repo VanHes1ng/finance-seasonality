@@ -112,13 +112,10 @@ plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["S
 
 
 for i in indicator_list:
-    d = roc(data[i], 4, 5)
-    s = d - d.shift(4)
+    y_values = roc(data[i], 4, 5)
+    x_values = y_values - y_values.shift(4)
 
 
-# Create a grid
-x_values = s
-y_values = d
 
 # Create a DataFrame with the grid data
 grid_data = {'x': x_values, 'y': y_values}
