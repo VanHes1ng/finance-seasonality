@@ -138,6 +138,24 @@ zero_marker.update_traces(textfont=dict(size=12, color='red'))
 for trace in zero_marker.data:
     fig.add_trace(trace)
 
+# Add X and Y axes lines
+fig.add_shape(
+    type="line",
+    x0=-100,
+    y0=0,
+    x1=100,
+    y1=0,
+    line=dict(color="black", width=2)
+)
+fig.add_shape(
+    type="line",
+    x0=0,
+    y0=-100,
+    x1=0,
+    y1=100,
+    line=dict(color="black", width=2)
+)
+
 # Streamlit app
 st.title("Grid with Zero at the Center")
 st.plotly_chart(fig)
