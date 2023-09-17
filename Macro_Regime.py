@@ -139,7 +139,7 @@ y_avg = grid_data['Last_Y'].mean()
 avg_data = pd.DataFrame({'Last_X': [x_avg], 'Last_Y': [y_avg]}, index=['avg'])
 
 
-st.write(grid_data)
+st.write(avg_data)
 
 # Create a scatter plot using Plotly Express for the grid
 fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='Grid with Zero at the Center')
