@@ -174,8 +174,9 @@ zero_marker.update_traces(textfont=dict(size=12, color='red'))
 for trace in zero_marker.data:
     fig.add_trace(trace)
 
-# Add a point for the average values
-fig.add_trace(px.scatter(avg_data, x='Last_X', y='Last_Y', text='avg', title='Average', marker_color='red').data[0])
+# Add a point for the average values with red color
+avg_trace = go.Scatter(x=avg_data['Last_X'], y=avg_data['Last_Y'], text='avg', mode='markers', marker=dict(color='red'))
+fig.add_trace(avg_trace)
 
 # Streamlit app
 st.title("Grid with Zero at the Center")
