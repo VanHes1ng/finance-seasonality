@@ -178,8 +178,8 @@ for trace in zero_marker.data:
 avg_trace = go.Scatter(x=avg_data['Last_X'], y=avg_data['Last_Y'], text='avg', mode='markers', marker=dict(color='red'))
 fig.add_trace(avg_trace)
 
-avg_trace1 = go.Scatter(x=data["ROC"], y=data["ROC1"], text='avg', mode='markers', marker=dict(color='red'))
-fig.add_trace(avg_trace)
+avg_trace1 = go.Scatter(x=data["ROC"], y=data["ROC1"], text='avg', mode='markers', marker=dict(color='orange'))
+fig.add_trace(avg_trace1)
 
 # Streamlit app
 st.title("Grid with Zero at the Center")
