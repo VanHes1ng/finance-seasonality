@@ -190,8 +190,6 @@ contruction.update_traces(textfont=dict(size=20, color='red'))
 expansion = px.scatter(x=[45], y=[50], text=['GROWTH'], title='Zero Marker')
 expansion.update_traces(textfont=dict(size=20, color='green'))
 
-dfr = px.scatter(grid_data, x='Last_X', y='Last_Y')
-
 
 # Append the zero marker trace to the original figure
 for trace in decline.data:
@@ -206,8 +204,6 @@ for trace in contruction.data:
 for trace in expansion.data:
     fig.add_trace(trace)
 
-for trace in dfr.data:
-    fig.add_trace(trace)
 
 # Streamlit app
 st.title("Grid Macro Economic")
