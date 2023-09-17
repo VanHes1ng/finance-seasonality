@@ -63,7 +63,7 @@ for ind in indicator_list:
 data["NFCI"] = data["NFCI"] *-1
 data["BAMLH0A0HYM2EY"] = data["BAMLH0A0HYM2EY"] *-1
 data["CCSA"] = data["CCSA"] *-1
-data["STLFSI4"] = data["STLFSI4"] *-1
+data["STLFSI4"] = (data["STLFSI4"] *-1)/10
 data["T10Y2Y"] = data["T10Y2Y"] *-1
 
 # Fill NaN values with forward-fill
