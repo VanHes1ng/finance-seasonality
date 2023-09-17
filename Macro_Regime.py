@@ -125,7 +125,7 @@ grid_data = {'x': x_values, 'y': y_values}
 grid_data = pd.DataFrame(grid_data)
 
 # Create a scatter plot using Plotly Express for the grid
-fig = px.scatter(df, x='x', y='y', title='Grid with Zero at the Center')
+fig = px.scatter(grid_data, x='x', y='y', title='Grid with Zero at the Center')
 
 # Customize the layout
 fig.update_xaxes(range=[-100, 100])
