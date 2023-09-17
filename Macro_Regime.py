@@ -169,14 +169,6 @@ fig.add_shape(
     line=dict(color="gray", width=1)
 )
 
-# Create a separate trace for the zero marker using Plotly Express
-zero_marker = px.scatter(x=[0], y=[0], text=['Zero'], title='Zero Marker')
-zero_marker.update_traces(textfont=dict(size=12, color='red'))
-
-# Append the zero marker trace to the original figure
-for trace in zero_marker.data:
-    fig.add_trace(trace)
-
 # Add a point for the average values with red color
 avg_trace = go.Scatter(x=avg_data['Last_X'], y=avg_data['Last_Y'], text='avg', mode='markers', marker=dict(color='red'))
 fig.add_trace(avg_trace)
