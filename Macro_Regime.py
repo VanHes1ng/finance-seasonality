@@ -169,13 +169,6 @@ fig.add_shape(
     line=dict(color="gray", width=1)
 )
 
-# Create a separate trace for the zero marker using Plotly Express
-zero_marker = px.scatter(x=[-50], y=[50], text=['DECLINE'], title='Zero Marker')
-zero_marker.update_traces(textfont=dict(size=25, color='orange'))
-
-# Append the zero marker trace to the original figure
-for trace in zero_marker.data:
-    fig.add_trace(trace)
 
 # Add a point for the average values with red color
 avg_trace = go.Scatter(x=avg_data['Last_X'], y=avg_data['Last_Y'], text='avg', mode='markers', marker=dict(color='red', size = 10))
@@ -183,6 +176,12 @@ fig.add_trace(avg_trace)
 
 avg_trace1 = go.Scatter(x=data["last_Roc1"], y=data["last_Roc"], text='avg', mode='markers', marker=dict(color='orange', size = 10))
 fig.add_trace(avg_trace1)
+
+# Create a separate trace for the zero marker using Plotly Express
+zero_marker = px.scatter(x=[-50], y=[50], text=['DECLINE'], title='Zero Marker')
+zero_marker.update_traces(textfont=dict(size=25, color='orange'))
+
+
 
 # Streamlit app
 st.title("Grid Macro Economic")
