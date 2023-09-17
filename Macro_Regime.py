@@ -137,7 +137,7 @@ fig.add_shape(
     y0=0,
     x1=100,
     y1=0,
-    line=dict(color="black", width=1)
+    line=dict(color="gray", width=1)
 )
 fig.add_shape(
     type="line",
@@ -145,7 +145,7 @@ fig.add_shape(
     y0=-100,
     x1=0,
     y1=100,
-    line=dict(color="black", width=1)
+    line=dict(color="gray", width=1)
 )
 
 # Create a separate trace for the zero marker using Plotly Express
