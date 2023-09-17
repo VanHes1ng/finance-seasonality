@@ -145,8 +145,8 @@ st.write(grid_data)
 fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='Grid with Zero at the Center')
 
 # Customize the layout
-fig.update_xaxes(range=[-100, 100])
-fig.update_yaxes(range=[-100, 100])
+fig.update_xaxes(range=[-50, 50])
+fig.update_yaxes(range=[-50, 50])
 
 # Add X and Y axes lines
 fig.add_shape(
