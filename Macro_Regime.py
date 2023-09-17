@@ -110,14 +110,13 @@ data["SPY"] = get_data("SP500")
 
 plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["SPY"])])
 
-
+grid_data = pd.DataFrame()
 for i in indicator_list:
     y_values = roc(data[i], 4, 5)
     x_values = y_values - y_values.shift(4)
 
 # Create a DataFrame with the grid data
 grid_data = {'x': x_values, 'y': y_values}
-grid_data = pd.DataFrame(grid_data)
 
 # Create a scatter plot using Plotly Express for the grid
 fig = px.scatter(grid_data, x='x', y='y', title='Grid with Zero at the Center')
