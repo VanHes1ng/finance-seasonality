@@ -114,6 +114,7 @@ plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["S
 
 
 
+
 # Create a grid
 x_values = list(range(-100, 101))
 y_values = list(range(-100, 101))
@@ -129,11 +130,14 @@ fig = px.scatter(df, x='x', y='y', title='Grid with Zero at the Center')
 fig.update_xaxes(range=[-100, 100])
 fig.update_yaxes(range=[-100, 100])
 
-# Add a marker for zero at the center
-fig.add_trace(px.scatter(x=[0], y=[0], text=['Zero'], mode='text', textfont=dict(size=12, color='red'))['data'][0])
+# Create a separate trace for the zero marker using Plotly Express
+zero_marker = px.scatter(x=[0], y=[0], text=['Zero'], title='Zero Marker')
+zero_marker.update_traces(textfont=dict(size=12, color='red'))
 
+# Append the zero marker trace to the original figure
+for trace in zero_marker.data:
+    fig.add_trace(trace)
 
 # Streamlit app
 st.title("Grid with Zero at the Center")
 st.plotly_chart(fig)
-
