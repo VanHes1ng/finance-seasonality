@@ -148,8 +148,8 @@ st.write(grid_data)
 fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='Grid Macro Economic')
 
 # Customize the layout
-fig.update_xaxes(range=[-60, 60])
-fig.update_yaxes(range=[-60, 60])
+fig.update_xaxes(range=[-60, 60], title_text = "Change(4)")
+fig.update_yaxes(range=[-60, 60], title_text = "Rate of Change(4 month)")
 
 # Add X and Y axes lines
 fig.add_shape(
