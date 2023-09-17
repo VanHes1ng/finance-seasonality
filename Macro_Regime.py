@@ -129,11 +129,11 @@ fig = px.scatter(df, x='x', y='y', title='Grid with Zero at the Center')
 fig.update_xaxes(range=[-100, 100])
 fig.update_yaxes(range=[-100, 100])
 
-# Create a separate scatter plot for the zero marker
-zero_marker = px.scatter(x=[0], y=[0], text=['Zero'], title='Zero Marker')
-zero_marker.update_traces(textfont=dict(size=12, color='red'))
+# Add a marker for zero at the center
+fig.add_trace(px.scatter(x=[0], y=[0], text=['Zero'], mode='text', textfont=dict(size=12, color='red'))['data'][0])
+
 
 # Streamlit app
 st.title("Grid with Zero at the Center")
 st.plotly_chart(fig)
-st.plotly_chart(zero_marker)
+
