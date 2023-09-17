@@ -116,16 +116,16 @@ for i in indicator_list:
     x_values = y_values - y_values.shift(4)
 
 
-# Create a grid chart with only the last X and Y values
-last_x = x_values['x'].iloc[-1]
-last_y = y_values['y'].iloc[-1]
-
 # Create a DataFrame with the grid data
-grid_data = {'x': last_x, 'y': last_y}
+grid_data = {'x': x_values, 'y': y_values}
 grid_data = pd.DataFrame(grid_data)
 
+# Create a grid chart with only the last X and Y values
+last_x = grid_data['x'].iloc[-1]
+last_y = grid_data['y'].iloc[-1]
+
 # Create a scatter plot using Plotly Express for the grid
-fig = px.scatter(grid_data, x=last_x, y=last_y, title='Grid with Zero at the Center')
+fig = px.scatter(grid_data["x","y"], x='x', y='y', title='Grid with Zero at the Center')
 
 # Customize the layout
 fig.update_xaxes(range=[-100, 100])
