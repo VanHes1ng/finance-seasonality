@@ -231,7 +231,7 @@ with open('style.css') as f:
 # Show the plot
 st.plotly_chart(fig1)
 
-st.title("Grid Macro Economic")
+st.title("  Grid Macro Economic")
 
 col1, col2 = st.columns(2)
 
