@@ -211,11 +211,20 @@ plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["S
 
 plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
 
-df = pd.DataFrame(data)
 
 # Create a vertical bar chart
-fig1 = px.bar(grid_data, x=grid_data.index, y='Last_Y', title='Vertical Bar Chart of Tickers and Values')
-fig1.update_layout(xaxis_title='Indicator', yaxis_title='Rate Of Change')
+fig1 = go.Figure()
+
+# Add Value1 bars
+fig1.add_trace(go.Bar(x=grid_data.index, y=grid_data['Last_Y'], name='ROC', marker_color='blue'))
+
+# Add Value2 bars
+fig1.add_trace(go.Bar(x=grid_data.index, y=grid_data['Last_X'], name='Change', marker_color='red'))
+
+# Update layout
+fig1.update_layout(barmode='group', title='Vertical Bar Chart of Tickers and Values')
+fig1.update_layout(xaxis_title='Indicator', yaxis_title='Values')
+
 # Show the plot
 st.plotly_chart(fig1)
 
