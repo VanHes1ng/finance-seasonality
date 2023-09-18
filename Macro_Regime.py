@@ -214,7 +214,7 @@ plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
 df = pd.DataFrame(data)
 
 # Create a vertical bar chart
-fig = px.bar(grid_data, x='Indicator', y='Last_Y', title='Vertical Bar Chart of Tickers and Values')
+fig = px.bar(grid_data, x=grid_data.index, y='Last_Y', title='Vertical Bar Chart of Tickers and Values')
 fig.update_layout(xaxis_title='Indicator', yaxis_title='Rate Of Change')
 # Show the plot
 fig.show()
