@@ -260,8 +260,8 @@ fig1.update_layout(barmode='group', title='     Vertical Bar Chart of Tickers an
 fig1.update_layout(xaxis_title='Indicator', yaxis_title='Values')
 
 # Style
-with open('style.css') as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+#with open('style.css') as f:
+#    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # Show the plot
 st.plotly_chart(fig1)
