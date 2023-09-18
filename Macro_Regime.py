@@ -172,10 +172,10 @@ fig.add_shape(
 
 
 # Add a point for the average values with red color
-avg_trace = go.Scatter(x=avg_data['Last_X'], y=avg_data['Last_Y'], text='avg', mode='markers', marker=dict(color='red', size = 20))
+avg_trace = go.Scatter(x=avg_data['Last_X'], y=avg_data['Last_Y'], text='avg', mode='markers', marker=dict(color='red', size = 15))
 fig.add_trace(avg_trace)
 
-avg_trace1 = go.Scatter(x=data["last_Roc1"], y=data["last_Roc"], text='avg', mode='markers', marker=dict(color='orange', size = 20))
+avg_trace1 = go.Scatter(x=data["last_Roc1"], y=data["last_Roc"], text='avg', mode='markers', marker=dict(color='orange', size = 15))
 fig.add_trace(avg_trace1)
 
 # Create a separate trace for the zero marker using Plotly Express
