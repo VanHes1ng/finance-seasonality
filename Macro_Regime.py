@@ -192,7 +192,7 @@ fig.add_shape(
     x0=-60,
     y0=60,
     x1=60,
-    y1=-60,
+    y1=60,
     line=dict(color="gray", width=1)
 )
 
