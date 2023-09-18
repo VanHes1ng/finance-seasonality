@@ -144,7 +144,7 @@ avg_data = pd.DataFrame({'Last_X': [x_avg], 'Last_Y': [y_avg]}, index=['avg'])
 st.write(grid_data)
 
 # Create a scatter plot using Plotly Express for the grid
-fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='Economic Cycles',
+fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='Economic Seasons',
                  width=900, height=700)
 
 # Customize the layout
@@ -181,7 +181,7 @@ fig.add_trace(avg_trace1)
 decline = px.scatter(x=[-50], y=[50], text=['🍂'], title='Zero Marker')
 decline.update_traces(textfont=dict(size=25, color='orange'))
 
-recovery = px.scatter(x=[50], y=[-50], text=['🌸'], title='Zero Marker')
+recovery = px.scatter(x=[50], y=[-50], text=['🌱'], title='Zero Marker')
 recovery.update_traces(textfont=dict(size=25, color='BLUE'))
 
 contruction = px.scatter(x=[-50], y=[-50], text=['❄️'], title='Zero Marker')
