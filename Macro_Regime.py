@@ -214,10 +214,10 @@ plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
 df = pd.DataFrame(data)
 
 # Create a vertical bar chart
-fig = px.bar(grid_data, x=grid_data.index, y='Last_Y', title='Vertical Bar Chart of Tickers and Values')
-fig.update_layout(xaxis_title='Indicator', yaxis_title='Rate Of Change')
+fig1 = px.bar(grid_data, x=grid_data.index, y='Last_Y', title='Vertical Bar Chart of Tickers and Values')
+fig1.update_layout(xaxis_title='Indicator', yaxis_title='Rate Of Change')
 # Show the plot
-fig.show()
+fig1.show()
 
 st.title("Grid Macro Economic")
 
