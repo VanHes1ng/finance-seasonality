@@ -177,7 +177,7 @@ avg_trace1 = go.Scatter(x=data["last_Roc1"], y=data["last_Roc"], text='avg', mod
 fig.add_trace(avg_trace1)
 
 # Create a separate trace for the zero marker using Plotly Express
-decline = px.scatter(x=[-45], y=[50], text=['DECLINE'], title='Zero Marker')
+decline = px.scatter(x=[-45], y=[50], text=['🍂'], title='Zero Marker')
 decline.update_traces(textfont=dict(size=20, color='orange'))
 
 recovery = px.scatter(x=[45], y=[-50], text=['RECOVERY'], title='Zero Marker')
