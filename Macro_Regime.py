@@ -145,7 +145,7 @@ st.write(grid_data)
 
 # Create a scatter plot using Plotly Express for the grid
 fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='The Seasons of Economic Cycles',
-                 width=900, height=700)
+                 width=800, height=600)
 
 # Customize the layout
 fig.update_xaxes(range=[-60, 60], title_text = "Change(4)")
