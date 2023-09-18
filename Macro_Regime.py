@@ -144,7 +144,8 @@ avg_data = pd.DataFrame({'Last_X': [x_avg], 'Last_Y': [y_avg]}, index=['avg'])
 st.write(grid_data)
 
 # Create a scatter plot using Plotly Express for the grid
-fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='Economic Cycles')
+fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='Economic Cycles',
+                 width=800, height=400)
 
 # Customize the layout
 fig.update_xaxes(range=[-60, 60], title_text = "Change(4)")
@@ -211,4 +212,5 @@ plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["S
 plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
 
 st.title("Grid Macro Economic")
-st.plotly_chart(fig, use_container_width=True)
+
+st.plotly_chart(fig)
