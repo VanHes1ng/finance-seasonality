@@ -228,15 +228,6 @@ fig1.update_layout(xaxis_title='Indicator', yaxis_title='Values')
 # Show the plot
 st.plotly_chart(fig1)
 
-# Create a grouped bar chart
-fig2 = px.bar(df, x=grid_data.index, y=['Last_Y', 'Last_X'], title='Grouped Bar Chart of Tickers and Values',
-             labels={'Value1': 'Value 1', 'Value2': 'Value 2'})
-
-fig2.update_layout(xaxis_title='Tickers', yaxis_title='Values')
-# Show the plot
-st.plotly_chart(fig2)
-
-
 st.title("Grid Macro Economic")
 
 col1, col2 = st.columns(2)
