@@ -182,7 +182,7 @@ fig.add_trace(avg_trace1)
 decline = px.scatter(x=[-50], y=[50], text=['🍂'], title='Zero Marker')
 decline.update_traces(textfont=dict(size=25, color='orange'))
 
-recovery = px.scatter(x=[50], y=[-50], text=['🌱'], title='Zero Marker')
+recovery = px.scatter(x=[50], y=[-50], text=['🌷'], title='Zero Marker')
 recovery.update_traces(textfont=dict(size=25, color='BLUE'))
 
 contruction = px.scatter(x=[-50], y=[-50], text=['❄️'], title='Zero Marker')
