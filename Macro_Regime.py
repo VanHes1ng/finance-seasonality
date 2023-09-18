@@ -77,7 +77,6 @@ data["AVG"] = data["AVG"].div(len(indicator_list))
 
 st.dataframe(data)
 
-
 # Define a function to plot data using Plotly
 def plot(x, y1, y2, title, range, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y1_color='blue', y2_color='red'):
     fig = go.Figure()
@@ -211,6 +210,14 @@ for trace in expansion.data:
 plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["SPY"])])
 
 plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
+
+df = pd.DataFrame(data)
+
+# Create a vertical bar chart
+fig = px.bar(grid_data, x='Indicator', y='Last_Y', title='Vertical Bar Chart of Tickers and Values')
+fig.update_layout(xaxis_title='Indicator', yaxis_title='Rate Of Change')
+# Show the plot
+fig.show()
 
 st.title("Grid Macro Economic")
 
