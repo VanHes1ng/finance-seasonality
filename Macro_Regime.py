@@ -146,7 +146,7 @@ st.write(grid_data)
 
 # Create a scatter plot using Plotly Express for the grid
 fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='The Seasons of Economic Cycles',
-                 width=900, height=700)
+                 width=900, height=700, marker=dict(color='blue', size = 10))
 
 # Customize the layout
 fig.update_xaxes(range=[-60, 60], title_text = "Change(4)")
@@ -172,10 +172,10 @@ fig.add_shape(
 
 
 # Add a point for the average values with red color
-avg_trace = go.Scatter(x=avg_data['Last_X'], y=avg_data['Last_Y'], text='avg', mode='markers', marker=dict(color='red', size = 10))
+avg_trace = go.Scatter(x=avg_data['Last_X'], y=avg_data['Last_Y'], text='avg', mode='markers', marker=dict(color='red', size = 20))
 fig.add_trace(avg_trace)
 
-avg_trace1 = go.Scatter(x=data["last_Roc1"], y=data["last_Roc"], text='avg', mode='markers', marker=dict(color='orange', size = 10))
+avg_trace1 = go.Scatter(x=data["last_Roc1"], y=data["last_Roc"], text='avg', mode='markers', marker=dict(color='orange', size = 20))
 fig.add_trace(avg_trace1)
 
 # Create a separate trace for the zero marker using Plotly Express
