@@ -163,27 +163,27 @@ fig.add_shape(
 fig.add_shape(
     type="line",
     x0=0,
-    y0=-100,
+    y0=-60,
     x1=0,
-    y1=100,
+    y1=60,
     line=dict(color="gray", width=1)
 )
 
 fig.add_shape(
     type="line",
     x0=-60,
-    y0=-100,
+    y0=-60,
     x1=-60,
-    y1=100,
+    y1=60,
     line=dict(color="gray", width=1)
 )
 
 fig.add_shape(
     type="line",
     x0=60,
-    y0=-100,
+    y0=-60,
     x1=60,
-    y1=100,
+    y1=60,
     line=dict(color="gray", width=1)
 )
 
