@@ -1,7 +1,7 @@
 [data-testid=metric-container] {
-    box-shadow: 0 0 10px #4a5761;
+    box-shadow: 0 0 2px #4a5761;
 }
 
 .plot-container>div {
-    box-shadow: 0 0 10px #4a5761;
+    box-shadow: 0 0 2px #4a5761;
 }
