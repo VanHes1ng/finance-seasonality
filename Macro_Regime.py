@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from fredapi import Fred
 import plotly.express as px
+from PIL import Image
 
 # Set up the Streamlit app configuration
 st.set_page_config(
@@ -213,4 +214,10 @@ plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
 
 st.title("Grid Macro Economic")
 
-st.plotly_chart(fig)
+col1, col2 = st.columns(2)
+
+with col2:
+    image = Image.open('seasons of the economy.png')
+    st.image(image)
+with col1: 
+    st.plotly_chart(fig)
