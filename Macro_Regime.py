@@ -221,14 +221,12 @@ fig1.add_trace(go.Bar(x=grid_data.index, y=grid_data['Last_Y'], name='ROC', mark
 fig1.add_trace(go.Bar(x=grid_data.index, y=grid_data['Last_X'], name='Change', marker_color='red'))
 
 # Update layout
-fig1.update_layout(barmode='group', title='Vertical Bar Chart of Tickers and Values')
+fig1.update_layout(barmode='group', title='     Vertical Bar Chart of Tickers and Values')
 fig1.update_layout(xaxis_title='Indicator', yaxis_title='Values')
 
 # Style
 with open('style.css') as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-st.markdown("### Indicators")
 
 # Show the plot
 st.plotly_chart(fig1)
