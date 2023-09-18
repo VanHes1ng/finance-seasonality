@@ -169,41 +169,6 @@ fig.add_shape(
     line=dict(color="gray", width=1)
 )
 
-fig.add_shape(
-    type="line",
-    x0=-60,
-    y0=-60,
-    x1=-60,
-    y1=60,
-    line=dict(color="gray", width=1)
-)
-
-fig.add_shape(
-    type="line",
-    x0=60,
-    y0=-60,
-    x1=60,
-    y1=60,
-    line=dict(color="gray", width=1)
-)
-
-fig.add_shape(
-    type="line",
-    x0=-60,
-    y0=60,
-    x1=60,
-    y1=60,
-    line=dict(color="gray", width=1)
-)
-
-fig.add_shape(
-    type="line",
-    x0=-60,
-    y0=-60,
-    x1=60,
-    y1=-60,
-    line=dict(color="gray", width=1)
-)
 
 # Add a point for the average values with red color
 avg_trace = go.Scatter(x=avg_data['Last_X'], y=avg_data['Last_Y'], text='avg', mode='markers', marker=dict(color='red', size = 15))
