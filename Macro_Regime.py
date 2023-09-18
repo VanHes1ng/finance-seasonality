@@ -217,7 +217,7 @@ df = pd.DataFrame(data)
 fig1 = px.bar(grid_data, x=grid_data.index, y='Last_Y', title='Vertical Bar Chart of Tickers and Values')
 fig1.update_layout(xaxis_title='Indicator', yaxis_title='Rate Of Change')
 # Show the plot
-fig1.show()
+st.plotly_chart(fig1)
 
 st.title("Grid Macro Economic")
 
