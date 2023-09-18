@@ -211,4 +211,4 @@ plot(data.index, data["SPY"], data["AVG"], "SPY", [min(data["SPY"]), max(data["S
 plot(data.index, data["ROC"], data["ROC1"], "ROC", [-80, 120])
 
 st.title("Grid Macro Economic")
-st.plotly_chart(fig)
+st.plotly_chart(fig, use_container_width=True)
