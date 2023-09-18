@@ -180,13 +180,13 @@ fig.add_trace(avg_trace1)
 decline = px.scatter(x=[-45], y=[50], text=['🍂'], title='Zero Marker')
 decline.update_traces(textfont=dict(size=20, color='orange'))
 
-recovery = px.scatter(x=[45], y=[-50], text=['RECOVERY'], title='Zero Marker')
+recovery = px.scatter(x=[45], y=[-50], text=['🌸'], title='Zero Marker')
 recovery.update_traces(textfont=dict(size=20, color='BLUE'))
 
-contruction = px.scatter(x=[-45], y=[-50], text=['CONTRUCTION'], title='Zero Marker')
+contruction = px.scatter(x=[-45], y=[-50], text=['❄️'], title='Zero Marker')
 contruction.update_traces(textfont=dict(size=20, color='red'))
 
-expansion = px.scatter(x=[45], y=[50], text=['GROWTH'], title='Zero Marker')
+expansion = px.scatter(x=[45], y=[50], text=['☀️'], title='Zero Marker')
 expansion.update_traces(textfont=dict(size=20, color='green'))
 
 
