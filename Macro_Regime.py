@@ -177,17 +177,17 @@ avg_trace1 = go.Scatter(x=data["last_Roc1"], y=data["last_Roc"], text='avg', mod
 fig.add_trace(avg_trace1)
 
 # Create a separate trace for the zero marker using Plotly Express
-decline = px.scatter(x=[-45], y=[50], text=['🍂'], title='Zero Marker')
-decline.update_traces(textfont=dict(size=20, color='orange'))
+decline = px.scatter(x=[-50], y=[50], text=['🍂'], title='Zero Marker')
+decline.update_traces(textfont=dict(size=25, color='orange'))
 
-recovery = px.scatter(x=[45], y=[-50], text=['🌸'], title='Zero Marker')
-recovery.update_traces(textfont=dict(size=20, color='BLUE'))
+recovery = px.scatter(x=[50], y=[-50], text=['🌸'], title='Zero Marker')
+recovery.update_traces(textfont=dict(size=25, color='BLUE'))
 
-contruction = px.scatter(x=[-45], y=[-50], text=['❄️'], title='Zero Marker')
-contruction.update_traces(textfont=dict(size=20, color='red'))
+contruction = px.scatter(x=[-50], y=[-50], text=['❄️'], title='Zero Marker')
+contruction.update_traces(textfont=dict(size=25, color='red'))
 
-expansion = px.scatter(x=[45], y=[50], text=['☀️'], title='Zero Marker')
-expansion.update_traces(textfont=dict(size=20, color='green'))
+expansion = px.scatter(x=[50], y=[50], text=['☀️'], title='Zero Marker')
+expansion.update_traces(textfont=dict(size=25, color='green'))
 
 
 # Append the zero marker trace to the original figure
