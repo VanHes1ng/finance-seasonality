@@ -119,7 +119,7 @@ last_values = {
 }
 
 for i in indicator_list:
-    y_values = roc(data[i], 3, 5)
+    y_values = roc(data[i], 3, 4)
     x_values = y_values - y_values.shift(3)
     last_x = x_values.iloc[-1]  # Get the last x value
     last_y = y_values.iloc[-1]  # Get the last y value
@@ -148,8 +148,8 @@ fig = px.scatter(grid_data, x='Last_X', y='Last_Y', title='          The Seasons
                  width=800, height=600)
 
 # Customize the layout
-fig.update_xaxes(range=[-60, 60], title_text = "Change(4)")
-fig.update_yaxes(range=[-60, 60], title_text = "Rate of Change(4)")
+fig.update_xaxes(range=[-60, 60], title_text = "Change(3)")
+fig.update_yaxes(range=[-60, 60], title_text = "Rate of Change(3)")
 
 
 # Add X and Y axes lines
