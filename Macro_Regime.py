@@ -5,6 +5,8 @@ import plotly.graph_objects as go
 from fredapi import Fred
 import plotly.express as px
 from PIL import Image
+import numpy as np
+
 
 # Set up the Streamlit app configuration
 st.set_page_config(
@@ -94,9 +96,18 @@ def plot(x, y1, y2, title, range, y1_name='Primary Y-Axis', y2_name='Secondary Y
     fig.update_layout(title=title)
     st.plotly_chart(fig, use_container_width=True)
 
+def hma(src, period):
+    wma_1 = src.rolling(period//2).apply(lambda x: \
+    np.sum(x * np.arange(1, period//2+1)) / np.sum(np.arange(1, period//2+1)), raw=True)
+    wma_2 = src.rolling(period).apply(lambda x: \
+    np.sum(x * np.arange(1, period+1)) / np.sum(np.arange(1, period+1)), raw=True)
+    diff = 2 * wma_1 - wma_2
+    hma = diff.rolling(int(np.sqrt(period))).mean()
+    return hma
 
 def roc(src, len):
-    roc = ((src / src.shift(len) -1)*100).rolling(5).mean()
+    src_ = hma(src, 5)
+    roc = ((src_ / src_.shift(len) -1)*100).rolling(5).mean()
     return roc
 
 
