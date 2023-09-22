@@ -106,7 +106,7 @@ def hma(src, period):
     return hma
 
 def roc(src, len):
-    src_ = hma(src, 5)
+    src_ = hma(src, 3)
     roc = ((src_ / src_.shift(len) -1)*100).rolling(5).mean()
     return roc
 
