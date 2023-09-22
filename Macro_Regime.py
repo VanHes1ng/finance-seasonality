@@ -95,8 +95,8 @@ def plot(x, y1, y2, title, range, y1_name='Primary Y-Axis', y2_name='Secondary Y
     st.plotly_chart(fig, use_container_width=True)
 
 
-def roc(src, len, smooth):
-    roc = ((src / src.shift(len) -1)*100).rolling(smooth).mean()
+def roc(src, len):
+    roc = ((src / src.shift(len) -1)*100)
     return roc
 
 
@@ -119,7 +119,7 @@ last_values = {
 }
 
 for i in indicator_list:
-    y_values = roc(data[i], 3, 2)
+    y_values = roc(data[i], 3)
     x_values = y_values - y_values.shift(3)
     last_x = x_values.iloc[-1]  # Get the last x value
     last_y = y_values.iloc[-1]  # Get the last y value
