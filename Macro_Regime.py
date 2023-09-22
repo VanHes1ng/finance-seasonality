@@ -96,7 +96,7 @@ def plot(x, y1, y2, title, range, y1_name='Primary Y-Axis', y2_name='Secondary Y
 
 
 def roc(src, len):
-    roc = ((src / src.shift(len) -1)*100)
+    roc = ((src / src.shift(len) -1)*100).rolling(5).mean()
     return roc
 
 
