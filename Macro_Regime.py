@@ -100,9 +100,9 @@ def roc(src, len):
     return roc
 
 
-data["ROC"] = roc(data["AVG"], 4)
+data["ROC"] = roc(data["AVG"], 3)
 
-data["ROC1"] = data["ROC"] - data["ROC"].shift(4)
+data["ROC1"] = data["ROC"] - data["ROC"].shift(3)
 
 data["last_Roc"] = data["ROC"].iloc[-1]
 data["last_Roc1"] = data["ROC1"].iloc[-1]
