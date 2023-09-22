@@ -119,7 +119,7 @@ last_values = {
 }
 
 for i in indicator_list:
-    y_values = roc(data[i], 3, 4)
+    y_values = roc(data[i], 3, 2)
     x_values = y_values - y_values.shift(3)
     last_x = x_values.iloc[-1]  # Get the last x value
     last_y = y_values.iloc[-1]  # Get the last y value
