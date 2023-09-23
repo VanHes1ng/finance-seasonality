@@ -31,7 +31,7 @@ def get_data(ticker):
     data = pd.DataFrame(fred.get_series(
         ticker,
         observation_start=start,
-        observation_end=end)).resample("M").mean() 
+        observation_end=end)).resample("W").mean() 
     return data
 
 # Economic Indicators
@@ -130,8 +130,9 @@ last_values = {
 }
 
 for i in indicator_list:
-    y_values = roc(data[i], 3)
-    x_values = y_values - y_values.shift(3)
+    len = 13
+    y_values = roc(data[i], len)
+    x_values = y_values - y_values.shift(len)
     last_x = x_values.iloc[-1]  # Get the last x value
     last_y = y_values.iloc[-1]  # Get the last y value
 
