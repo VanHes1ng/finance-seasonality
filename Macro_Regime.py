@@ -221,7 +221,7 @@ for trace in expansion.data:
 
 
 # Streamlit app
-plot(data.index, data["ROC"], data["ROC1"], "   ROC", [-80, 120])
+plot(x=data.index, y1=data["ROC"], y2=data["ROC1"], title= "   ROC", range=[-80, 120])
 
 color = "white"
 if data["ROC"] > 0 and data["ROC1"] > 0:
@@ -229,7 +229,7 @@ if data["ROC"] > 0 and data["ROC1"] > 0:
 else:
     color = "red"
 
-plot(data.index, data["SPY"], data["AVG"], "    SPY", [min(data["SPY"]), color, max(data["SPY"])])
+plot(x=data.index,y1= data["SPY"],y2= data["AVG"], title = "    SPY", color=color, range= [min(data["SPY"]), max(data["SPY"])])
 
 # Create a vertical bar chart
 fig1 = go.Figure()
