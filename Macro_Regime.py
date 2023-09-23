@@ -110,10 +110,11 @@ def roc(src, len):
     roc = ((src_ / src_.shift(len) -1)*100).rolling(5).mean()
     return roc
 
+len = 13
 
-data["ROC"] = roc(data["AVG"], 3)
+data["ROC"] = roc(data["AVG"], 13)
 
-data["ROC1"] = data["ROC"] - data["ROC"].shift(3)
+data["ROC1"] = data["ROC"] - data["ROC"].shift(13)
 
 data["last_Roc"] = data["ROC"].iloc[-1]
 data["last_Roc1"] = data["ROC1"].iloc[-1]
@@ -130,7 +131,6 @@ last_values = {
 }
 
 for i in indicator_list:
-    len = 27
     y_values = roc(data[i], len)
     x_values = y_values - y_values.shift(len)
     last_x = x_values.iloc[-1]  # Get the last x value
