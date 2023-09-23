@@ -106,15 +106,15 @@ def hma(src, period):
     return hma
 
 def roc(src, len):
-    src_ = hma(src, 3)
+    src_ = hma(src, 5)
     roc = ((src_ / src_.shift(len) -1)*100).rolling(5).mean()
     return roc
 
 len = 13
 
-data["ROC"] = roc(data["AVG"], 13)
+data["ROC"] = roc(data["AVG"], len)
 
-data["ROC1"] = data["ROC"] - data["ROC"].shift(13)
+data["ROC1"] = data["ROC"] - data["ROC"].shift(len)
 
 data["last_Roc"] = data["ROC"].iloc[-1]
 data["last_Roc1"] = data["ROC1"].iloc[-1]
