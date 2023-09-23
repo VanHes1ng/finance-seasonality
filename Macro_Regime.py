@@ -224,10 +224,13 @@ for trace in expansion.data:
 plot(x=data.index, y1=data["ROC"], y2=data["ROC1"], title= "   ROC", range=[-80, 120])
 
 color = "white"
-if data["ROC"] > 0 and data["ROC1"] > 0:
-    color = "green"
-else:
+stat =  np.array([data["ROC"].iloc[-1], data["ROC1"].iloc[-1]])
+
+if (stat<0).all():
     color = "red"
+else:
+    color = "green"
+
 
 plot(x=data.index,y1= data["SPY"],y2= data["AVG"], title = "    SPY", color=color, range= [min(data["SPY"]), max(data["SPY"])])
 
