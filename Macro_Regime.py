@@ -94,6 +94,8 @@ def plot(x, y1, y2, title, range, y1_name='Primary Y-Axis', y2_name='Secondary Y
     
     
     fig.update_layout(title=title)
+    fig.update_layout(paper_bgcolor="gray")
+
     st.plotly_chart(fig, use_container_width=True)
 
 def hma(src, period):
@@ -219,10 +221,9 @@ for trace in expansion.data:
 
 
 # Streamlit app
-plot(data.index, data["SPY"], data["AVG"], "    SPY", [min(data["SPY"]), max(data["SPY"])])
-
 plot(data.index, data["ROC"], data["ROC1"], "   ROC", [-80, 120])
 
+plot(data.index, data["SPY"], data["AVG"], "    SPY", [min(data["SPY"]), max(data["SPY"])])
 
 # Create a vertical bar chart
 fig1 = go.Figure()
