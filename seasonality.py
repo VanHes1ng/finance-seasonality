@@ -5,10 +5,15 @@ import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
 import datetime
-from pandas_datareader import data as pdr
 
 # Page Configurations
 st.set_page_config(layout="wide", initial_sidebar_state="expanded", page_icon= "〰️")
+
+# Define a function to download S&P 500 data
+def download_data(ticker, start_date, end_date):
+    data = yf.download(ticker, start=start_date, end=end_date)
+    return data
+
 
 
 # Titles
@@ -17,18 +22,17 @@ st.header("Seasonality Performance", divider="blue")
 st.sidebar.header("Settings")
 
 # User Inputs
-ticker = 'BTC-USD' #st.sidebar.selectbox(
-    #'Choose a Ticker:' ['^GSPC', 'ETH-USD', 'BTC-USD', "^IXIC"])
+ticker = st.sidebar.selectbox(
+    'Choose a Ticker:', ('^GSPC', 'ETH-USD', 'BTC-USD', "^IXIC"))
 
-end_date = st.sidebar.date_input("End Date", datetime.date(2025, 1, 1))
-year = st.slider("Start Year", 1960, 2025, 1990)
+year = st.slider("Start Year", min_value=1960, max_value=2023, value=2022, step=1)
+start_date = st.sidebar.date_input("Start Date", datetime.date(year, 1, 1), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2050, 1, 1))
+end_date = st.sidebar.date_input("End Date", datetime.date(2050, 1, 1))
 
 start_date = st.sidebar.date_input("Start Date", datetime.date(year, 7, 6), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2035, 1, 1))
-yf.pdr_override()
-# Download S&P 500 data from Yahoo Finance
-#data = yf.download(ticker, start=start_date, end=end_date, period="1d")
 
-data = pdr.get_data_yahoo(ticker, start=start_date, end=end_date, period="1d")
+# Download S&P 500 data from Yahoo Finance
+data = download_data(ticker, start_date, end_date)
 
 # Set the app title and sidebar description
 if ticker == "^GSPC":
