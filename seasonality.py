@@ -49,9 +49,6 @@ y=(1 + log_returns).cumprod()
 # Add a drop-down box to select a month
 selected_month = st.selectbox("Select a Month", range(1, 13), index=8)  # Default to September (index 8)
 
-# Filter data for the selected month
-selected_month_data = data[data.index.month == selected_month]
-
 # Plot the cumulative returns chart
 ret = go.Figure()
 
@@ -61,11 +58,8 @@ ret.add_trace(go.Scatter(x=data.index, y=y,
                       name='Cumulative Returns',
                       line=dict(color='gray', width=2)))
 
-# Create a mask to highlight the selected month
-highlight_mask = data.index.month == selected_month
-
-# Highlight the selected month with a light gray background
-ret.add_trace(go.Scatter(x=data.index[highlight_mask], y=y[highlight_mask],
+# Highlight the selected with a light gray background
+ret.add_trace(go.Scatter(x=data.index, y=y,
                       mode='lines',
                       fill='tozeroy',
                       fillcolor='rgba(220, 220, 220, 0.5)',
