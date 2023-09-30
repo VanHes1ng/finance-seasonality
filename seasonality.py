@@ -107,9 +107,11 @@ fig = go.Figure()
 fig.add_trace(go.Bar(
     x=heatmap_data.columns,
     y=np.round(monthly_percentage_changes,2),
-    name=f"                 SEASONALITY {ticker}",
     marker_color='green'
 ))
+fig.update_layout(title=f"                 SEASONALITY {ticker}", xaxis_title="Month", yaxis_title="Change (%)", height=700)
+fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolor='black')
+
 
 # Streamlit integration
 st.plotly_chart(ret, use_container_width=True)
