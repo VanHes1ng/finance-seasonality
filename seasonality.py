@@ -50,8 +50,8 @@ y=(1 + log_returns).cumprod()
 
 # Plot the price chart
 
-df = pd.DataFrame(data)
-fig = px.line(df, x="Date", y="Adj Close", color='gray')
+df = pd.DataFrame(data, index=data["Date"])
+fig = px.line(df, x=data.index, y=data["Adj Close"], color='gray')
 
 
 # Display the data if desired
