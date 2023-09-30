@@ -96,7 +96,11 @@ heatmap_fig.update_yaxes(title_text="Year")
 
 
 # Create a line plot for monthly percentage changes
-percentage_changes_fig = go.Figure(data=[go.Bar(x=heatmap_data.columns, y=np.round(monthly_percentage_changes,2))])
+percentage_changes_fig = go.Figure()
+
+percentage_changes_fig.add_trace(go.Bar(x=heatmap_data.columns, y=np.round(monthly_percentage_changes,2),
+                         line=dict(color='gray', width=2)))
+
 percentage_changes_fig.update_layout(title=f"                 SEASONALITY {ticker}", xaxis_title="Month", yaxis_title="Change (%)", height=700)
 percentage_changes_fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolor='black')
 
