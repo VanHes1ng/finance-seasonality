@@ -49,10 +49,12 @@ monthly_returns = monthly_returns.dropna()
 y=(1 + log_returns).cumprod()
 
 # Plot the price chart
+ret = go.Figure()
+# Create and style traces
+ret.add_trace(go.Line(x=data.index, y=y,
+                         line=dict(color='gray', width=2)))
 
-df = pd.DataFrame(data, index=data["Date"])
-fig = px.line(df, x=data.index, y=data["Adj Close"], color='gray')
-
+ret.update_layout(title = ticker + " Cumulative Returns Chart")
 
 # Display the data if desired
 if st.checkbox("Show Raw Data"):
@@ -100,6 +102,6 @@ percentage_changes_fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolo
 
 
 # Streamlit integration
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(ret, use_container_width=True)
 st.plotly_chart(heatmap_fig, use_container_width=True)
 st.plotly_chart(percentage_changes_fig, use_container_width=True)
