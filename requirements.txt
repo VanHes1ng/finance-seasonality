@@ -1,5 +1,4 @@
 yfinance==0.2.30
-altair
 pandas
 streamlit
 plotly
@@ -9,6 +8,5 @@ Matplotlib
 Seaborn
 scipy
 Pillow
-fredapi
 
 datetime
