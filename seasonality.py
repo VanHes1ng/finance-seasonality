@@ -27,8 +27,6 @@ year = st.slider("Start Year", min_value=1960, max_value=2023, value=2022, step=
 start_date = st.sidebar.date_input("Start Date", datetime.date(year, 1, 1), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2050, 1, 1))
 end_date = st.sidebar.date_input("End Date", datetime.date(2050, 1, 1))
 
-start_date = st.sidebar.date_input("Start Date", datetime.date(year, 7, 6), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2035, 1, 1))
-
 # Download S&P 500 data from Yahoo Finance
 data = download_data(ticker, start_date, end_date)
 
