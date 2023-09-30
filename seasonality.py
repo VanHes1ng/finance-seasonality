@@ -55,27 +55,22 @@ selected_month_data = data[data.index.month == selected_month]
 # Plot the cumulative returns chart
 ret = go.Figure()
 
-# Create and style traces
-ret.add_trace(go.Line(x=data.index, y=y,
+# Create and style traces for cumulative returns
+ret.add_trace(go.Scatter(x=data.index, y=y,
+                      mode='lines',
+                      name='Cumulative Returns',
                       line=dict(color='gray', width=2)))
 
-# Calculate the start and end dates for the selected month
-start_date = selected_month_data.index[0]
-end_date = selected_month_data.index[-1]
+# Create a mask to highlight the selected month
+highlight_mask = data.index.month == selected_month
 
 # Highlight the selected month with a light gray background
-ret.add_shape(
-    go.layout.Shape(
-        type="rect",
-        x0=start_date,
-        x1=end_date,
-        y0=min(y),
-        y1=max(y),
-        fillcolor="rgba(220, 220, 220, 0.5)",
-        layer="below",
-        line=dict(width=0),
-    )
-)
+ret.add_trace(go.Scatter(x=data.index[highlight_mask], y=y[highlight_mask],
+                      mode='lines',
+                      fill='tozeroy',
+                      fillcolor='rgba(220, 220, 220, 0.5)',
+                      line=dict(color='rgba(255, 255, 255, 0)'),
+                      name='Selected Month'))
 
 ret.update_layout(title=ticker + " Cumulative Returns Chart")
 
