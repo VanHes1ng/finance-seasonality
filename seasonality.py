@@ -24,7 +24,7 @@ ticker = st.sidebar.selectbox(
     'Choose a Ticker:', ('^GSPC', 'ETH-USD', 'BTC-USD', "^IXIC"))
 
 max_value = 2035
-year = st.slider("Start Year", min_value=1960, max_value=max_value, value=2022, step=1)
+year = st.slider("Start Year", min_value=1960, max_value=max_value, value=2000, step=1)
 
 # Download S&P 500 data from Yahoo Finance
 data = download_data(ticker, datetime.date(year, 1, 1), datetime.date(max_value, 1, 1))
