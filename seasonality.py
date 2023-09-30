@@ -28,7 +28,7 @@ start_date = st.sidebar.date_input("Start Date", datetime.date(year, 1, 1), min_
 end_date = st.sidebar.date_input("End Date", datetime.date(2050, 1, 1))
 
 # Download S&P 500 data from Yahoo Finance
-data = download_data(ticker, start_date, end_date)
+data = download_data(ticker, datetime.date(year, 1, 1), end_date)
 
 # Set the app title and sidebar description
 if ticker == "^GSPC":
