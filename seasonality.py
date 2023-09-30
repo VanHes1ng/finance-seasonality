@@ -17,7 +17,7 @@ def download_data(ticker, start_date, end_date):
 # Titles
 st.header("Seasonality Performance", divider="gray")
 
-st.sidebar.header("Settings")
+st.sidebar.header("Seasonality")
 
 # User Inputs
 ticker = st.sidebar.selectbox(
