@@ -12,4 +12,3 @@ Pillow
 fredapi
 
 datetime
-pandas-datareader
