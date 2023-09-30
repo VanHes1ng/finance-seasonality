@@ -21,7 +21,7 @@ st.sidebar.header("Seasonality")
 
 # User Inputs
 ticker = st.sidebar.selectbox(
-    'Choose a Ticker:', ('^GSPC', 'ETH-USD', 'BTC-USD', "^IXIC"))
+    'Ticker:', ('^GSPC', 'ETH-USD', 'BTC-USD', "^IXIC"))
 
 max_value = 2035
 year = st.slider("Start Year", min_value=1960, max_value=max_value, value=2000, step=1)
