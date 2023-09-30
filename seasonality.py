@@ -47,7 +47,7 @@ monthly_returns = monthly_returns.dropna()
 y=(1 + log_returns).cumprod()
 
 # Add a drop-down box to select a month
-selected_month = st.sidebar.selectbox("Select a Month", range(1, 13), index=8)  # Default to September (index 8)
+selected_month = st.selectbox("Select a Month", range(1, 13), index=8)  # Default to September (index 8)
 
 # Filter data for the selected month
 selected_month_data = data[data.index.month == selected_month]
@@ -59,13 +59,17 @@ ret = go.Figure()
 ret.add_trace(go.Line(x=data.index, y=y,
                       line=dict(color='gray', width=2)))
 
+# Calculate the start and end dates for the selected month
+start_date = selected_month_data.index[0]
+end_date = selected_month_data.index[-1]
+
 # Highlight the selected month with a light gray background
 ret.add_shape(
     go.layout.Shape(
         type="rect",
-        x0=selected_month_data.index[0],
-        x1=selected_month_data.index[-1],
-        y0=0,
+        x0=start_date,
+        x1=end_date,
+        y0=min(y),
         y1=max(y),
         fillcolor="rgba(220, 220, 220, 0.5)",
         layer="below",
