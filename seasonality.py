@@ -14,10 +14,8 @@ def download_data(ticker, start_date, end_date):
     data = yf.download(ticker, start=start_date, end=end_date)
     return data
 
-
-
 # Titles
-st.header("Seasonality Performance", divider="blue")
+st.header("Seasonality Performance", divider="gray")
 
 st.sidebar.header("Settings")
 
@@ -51,8 +49,10 @@ monthly_returns = monthly_returns.dropna()
 y=(1 + log_returns).cumprod()
 
 # Plot the price chart
-ret = (go.Figure(data=[go.Line(x=data.index, y=y)]))
-ret.update_layout(title = ticker + " Cumulative Returns Chart")
+
+df = pd.DataFrame(data)
+fig = px.line(df, x="Date", y="Adj Close", color='gray')
+
 
 # Display the data if desired
 if st.checkbox("Show Raw Data"):
@@ -100,6 +100,6 @@ percentage_changes_fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolo
 
 
 # Streamlit integration
-st.plotly_chart(ret, use_container_width=True)
+st.plotly_chart(fig, use_container_width=True)
 st.plotly_chart(heatmap_fig, use_container_width=True)
 st.plotly_chart(percentage_changes_fig, use_container_width=True)
