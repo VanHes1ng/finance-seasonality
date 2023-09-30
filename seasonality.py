@@ -17,7 +17,7 @@ st.sidebar.header("Settings")
 
 # User Inputs
 ticker = st.sidebar.selectbox(
-    'Choose a Ticker:', ('^GSPC', 'ETH-USD', 'BTC-USD', "^IXIC"))
+    'Choose a Ticker:', ['^GSPC', 'ETH-USD', 'BTC-USD', "^IXIC"])
 
 end_date = st.sidebar.date_input("End Date", datetime.date(2025, 1, 1))
 year = st.slider("Start Year", 1960, 2025, 1990)
