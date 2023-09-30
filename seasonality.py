@@ -46,9 +46,6 @@ monthly_returns = monthly_returns.dropna()
 
 y=(1 + log_returns).cumprod()
 
-# Add a drop-down box to select a month
-selected_month = st.selectbox("Select a Month", range(1, 13), index=8)  # Default to September (index 8)
-
 # Plot the cumulative returns chart
 ret = go.Figure()
 
@@ -63,8 +60,7 @@ ret.add_trace(go.Scatter(x=data.index, y=y,
                       mode='lines',
                       fill='tozeroy',
                       fillcolor='rgba(220, 220, 220, 0.5)',
-                      line=dict(color='rgba(255, 255, 255, 0)'),
-                      name='Selected Month'))
+                      line=dict(color='rgba(255, 255, 255, 0)')))
 
 ret.update_layout(title=ticker + " Cumulative Returns Chart")
 
