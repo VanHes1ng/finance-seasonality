@@ -47,7 +47,7 @@ monthly_returns = monthly_returns.dropna()
 y=(1 + log_returns).cumprod()
 
 # Add a drop-down box to select a month
-selected_month = st.selectbox("Select a Month", range(1, 13), index=8)  # Default to September (index 8)
+selected_month = st.sidebar.selectbox("Select a Month", range(1, 13), index=8)  # Default to September (index 8)
 
 # Filter data for the selected month
 selected_month_data = data[data.index.month == selected_month]
