@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
 import datetime
+from pandas_datareader import data as pdr
 
 # Page Configurations
 st.set_page_config(layout="wide", initial_sidebar_state="expanded", page_icon= "〰️")
@@ -23,10 +24,11 @@ end_date = st.sidebar.date_input("End Date", datetime.date(2025, 1, 1))
 year = st.slider("Start Year", 1960, 2025, 1990)
 
 start_date = st.sidebar.date_input("Start Date", datetime.date(year, 7, 6), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2035, 1, 1))
-
+yf.pdr_override()
 # Download S&P 500 data from Yahoo Finance
-data = yf.download(ticker, start=start_date, end=end_date, period="1d")
+#data = yf.download(ticker, start=start_date, end=end_date, period="1d")
 
+data = pdr.get_data_yahoo(ticker, start=start_date, end=end_date, period="1d")
 
 # Set the app title and sidebar description
 if ticker == "^GSPC":
