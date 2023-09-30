@@ -23,12 +23,11 @@ st.sidebar.header("Settings")
 ticker = st.sidebar.selectbox(
     'Choose a Ticker:', ('^GSPC', 'ETH-USD', 'BTC-USD', "^IXIC"))
 
-year = st.slider("Start Year", min_value=1960, max_value=2023, value=2022, step=1)
-start_date = st.sidebar.date_input("Start Date", datetime.date(year, 1, 1), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2050, 1, 1))
-end_date = st.sidebar.date_input("End Date", datetime.date(2050, 1, 1))
+max_value = 2035
+year = st.slider("Start Year", min_value=1960, max_value=max_value, value=2022, step=1)
 
 # Download S&P 500 data from Yahoo Finance
-data = download_data(ticker, datetime.date(year, 1, 1), end_date)
+data = download_data(ticker, datetime.date(year, 1, 1), datetime.date(max_value, 1, 1))
 
 # Set the app title and sidebar description
 if ticker == "^GSPC":
