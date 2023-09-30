@@ -110,3 +110,10 @@ percentage_changes_fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolo
 st.plotly_chart(ret, use_container_width=True)
 st.plotly_chart(heatmap_fig, use_container_width=True)
 st.plotly_chart(percentage_changes_fig, use_container_width=True)
+
+st.write(
+    "About\n",
+    "\nSeasonality Performance is not a financial advisor\n",
+    "\nMade with Streamlit v1.26.0 https://streamlit.io\n",
+    "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
+)
