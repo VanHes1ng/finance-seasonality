@@ -48,18 +48,34 @@ monthly_returns = monthly_returns.dropna()
 
 y=(1 + log_returns).cumprod()
 
-# Plot the price chart
+# Add a drop-down box to select a month
+selected_month = st.selectbox("Select a Month", range(1, 13), index=8)  # Default to September (index 8)
+
+# Filter data for the selected month
+selected_month_data = data[data.index.month == selected_month]
+
+# Plot the cumulative returns chart
 ret = go.Figure()
+
 # Create and style traces
 ret.add_trace(go.Line(x=data.index, y=y,
-                         line=dict(color='gray', width=2)))
+                      line=dict(color='gray', width=2)))
 
-ret.update_layout(title = ticker + " Cumulative Returns Chart")
+# Highlight the selected month with a light gray background
+ret.add_shape(
+    go.layout.Shape(
+        type="rect",
+        x0=selected_month_data.index[0],
+        x1=selected_month_data.index[-1],
+        y0=0,
+        y1=max(y),
+        fillcolor="rgba(220, 220, 220, 0.5)",
+        layer="below",
+        line=dict(width=0),
+    )
+)
 
-# Display the data if desired
-if st.checkbox("Show Raw Data"):
-    st.write(data)
-
+ret.update_layout(title=ticker + " Cumulative Returns Chart")
 
 # Create a DataFrame for monthly returns
 monthly_returns_df = pd.DataFrame({'Date': monthly_returns.index, 'Monthly_Return': monthly_returns.values})
