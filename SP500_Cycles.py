@@ -25,6 +25,7 @@ st.set_page_config(
 )
 
 # Define a function to download S&P 500 data
+@st.cache(allow_output_mutation=True)
 def download_data(ticker, start_date, end_date):
     data = yf.download(ticker, start=start_date, end=end_date)
     return data
