@@ -155,8 +155,8 @@ data["SMA_26"] = data["Adj Close"].rolling(window=26).mean()
 data["MACD"] = ((data["SMA_12"] - data["SMA_26"]).rolling(window=9).mean())
 
 # Calculate weighted average of indicators
-data["AVG"] = calculate_weighted_avg(data, weights)[-2]
-data["AVG_6"] = data["AVG"].rolling(window=6).mean()[-2]
+data["AVG"] = calculate_weighted_avg(data, weights)
+data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 
 # Apply the Savitzky-Golay filter to AVG and AVG_6
 apply_savgol_filter(data, "AVG", window_length, polyorder)
