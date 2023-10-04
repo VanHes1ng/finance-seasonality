@@ -6,10 +6,7 @@ import plotly.graph_objects as go
 from scipy.signal import savgol_filter
 from PIL import Image
 import datetime
-import streamlit_analytics
-
-
-streamlit_analytics.start_tracking()
+ 
 
 # Set up the Streamlit app configuration
 st.set_page_config(
@@ -214,4 +211,3 @@ st.write(
     "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
 )
 
-streamlit_analytics.stop_tracking()
