@@ -22,8 +22,11 @@ def z_score(src, length):
     z = (src-basis)/ stdv
     return z
 
+col1, col2, col3 = st.columns([1, 3, 2])
+
 # Inputs
-year = st.slider("Start Year", 1960, 2030, 2023)
+with col2:
+    year = st.slider("Start Year", 1960, 2030, 2023)
 start_year = datetime.datetime(year, 1, 1)
 
 # Get data
@@ -36,7 +39,6 @@ data["VIX"] = vix["Close"]
 
 data["Z"] = z_score(data["VIX"], 20)
 
-col1, col2, col3 = st.columns([1, 3, 2])
 
 with col2:
     st.subheader("SPY")
