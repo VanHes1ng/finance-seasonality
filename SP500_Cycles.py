@@ -95,8 +95,8 @@ st.subheader(':gray[Special Edition]')
 
 # Sidebar
 image = Image.open('pngegg.png')
-st.sidebar.image(image)
-st.sidebar.header("Settings")
+#st.sidebar.image(image)
+#st.sidebar.header("Settings")
 
 # User Inputs
 option = st.selectbox(
@@ -104,22 +104,22 @@ option = st.selectbox(
     ('AVG', 'ROC', 'Sortino', 'Sharpe', 'MACD', 'Z Score'))
 
 year = st.slider("Start Year", min_value=1960, max_value=2023, value=2022, step=1)
-start_date = st.sidebar.date_input("Start Date", datetime.date(year, 1, 1), min_value=datetime.date(1960, 1, 1), max_value=datetime.date(2050, 1, 1))
+start_date = datetime.date(year, 1, 1)
 end_date = datetime.datetime.now().strftime('%Y-%m-%d')
 
 
-st.sidebar.subheader("Weights")
+#st.sidebar.subheader("Weights")
 weights = {
-    "ROC": st.sidebar.number_input('ROC Weight', 1, 100, 10),
-    "Z Score": st.sidebar.number_input('Z Score Weight', 1, 100, 70),
-    "Sharpe Ratio": st.sidebar.number_input('Sharpe Score Weight', 1, 100, 50),
-    "Sortino Ratio": st.sidebar.number_input('Sortino Weight', 1, 100, 100),
-    "MACD": st.sidebar.number_input('MACD Weight', 1, 100, 1)
+    "ROC": 10,
+    "Z Score": 70,
+    "Sharpe Ratio": 50,
+    "Sortino Ratio": 100,
+    "MACD": 1
 }
 
-st.sidebar.subheader("Smooth AVG")
-window_length = st.sidebar.number_input('Window length', 1, 100, 40)
-polyorder = st.sidebar.number_input('Polyorder', 1, 100, 6)
+#st.sidebar.subheader("Smooth AVG")
+#window_length = st.sidebar.number_input('Window length', 1, 100, 40)
+#polyorder = st.sidebar.number_input('Polyorder', 1, 100, 6)
 
 
 
@@ -156,8 +156,8 @@ data["AVG"] = calculate_weighted_avg(data, weights)
 data["AVG_6"] = data["AVG"].rolling(window=6).mean()
 
 # Apply the Savitzky-Golay filter to AVG and AVG_6
-apply_savgol_filter(data, "AVG", window_length, polyorder)
-apply_savgol_filter(data, "AVG_6", window_length, polyorder)
+apply_savgol_filter(data, "AVG", 40, 6)
+apply_savgol_filter(data, "AVG_6", 40, 6)
 
 # Plot the main chart
 if option == 'AVG':
