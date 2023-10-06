@@ -30,6 +30,8 @@ data = pd.DataFrame()
 data["SPY"] = spy["Adj Close"]
 data["VIX"] = spy["Close"]
 
-z_spy = data["SPY"]
+data["Z"] = z_score(spy["Adj Close"], 20)
 
 st.line_chart(data, y = "SPY")
+
+st.line_chart(data, y = "Z")
