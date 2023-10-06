@@ -88,24 +88,25 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
 
 
 
-
+col1, col2, col3 = st.columns([1, 4, 1])
+with col2:
 # Main content
-st.header(':green[SPY] Economic Cycles', divider='rainbow')
-st.subheader(':gray[Special Edition]')
+    st.header(':green[SPY] Economic Cycles', divider='rainbow')
+    st.subheader(':gray[Special Edition]')
 
-# Sidebar
-image = Image.open('pngegg.png')
-#st.sidebar.image(image)
-#st.sidebar.header("Settings")
+    # Sidebar
+    image = Image.open('pngegg.png')
+    #st.sidebar.image(image)
+    #st.sidebar.header("Settings")
 
-# User Inputs
-option = st.selectbox(
-    'Plotting Indicator:',
-    ('AVG', 'ROC', 'Sortino', 'Sharpe', 'MACD', 'Z Score'))
+    # User Inputs
+    option = st.selectbox(
+        'Plotting Indicator:',
+        ('AVG', 'ROC', 'Sortino', 'Sharpe', 'MACD', 'Z Score'))
 
-year = st.slider("Start Year", min_value=1960, max_value=2023, value=2022, step=1)
-start_date = datetime.date(year, 1, 1)
-end_date = datetime.datetime.now().strftime('%Y-%m-%d')
+    year = st.slider("Start Year", min_value=1960, max_value=2023, value=2022, step=1)
+    start_date = datetime.date(year, 1, 1)
+    end_date = datetime.datetime.now().strftime('%Y-%m-%d')
 
 
 #st.sidebar.subheader("Weights")
@@ -179,35 +180,36 @@ elif option == 'Z Score':
     y2 = data["Z Score"]
     y3 = data["Z Score"]
 
-plot_with_secondary_y(data.index, data["Adj Close"], y2, y3, "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="#2d3745", y2_color="#02b32e", y3_color="red")
-
-# Style
-with open('style.css') as f:
-    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-st.markdown("### Indicators")
-
-# Plot individual indicators
-col1, col2 = st.columns(2, gap='small')
-
-with col1:
-   plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
 with col2:
-   plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
-with col1:
-    plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid')
-with col2: 
-    plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid')
+    plot_with_secondary_y(data.index, data["Adj Close"], y2, y3, "SPY Cycles", y1_name="Closing Price", y2_name="AVG", y3_name="", y1_color="#2d3745", y2_color="#02b32e", y3_color="red")
 
-plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
+    # Style
+    with open('style.css') as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# Additional information
-st.image(image)
+    st.markdown("### Indicators")
 
-st.write(
-    "About\n",
-    "\nS&P Cycles is not a financial advisor\n",
-    "\nMade with Streamlit v1.26.0 https://streamlit.io\n",
-    "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
-)
+    # Plot individual indicators
+    col1, col2 = st.columns(2, gap='small')
+
+    with col1:
+        plot(data.index, data["Sharpe Ratio"], title="Sharpe Ratio", line_style='solid')
+    with col2:
+        plot(data.index, data["Sortino Ratio"], title="Sortino Ratio", line_color='orange', line_style='solid')
+    with col1:
+        plot(data.index, data["ROC"], title="Rate of Change", line_color='green', line_style='solid')
+    with col2: 
+        plot(data.index, data["Z Score"], title="Z Score", line_color='purple', line_style='solid')
+
+    plot(data.index, data["MACD"], title="MACD", line_color='blue', is_histogram=True)
+
+    # Additional information
+    st.image(image)
+
+    st.write(
+        "About\n",
+        "\nS&P Cycles is not a financial advisor\n",
+        "\nMade with Streamlit v1.26.0 https://streamlit.io\n",
+        "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
+    )
 
