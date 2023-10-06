@@ -37,8 +37,8 @@ data["VIX"] = vix["Close"]
 data["Z"] = z_score(data["VIX"], 20)
 
 st.subheader("SPY")
-st.line_chart(data, y = "SPY", color="#26afd1",height = 300, width=1000)
+st.line_chart(data, y = "SPY", color="#26afd1",height = 300, width=1200)
 
 st.subheader("VIX")
-st.line_chart(data, y = "VIX", color= "#d1a626", height = 300, width=1000)
-st.line_chart(data, y = "Z", color="#26d128", height = 150, width=1000)
+st.line_chart(data, y = "VIX", color= "#d1a626", height = 300, width=1200)
+st.line_chart(data, y = "Z", color="#26d128", height = 150, width=1200)
