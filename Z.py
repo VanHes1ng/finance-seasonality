@@ -84,7 +84,7 @@ with col33:
 with col22:
     st.write(
         "About\n",
-        "\nS&P Cycles is not a financial advisor\n",
+        "\nThis site is not a financial advisor\n",
         "\nMade with Streamlit v1.26.0 https://streamlit.io\n",
         "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
     )
