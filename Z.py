@@ -59,3 +59,5 @@ with col33:
                  with the price of each option representing the market's expectation of 30-day forward-looking volatility.
                  The resulting VIX index formulation provides a measure of expected market volatility 
                  on which expectations of further stock market volatility in the near future might be based""")
+    st.subheader("")
+    st.markdown("Z Scores of VIX")
