@@ -10,7 +10,7 @@ import numpy as np
 
 # Define a function to download S&P 500 data
 def download_data(ticker):
-    data = yf.download(ticker)
+    data = yf.download(ticker, start= "2015-01-01")
     return data
 
 def z_score(src, length):
