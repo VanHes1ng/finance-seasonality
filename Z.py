@@ -81,3 +81,9 @@ with col33:
                 Z-scores may be positive or negative, with a positive value indicating the score is above the mean 
                  and a negative score indicating it is below the mean.""")
     
+st.write(
+    "About\n",
+    "\nS&P Cycles is not a financial advisor\n",
+    "\nMade with Streamlit v1.26.0 https://streamlit.io\n",
+    "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
+)
