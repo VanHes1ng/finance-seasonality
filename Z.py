@@ -23,6 +23,7 @@ def z_score(src, length):
     return z
 
 col1, col2, col3 = st.columns([1, 3, 2])
+col11, col22, col33 = st.columns([1, 3, 2])
 
 # Inputs
 with col2:
@@ -43,10 +44,10 @@ data["Z"] = z_score(data["VIX"], 20)
 with col2:
     st.subheader("SPY")
     st.line_chart(data, y = "SPY", color="#26afd1",height = 300, use_container_width=True)
-
+with col22:
     st.subheader("VIX")
     st.line_chart(data, y = "VIX", color= "#d1a626", height = 300, use_container_width=True)
     st.line_chart(data, y = "Z", color="#26d128", height = 150, use_container_width=True)
 
-with col3:
+with col22:
     st.markdown("SPY and VIX data")
