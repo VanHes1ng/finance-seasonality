@@ -11,4 +11,3 @@ Pillow
 
 datetime
 streamlit-analytics
-altair
