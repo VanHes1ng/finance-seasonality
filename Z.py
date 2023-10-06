@@ -8,6 +8,19 @@ from PIL import Image
 import datetime
 import numpy as np
 
+# Set up the Streamlit app configuration
+st.set_page_config(
+    page_title="S&P Cycles",
+    page_icon="S",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': "https://twitter.com/sxJEoRg7wwLR6ug",
+        'Report a bug': "https://twitter.com/sxJEoRg7wwLR6ug",
+        'About': "This site is not a financial advisor"
+    }
+)
+
 # Define a function to download S&P 500 data
 @st.cache_data(ttl=3600)
 def download_data(ticker, start):
