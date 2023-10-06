@@ -32,4 +32,4 @@ data["VIX"] = spy["Close"]
 
 z_spy = data["SPY"]
 
-st.line_chart(data, y = z_spy)
+st.line_chart(data, y = "SPY")
