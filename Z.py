@@ -35,8 +35,8 @@ def z_score(src, length):
     z = (src-basis)/ stdv
     return z
 
-col1,  col2,  col3  = st.columns([1, 3, 2])
-col11, col22, col33 = st.columns([1, 3, 2])
+col1,  col2,  col3  = st.columns([1, 4, 3])
+col11, col22, col33 = st.columns([1, 4, 3])
 
 # Inputs
 with col2:
