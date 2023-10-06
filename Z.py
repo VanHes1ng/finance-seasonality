@@ -9,8 +9,8 @@ import datetime
 import numpy as np
 
 # Define a function to download S&P 500 data
-def download_data(ticker):
-    data = yf.download(ticker, start= "2021-01-01")
+def download_data(ticker, start):
+    data = yf.download(ticker, start= start)
     return data
 
 def z_score(src, length):
@@ -21,10 +21,13 @@ def z_score(src, length):
     z = (src-basis)/ stdv
     return z
 
+# Inputs
+year = st.slider("Start Year", 1960, 2030, 2022)
+start_year = datetime.datetime(year, 1, 1)
 
 # Get data
-spy = download_data("^GSPC")
-vix = download_data("^VIX")
+spy = download_data("^GSPC", start_year)
+vix = download_data("^VIX", start_year)
 
 data = pd.DataFrame()
 data["SPY"] = spy["Adj Close"]
