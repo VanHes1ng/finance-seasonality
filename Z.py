@@ -61,4 +61,7 @@ with col33:
                  on which expectations of further stock market volatility in the near future might be based""")
     st.subheader("")
     st.markdown("**Z Scores of VIX**")
-    st.markdown("Z Scores of VIX")
+    st.markdown("""In statistics, the standard score is the number of standard deviations by which the value of a raw score 
+                (i.e., an observed value or data point)
+                 is above or below the mean value of what is being observed or measured. 
+                Raw scores above the mean have positive standard scores, while those below the mean have negative standard scores.""")
