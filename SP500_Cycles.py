@@ -80,7 +80,7 @@ def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_nam
     
     fig.add_trace(go.Line(x=x, y=y3, mode='lines', name=y3_name, line=dict(color=y3_color), yaxis='y3'))
     
-    fig.update_layout(title=title, height=500)
+    fig.update_layout(title=title, height=600)
 
     fig.update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='gray')
 
