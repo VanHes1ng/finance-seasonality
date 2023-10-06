@@ -22,7 +22,7 @@ def z_score(src, length):
     return z
 
 # Inputs
-year = st.slider("Start Year", 1960, 2030, 2022)
+year = st.slider("Start Year", 1960, 2030, 2023)
 start_year = datetime.datetime(year, 1, 1)
 
 # Get data
