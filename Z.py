@@ -9,6 +9,7 @@ import datetime
 import numpy as np
 
 # Define a function to download S&P 500 data
+@st.cache_data(ttl=3600)
 def download_data(ticker, start):
     data = yf.download(ticker, start= start)
     return data
@@ -36,8 +37,8 @@ data["VIX"] = vix["Close"]
 data["Z"] = z_score(data["VIX"], 20)
 
 st.subheader("SPY")
-st.line_chart(data, y = "SPY", color="#26afd1",height = 600)
+st.line_chart(data, y = "SPY", color="#26afd1",height = 400)
 st.subheader("VIX")
-st.line_chart(data, y = "VIX", color="#d1a626", height = 600)
+st.line_chart(data, y = "VIX", color="#d1a626", height = 400)
 
 st.line_chart(data, y = "Z", color="#26d128")
