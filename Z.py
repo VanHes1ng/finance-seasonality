@@ -60,4 +60,5 @@ with col33:
                  The resulting VIX index formulation provides a measure of expected market volatility 
                  on which expectations of further stock market volatility in the near future might be based""")
     st.subheader("")
+    st.markdown("**Z Scores of VIX**")
     st.markdown("Z Scores of VIX")
