@@ -47,7 +47,7 @@ def plot(x, y, title, line_color='blue', line_style='solid', is_histogram=False)
         data_fig = go.Figure(data=[go.Line(x=x, y=y, mode='lines', line=dict(color=line_color, dash=line_style))])
     
     data_fig.update_layout(title=title)
-    st.plotly_chart(data_fig, use_container_width=True, theme=None)
+    st.plotly_chart(data_fig, use_container_width=True)
 
 # Define a function to plot data with secondary y-axes
 def plot_with_secondary_y(x, y1, y2, y3, title, y1_name='Primary Y-Axis', y2_name='Secondary Y-Axis', y3_name='Tertiary Y-Axis', y1_color='blue', y2_color='red', y3_color='green'):
