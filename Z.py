@@ -9,8 +9,8 @@ import datetime
 import numpy as np
 
 # Define a function to download S&P 500 data
-def download_data(ticker, start_date, end_date):
-    data = yf.download(ticker, start=start_date, end=end_date)
+def download_data(ticker):
+    data = yf.download(ticker)
     return data
 
 def z_score(src, length):
