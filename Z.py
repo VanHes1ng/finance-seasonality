@@ -52,4 +52,9 @@ with col22:
 with col33:
     st.markdown("""VIX is the ticker symbol and the popular name for the Chicago Board Options Exchange's CBOE Volatility Index, 
                 a popular measure of the stock market's expectation of volatility based on S&P 500 index options. 
-                It is calculated and disseminated on a real-time basis by the CBOE, and is often referred to as the fear index or fear gauge.""")
+                It is calculated and disseminated on a real-time basis by the CBOE, and is often referred to as the fear index or fear gauge.
+                To summarize, 
+                 VIX is a volatility index derived from S&P 500 options for the 30 days following the measurement date,
+                 with the price of each option representing the market's expectation of 30-day forward-looking volatility.
+                 The resulting VIX index formulation provides a measure of expected market volatility 
+                 on which expectations of further stock market volatility in the near future might be based""")
