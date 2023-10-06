@@ -60,7 +60,7 @@ with col2:
 with col22:
     st.subheader("VIX")
     st.line_chart(data, y = "VIX", color= "#d1a626", height = 300, use_container_width=True)
-    st.line_chart(data, y = "Z", color="#26d128", height = 150, use_container_width=True)
+    st.line_chart(data, y = "Z", color="#26d128", height = 250, use_container_width=True)
 
 with col33:
     st.subheader("CBOE Volatility Index")
