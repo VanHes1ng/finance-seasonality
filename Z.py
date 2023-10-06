@@ -40,7 +40,7 @@ col11, col22, col33 = st.columns([1, 3, 2])
 
 # Inputs
 with col2:
-    year = st.slider("Start Year", 1960, 2030, 2023)
+    year = st.slider("Start Year", 1960, 2023, 2020)
 start_year = datetime.datetime(year, 1, 1)
 
 # Get data
