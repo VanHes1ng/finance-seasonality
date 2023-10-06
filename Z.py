@@ -62,6 +62,5 @@ with col33:
     st.subheader("")
     st.markdown("**Z Scores of VIX**")
     st.markdown("""In statistics, the standard score is the number of standard deviations by which the value of a raw score 
-                (i.e., an observed value or data point)
-                 is above or below the mean value of what is being observed or measured. 
+                (i.e., an observed value or data point) is above or below the mean value of what is being observed or measured. 
                 Raw scores above the mean have positive standard scores, while those below the mean have negative standard scores.""")
