@@ -28,10 +28,11 @@ vix = download_data("^VIX")
 
 data = pd.DataFrame()
 data["SPY"] = spy["Adj Close"]
-data["VIX"] = spy["Close"]
+data["VIX"] = vix["Close"]
 
-data["Z"] = z_score(spy["Adj Close"], 20)
+data["Z"] = z_score(data["VIX"], 20)
 
 st.line_chart(data, y = "SPY")
+st.line_chart(data, y = "VIX")
 
 st.line_chart(data, y = "Z")
