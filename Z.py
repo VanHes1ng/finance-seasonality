@@ -22,7 +22,7 @@ def z_score(src, length):
     z = (src-basis)/ stdv
     return z
 
-col1, col2, col3 = st.columns([1, 3, 2])
+col1,  col2,  col3  = st.columns([1, 3, 2])
 col11, col22, col33 = st.columns([1, 3, 2])
 
 # Inputs
@@ -50,4 +50,6 @@ with col22:
     st.line_chart(data, y = "Z", color="#26d128", height = 150, use_container_width=True)
 
 with col33:
-    st.markdown("SPY and VIX data")
+    st.markdown("""VIX is the ticker symbol and the popular name for the Chicago Board Options Exchange's CBOE Volatility Index, 
+                a popular measure of the stock market's expectation of volatility based on S&P 500 index options. 
+                It is calculated and disseminated on a real-time basis by the CBOE, and is often referred to as the fear index or fear gauge.""")
