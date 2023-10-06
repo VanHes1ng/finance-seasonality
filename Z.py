@@ -7,6 +7,7 @@ from scipy.signal import savgol_filter
 from PIL import Image
 import datetime
 import numpy as np
+import altair as alt
 
 # Set up the Streamlit app configuration
 st.set_page_config(
@@ -80,3 +81,8 @@ with col33:
                 A Z-score of 1.0 would indicate a value that is one standard deviation from the mean.
                 Z-scores may be positive or negative, with a positive value indicating the score is above the mean 
                  and a negative score indicating it is below the mean.""")
+    
+
+chart = (alt.Chart(data).mark_line().encode(x=data.index, y="VIX"))
+
+st.altair_chart(chart, use_container_width=True)
