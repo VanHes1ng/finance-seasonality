@@ -91,6 +91,7 @@ with col33:
                  The resulting VIX index formulation provides a measure of expected market volatility 
                  on which expectations of further stock market volatility in the near future might be based""")
     st.write("#")
+    st.write("#")
     st.markdown("**Z Scores of VIX**")
     st.markdown("""Z-score is a statistical measurement that describes a value's relationship to the mean of a group of values. 
                 Z-score is measured in terms of standard deviations from the mean. If a Z-score is 0, 
