@@ -102,11 +102,13 @@ with col22:
         st.metric(label="Z-Score", value=z_sc, delta=delta,
         delta_color="normal")
     with colu2:
-        if z_sc > 0 and delta < 0:
-            st.markdown("""
-                     Z score is positive and decrising. 
-                     Probability of VIX moving down and SPY up is high
-                     """)
+        st.markdown("""
+                    When the Z-scored VIX indicator exceeds the +2 standard deviation mark, 
+                    the system forecasts mean reversion and decreasing volatility and the possibility of an upward trend in SPY. 
+                    
+                    When the Z-scored VIX indicator falls below -2 standard deviations, 
+                    the system predicts future increasing volatility and the possibility of a downward trend in SPY. 
+                    """)
 
 with col33:
     st.markdown("***")
