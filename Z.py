@@ -95,7 +95,7 @@ with col22:
     st.line_chart(data, y = "Z", color="#26d128", height = 250, use_container_width=True)
     
     st.markdown("***")
-    colu1, colu2 = st.columns([1, 3])
+    colu1, colu2 = st.columns([1, 2])
     with colu1:
         z_sc = np.round(data["Z"].iloc[-1], 2)
         delta = np.round(data["Z"].iloc[-1] - data["Z"].iloc[-2], 2)
