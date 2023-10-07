@@ -103,7 +103,7 @@ with col22:
         delta_color="normal")
     with colu2:
         if z_sc > 0 and delta < 0:
-            st.write("""
+            st.markdown("""
                      Z score is positive and decrising. 
                      Probability of VIX moving down and SPY up is high
                      """)
