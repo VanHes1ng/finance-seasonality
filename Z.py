@@ -61,7 +61,7 @@ def space(number):
         st.write("#")
 
 
-_,  col_2,  _  = st.columns([0.5, 3, 0.5])
+_,  col_2,  _  = st.columns([0.5, 4, 0.5])
 col_2.header("SPY Volatility Direction Index", divider="blue")
 
 col1,  col2,  col3, _  = st.columns([1, 4, 3, 0.5])
