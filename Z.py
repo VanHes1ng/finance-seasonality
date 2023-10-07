@@ -74,11 +74,13 @@ with col2:
     st.line_chart(data, y = "SPY", color="#26afd1",height = 300, use_container_width=True)
 
 with col22:
+    st.write("--")
     st.subheader("VIX")
     st.line_chart(data, y = "VIX", color= "#d1a626", height = 300, use_container_width=True)
     st.line_chart(data, y = "Z", color="#26d128", height = 250, use_container_width=True)
 
 with col33:
+    st.write("--")
     st.subheader("CBOE Volatility Index")
     st.markdown("""VIX is the ticker symbol and the popular name for the Chicago Board Options Exchange's CBOE Volatility Index, 
                 a popular measure of the stock market's expectation of volatility based on S&P 500 index options. 
