@@ -21,6 +21,15 @@ st.set_page_config(
     }
 )
 
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 # Define a function to download S&P 500 data
 @st.cache_data(ttl=3600)
 def download_data(ticker, start, end):
