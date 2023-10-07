@@ -53,7 +53,7 @@ def space(number):
 
 
 _,  col_2,  _  = st.columns([0.5, 3, 0.5])
-col_2.header("SPY Volatility Direction Index", divider="blue")
+col_2.header("          SPY Volatility Direction Index", divider="blue")
 
 col1,  col2,  col3, _  = st.columns([1, 4, 3, 0.5])
 col11, col22, col33, _ = st.columns([1, 4, 3, 0.5])
