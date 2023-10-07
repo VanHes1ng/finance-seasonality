@@ -69,7 +69,7 @@ with col3:
             This information aids users in considering investment strategies that align with potential market improvements.
             Conversely, when the VIX suggests increasing volatility, indicating potential market turbulence, 
             the system helps users consider strategies that account for potential market downturns.""")
-    year = st.slider("Select Start Year:", 1960, 2023, 2020)
+    year = st.slider("  **Select Start Year:**", 1960, 2023, 2020)
 start_year = datetime.datetime(year, 1, 1)
 
 # Get data
