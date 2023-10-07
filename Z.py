@@ -40,6 +40,7 @@ col11, col22, col33, _ = st.columns([1, 4, 3, 0.5])
 
 # Inputs
 with col2:
+    st.title("SPY volatility direction")
     year = st.slider("Start Year", 1960, 2023, 2020)
 start_year = datetime.datetime(year, 1, 1)
 
@@ -55,7 +56,6 @@ data["Z"] = z_score(data["VIX"], 20)
 
 
 with col2:
-    st.title("SPY volatility direction")
     st.subheader("SPY")
     st.line_chart(data, y = "SPY", color="#26afd1",height = 300, use_container_width=True)
 with col3:
@@ -64,7 +64,7 @@ with col3:
                 enabling users to make informed decisions regarding their investments without directly executing trades. 
                 It leverages the VIX (CBOE Volatility Index) as a key indicator for predicting trends, 
                 in the SPY (S&P 500 ETF) market.
-                
+
                 When the VIX indicates decreasing volatility, suggesting a more stable market environment, 
                 the system implies that SPY may experience an upward trend. 
                 This information aids users in considering investment strategies that align with potential market improvements.
