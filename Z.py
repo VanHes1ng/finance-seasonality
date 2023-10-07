@@ -84,7 +84,7 @@ data["Z"] = z_score(data["VIX"], 20)
 
 
 with col2:
-    st.title("SPY Volatility Direction Index")
+    st.header("SPY Volatility Direction Index", divider="blue")
     st.divider()
     st.subheader("SPY")
     st.line_chart(data, y = "SPY", color="#26afd1",height = 300, use_container_width=True)
