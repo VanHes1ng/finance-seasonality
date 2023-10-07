@@ -23,8 +23,8 @@ st.set_page_config(
 
 # Define a function to download S&P 500 data
 @st.cache_data(ttl=3600)
-def download_data(ticker, start):
-    data = yf.download(ticker, start= start)
+def download_data(ticker, start, end):
+    data = yf.download(ticker, start= start, end=end)
     return data
 
 def z_score(src, length):
@@ -74,11 +74,13 @@ with col3:
             Conversely, when the VIX suggests increasing volatility, indicating potential market turbulence, 
             the system helps users consider strategies that account for potential market downturns.""")
     year = st.slider("  **Select Start Year:**", 1960, 2023, 2020)
+    end_year = st.slider("  **Select End Year:**", 1960, 2023, 2023)
 start_year = datetime.datetime(year, 1, 1)
+end_year = datetime.datetime(end_year, 1, 1)
 
 # Get data
-spy = download_data("^GSPC", start_year)
-vix = download_data("^VIX", start_year)
+spy = download_data("^GSPC", start_year, end=end_year)
+vix = download_data("^VIX", start_year, end=end_year)
 
 data = pd.DataFrame()
 data["SPY"] = spy["Adj Close"]
