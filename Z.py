@@ -93,8 +93,9 @@ with col22:
     st.subheader("VIX")
     st.line_chart(data, y = "VIX", color= "#d1a626", height = 300, use_container_width=True)
     st.line_chart(data, y = "Z", color="#26d128", height = 250, use_container_width=True)
-    z_sc = data["Z"].iloc[-1]
-    st.metric(label="Z-Score", value=z_sc, delta=z_sc-data["Z"].iloc[-2],
+    z_sc = np.round(data["Z"].iloc[-1], 2)
+    delta = np.round(data["Z"].iloc[-1] - data["Z"].iloc[-2], 2)
+    st.metric(label="Z-Score", value=z_sc, delta=delta,
     delta_color="inverse")
 
 with col33:
