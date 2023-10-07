@@ -38,9 +38,9 @@ def z_score(src, length):
 col1,  col2,  col3, _  = st.columns([1, 4, 3, 0.5])
 col11, col22, col33, _ = st.columns([1, 4, 3, 0.5])
 
+st.title("SPY volatility direction")
 # Inputs
 with col2:
-    st.title("SPY volatility direction")
     year = st.slider("Start Year", 1960, 2023, 2020)
 start_year = datetime.datetime(year, 1, 1)
 
