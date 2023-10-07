@@ -41,7 +41,7 @@ col11, col22, col33, _ = st.columns([1, 4, 3, 0.5])
 
 # Inputs
 with col3:
-    st.markdown("**")
+    st.markdown("***")
     st.markdown("""
             This system is designed to provide valuable insights into future market movements,
             enabling users to make informed decisions regarding their investments without directly executing trades. 
@@ -69,6 +69,7 @@ data["Z"] = z_score(data["VIX"], 20)
 
 with col2:
     st.title("SPY volatility direction")
+    st.markdown("***")
     st.subheader("SPY")
     st.line_chart(data, y = "SPY", color="#26afd1",height = 300, use_container_width=True)
 
