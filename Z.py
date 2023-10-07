@@ -95,13 +95,13 @@ with col22:
     st.line_chart(data, y = "Z", color="#26d128", height = 250, use_container_width=True)
     
     st.markdown("***")
-    colu1, colu2 = st.columns([1, 2])
-    with colu1:
+    colu1, colu2, colu3 = st.columns([1, 1, 2])
+    with colu2:
         z_sc = np.round(data["Z"].iloc[-1], 2)
         delta = np.round(data["Z"].iloc[-1] - data["Z"].iloc[-2], 2)
         st.metric(label="Z-Score", value=z_sc, delta=delta,
         delta_color="normal")
-    with colu2:
+    with colu3:
         st.markdown("""
                     When the Z-scored VIX indicator exceeds the +2 standard deviation mark, 
                     the system forecasts mean reversion and decreasing volatility and the possibility of an upward trend in SPY. 
