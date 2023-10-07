@@ -51,6 +51,10 @@ def space(number):
         st.write("#")
         st.write("#")
 
+
+
+st.header("SPY Volatility Direction Index", divider="blue")
+
 col1,  col2,  col3, _  = st.columns([1, 4, 3, 0.5])
 col11, col22, col33, _ = st.columns([1, 4, 3, 0.5])
 
@@ -82,9 +86,6 @@ data["VIX"] = vix["Close"]
 
 data["Z"] = z_score(data["VIX"], 20)
 
-
-
-st.header("SPY Volatility Direction Index", divider="blue")
 space(1)
 col2.subheader("SPY")
 col2.line_chart(data, y = "SPY", color="#26afd1",height = 300, use_container_width=True)
