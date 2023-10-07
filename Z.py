@@ -53,7 +53,7 @@ def space(number):
 
 
 _,  col_2,  _  = st.columns([0.5, 3, 0.5])
-col_2.header("          SPY Volatility Direction Index", divider="blue")
+col_2.header("SPY Volatility Direction Index", divider="blue")
 
 col1,  col2,  col3, _  = st.columns([1, 4, 3, 0.5])
 col11, col22, col33, _ = st.columns([1, 4, 3, 0.5])
@@ -61,7 +61,6 @@ col11, col22, col33, _ = st.columns([1, 4, 3, 0.5])
 
 # Inputs
 with col3:
-    space(4)
     st.markdown("""
             This system is designed to provide valuable insights into future market movements,
             enabling users to make informed decisions regarding their investments without directly executing trades. 
