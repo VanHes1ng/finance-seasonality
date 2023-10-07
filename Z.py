@@ -74,7 +74,7 @@ with col3:
             Conversely, when the VIX suggests increasing volatility, indicating potential market turbulence, 
             the system helps users consider strategies that account for potential market downturns.""")
     year = st.slider("  **Select Start Year:**", 1960, 2023, 2020)
-    end_year = st.slider("  **Select End Year:**", 1960, 2023, 2023)
+    end_year = st.slider("  **Select End Year:**", 1960, 2030, 2024)
 start_year = datetime.datetime(year, 1, 1)
 end_year = datetime.datetime(end_year, 1, 1)
 
