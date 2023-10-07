@@ -11,7 +11,7 @@ import numpy as np
 # Set up the Streamlit app configuration
 st.set_page_config(
     page_title="SPY Volatility",
-    page_icon="🗠",
+    page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
