@@ -93,10 +93,6 @@ with col22:
     st.subheader("VIX")
     st.line_chart(data, y = "VIX", color= "#d1a626", height = 300, use_container_width=True)
     st.line_chart(data, y = "Z", color="#26d128", height = 250, use_container_width=True)
-    z_sc = np.round(data["Z"].iloc[-1], 2)
-    delta = np.round(data["Z"].iloc[-1] - data["Z"].iloc[-2], 2)
-    st.metric(label="Z-Score", value=z_sc, delta=delta,
-    delta_color="inverse")
 
 with col33:
     st.markdown("***")
@@ -117,7 +113,10 @@ with col33:
                 A Z-score of 1.0 would indicate a value that is one standard deviation from the mean.
                 Z-scores may be positive or negative, with a positive value indicating the score is above the mean 
                  and a negative score indicating it is below the mean.""")
-    
+    z_sc = np.round(data["Z"].iloc[-1], 2)
+    delta = np.round(data["Z"].iloc[-1] - data["Z"].iloc[-2], 2)
+    st.metric(label="Z-Score", value=z_sc, delta=delta,
+    delta_color="inverse")
 with col22:
     st.write(
         "About\n",
