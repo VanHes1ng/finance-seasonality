@@ -55,8 +55,21 @@ data["Z"] = z_score(data["VIX"], 20)
 
 
 with col2:
+    st.title("SPY volatility direction")
     st.subheader("SPY")
     st.line_chart(data, y = "SPY", color="#26afd1",height = 300, use_container_width=True)
+with col3:
+    st.markdown("""
+                This system is designed to provide valuable insights into future market movements,
+                enabling users to make informed decisions regarding their investments without directly executing trades. 
+                It leverages the VIX (CBOE Volatility Index) as a key indicator for predicting trends, 
+                in the SPY (S&P 500 ETF) market.
+                
+                When the VIX indicates decreasing volatility, suggesting a more stable market environment, 
+                the system implies that SPY may experience an upward trend. 
+                This information aids users in considering investment strategies that align with potential market improvements.
+                Conversely, when the VIX suggests increasing volatility, indicating potential market turbulence, 
+                the system helps users consider strategies that account for potential market downturns.""")
 with col22:
     st.subheader("VIX")
     st.line_chart(data, y = "VIX", color= "#d1a626", height = 300, use_container_width=True)
