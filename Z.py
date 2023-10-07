@@ -41,7 +41,6 @@ col11, col22, col33, _ = st.columns([1, 4, 3, 0.5])
 st.title("SPY volatility direction")
 # Inputs
 with col3:
-    year = st.slider("Start Year", 1960, 2023, 2020)
     st.markdown("""
             This system is designed to provide valuable insights into future market movements,
             enabling users to make informed decisions regarding their investments without directly executing trades. 
@@ -53,6 +52,7 @@ with col3:
             This information aids users in considering investment strategies that align with potential market improvements.
             Conversely, when the VIX suggests increasing volatility, indicating potential market turbulence, 
             the system helps users consider strategies that account for potential market downturns.""")
+    year = st.slider("Select Start Year", 1960, 2023, 2020)
 start_year = datetime.datetime(year, 1, 1)
 
 # Get data
