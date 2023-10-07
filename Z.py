@@ -120,6 +120,7 @@ with col33:
                  and a negative score indicating it is below the mean.""")
 
 with col22:
+    st.markdown("***")
     st.write(
         "About\n",
         "\nThis site is not a financial advisor\n",
