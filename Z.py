@@ -41,6 +41,7 @@ col11, col22, col33, _ = st.columns([1, 4, 3, 0.5])
 
 # Inputs
 with col3:
+    st.write(" ")
     st.markdown('###')
     st.markdown("""
             This system is designed to provide valuable insights into future market movements,
