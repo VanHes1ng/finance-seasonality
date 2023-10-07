@@ -93,6 +93,7 @@ with col22:
     st.subheader("VIX")
     st.line_chart(data, y = "VIX", color= "#d1a626", height = 300, use_container_width=True)
     st.line_chart(data, y = "Z", color="#26d128", height = 250, use_container_width=True)
+    st.metric(label="Z - Score of VIX", value=data["Z"], delta=data["Z"]-data["Z"].shift(-2))
 
 with col33:
     st.markdown("***")
