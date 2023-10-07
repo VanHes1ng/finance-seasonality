@@ -35,15 +35,24 @@ def z_score(src, length):
     z = (src-basis)/ stdv
     return z
 
+def space(number):
+    if number == 1:
+        st.write("#")
+    if number == 2: 
+        st.write("#")
+        st.write("#")
+    if number == 3: 
+        st.write("#")
+        st.write("#")    
+        st.write("#")
+
 col1,  col2,  col3, _  = st.columns([1, 4, 3, 0.5])
 col11, col22, col33, _ = st.columns([1, 4, 3, 0.5])
 
 
 # Inputs
 with col3:
-    st.write("#")
-    st.write("#")
-    st.write("#")
+    space(3)
     st.markdown("""
             This system is designed to provide valuable insights into future market movements,
             enabling users to make informed decisions regarding their investments without directly executing trades. 
