@@ -160,7 +160,7 @@ footer = """
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color: light blue;
+            background-color: #79bbe8;
             color: white;
             text-align: center;
             }
