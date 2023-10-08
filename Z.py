@@ -149,5 +149,5 @@ with col22:
         "About\n",
         "\nThis site is not a financial advisor\n",
         "\nCopyright 2023 Snowflake Inc. All rights reserved.\n",
-        "#stockmarket"
+        "\n#stockmarket"
     )
