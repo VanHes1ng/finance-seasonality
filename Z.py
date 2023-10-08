@@ -167,7 +167,7 @@ footer = """
             </style>
 
             <div class="footer">
-            <p>Footer</p>
+            <p>Copyright 2023 Snowflake Inc. All rights reserved.</p>
             </div>"""
 
 st.markdown(footer, unsafe_allow_html=True)
