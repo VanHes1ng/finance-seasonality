@@ -152,3 +152,22 @@ st.write(
     "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
 )
 st.write("#stockmarket")
+
+footer = """
+            <style>
+            .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+            }
+            </style>
+
+            <div class="footer">
+            <p>Footer</p>
+            </div>"""
+
+st.markdown(footer, unsafe_allow_html=True)
