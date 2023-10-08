@@ -149,7 +149,6 @@ st.markdown("***")
 st.write(
     "About\n",
     "\nThis site is not a financial advisor\n",
-    "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
 )
 st.write("#stockmarket")
 
