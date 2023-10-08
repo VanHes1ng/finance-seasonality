@@ -163,11 +163,9 @@ footer = """
             </style>
 
             <div class="footer">
-            <p>
-            About
-            This site is not a financial advisor
-            Copyright 2023 Snowflake Inc. All rights reserved.
-            </p>
+            </p>About</p>
+            </p>This site is not a financial advisor</p>
+            </p>Copyright 2023 Snowflake Inc. All rights reserved.</p>
             </div>"""
 
 st.markdown(footer, unsafe_allow_html=True)
