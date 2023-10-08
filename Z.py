@@ -10,7 +10,7 @@ import numpy as np
 
 # Set up the Streamlit app configuration
 st.set_page_config(
-    page_title="SPY Volatility",
+    page_title="Stock Market Volatility",
     page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -62,7 +62,7 @@ def space(number):
 
 
 _,  col_2,  _  = st.columns([0.5, 4, 0.2])
-col_2.header("SPY Volatility Direction Index", divider="blue")
+col_2.header("Stock Market Volatility", divider="blue")
 
 col1,  col2,  col3, _  = st.columns([1, 4, 3, 0.5])
 col11, col22, col33, _ = st.columns([1, 4, 3, 0.5])
