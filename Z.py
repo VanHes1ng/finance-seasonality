@@ -158,7 +158,7 @@ footer = """
             .footer {
             position: sticky;
             left: 0;
-            bottom: -10;
+            bottom: 0;
             width: 100%;
             background-color: #79bbe8;
             color: white;
