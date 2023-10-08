@@ -145,12 +145,7 @@ with col33:
 
 
 
-st.markdown("***")
-st.write(
-    "About\n",
-    "\nThis site is not a financial advisor\n",
-)
-st.write("#stockmarket")
+
 
 footer = """
             <style>
