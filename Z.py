@@ -143,11 +143,12 @@ with col33:
                 Z-scores may be positive or negative, with a positive value indicating the score is above the mean 
                  and a negative score indicating it is below the mean.""")
 
-with col22:
-    st.markdown("***")
-    st.write(
-        "About\n",
-        "\nThis site is not a financial advisor\n",
-        "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
-    )
-    st.write("#stockmarket")
+
+
+st.markdown("***")
+st.write(
+    "About\n",
+    "\nThis site is not a financial advisor\n",
+    "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
+)
+st.write("#stockmarket")
