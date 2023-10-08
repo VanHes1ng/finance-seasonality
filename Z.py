@@ -146,7 +146,11 @@ with col33:
 
 
 st.markdown("***")
-
+st.write(
+    "About\n",
+    "\nThis site is not a financial advisor\n",
+    "\nCopyright 2023 Snowflake Inc. All rights reserved.\n"
+)
 st.write("#stockmarket")
 
 footer = """
@@ -158,14 +162,12 @@ footer = """
             width: 100%;
             background-color: #79bbe8;
             color: white;
-            text-align: left;
+            text-align: center;
             }
             </style>
 
             <div class="footer">
-            </p>About</p>
-            </p>This site is not a financial advisor</p>
-            </p>Copyright 2023 Snowflake Inc. All rights reserved.</p>
+            <p>Copyright 2023 Snowflake Inc. All rights reserved.</p>
             </div>"""
 
 st.markdown(footer, unsafe_allow_html=True)
