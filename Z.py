@@ -156,7 +156,7 @@ st.write("#stockmarket")
 footer = """
             <style>
             .footer {
-            position: fixed;
+            position: sticky;
             left: 0;
             bottom: 0;
             width: 100%;
