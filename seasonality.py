@@ -88,8 +88,10 @@ heatmap_fig = px.imshow(np.round(heatmap_data*100,2),
                        labels=dict(x="Month", y="Year", color="Monthly Return"),
                        title=f"Heatmap of Monthly Returns for {ticker}",
                        color_continuous_scale=["red", "white", "green"],
-                       zmin=-30,
-                       zmax=30, text_auto=True, height=1000)
+                       zmid = 0,
+                       text_auto=True,
+                       height=1000
+                       )
 
 # Customize the color scale and axis labels for the heatmap
 heatmap_fig.update_xaxes(tickvals=list(range(12)), ticktext=["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])
