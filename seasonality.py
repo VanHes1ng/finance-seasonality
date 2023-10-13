@@ -87,7 +87,7 @@ heatmap_data.index.name = "Year"
 heatmap_fig = px.imshow(np.round(heatmap_data*100,2),
                        labels=dict(x="Month", y="Year", color="Monthly Return"),
                        title=f"Heatmap of Monthly Returns for {ticker}",
-                       color_continuous_scale=["red", "white", "blue"],
+                       color_continuous_scale=["red", "white", "#3bb2f7"],
                        text_auto=True,
                        height=1000
                        )
