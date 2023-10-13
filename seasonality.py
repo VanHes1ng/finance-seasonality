@@ -102,11 +102,10 @@ heatmap_fig.update_yaxes(title_text="Year")
 percentage_changes_fig = go.Figure()
 
 # Add Value bars
-x = monthly_percentage_changes
 percentage_changes_fig.add_trace(go.Bar(y=heatmap_data.columns, 
                         x=np.round(monthly_percentage_changes,2), 
                         orientation='h', 
-                        marker=go.bar.Marker(color=x,
+                        marker=go.bar.Marker(color=monthly_percentage_changes,
                                              colorscale="RdBu",
                                              colorbar=dict(title="value"),
                                              line=dict(color="rgb(0, 0, 0)",width=1))
