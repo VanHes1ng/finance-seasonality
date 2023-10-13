@@ -97,8 +97,16 @@ heatmap_fig.update_yaxes(title_text="Year")
 
 
 
-# Create plot for monthly percentage changes
+# Create a plot for monthly percentage changes
 percentage_changes_fig = go.Figure()
+
+# Add Value bars
+percentage_changes_fig.add_trace(go.Bar(y=heatmap_data.columns, 
+                        x=np.round(monthly_percentage_changes,2), 
+                        orientation='h', 
+                        marker=go.bar.Marker(color='#71b1d1',line=dict(color="rgb(0, 0, 0)",width=1))
+                        )
+                    )
 
 # Update layout
 percentage_changes_fig.update_layout(title_text ='Average monthly performance', height=700)
