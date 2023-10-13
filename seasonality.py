@@ -116,7 +116,7 @@ percentage_changes_fig.add_trace(go.Bar(y=heatmap_data.columns,
 percentage_changes_fig.update_layout(title_text ='Average monthly performance', height=500)
 
 percentage_changes_fig.update_xaxes(title_text = "Avg monthly returns")
-percentage_changes_fig.add_hline(x=0)
+percentage_changes_fig.add_vline(x=0)
 percentage_changes_fig.add_annotation(
     text = (f"@VanHelsing <br>Source: Economic Seasons ⟳")
     , showarrow=False
