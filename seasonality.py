@@ -97,14 +97,25 @@ heatmap_fig.update_yaxes(title_text="Year")
 
 
 
-# Create a line plot for monthly percentage changes
+# Create plot for monthly percentage changes
 percentage_changes_fig = go.Figure()
 
-percentage_changes_fig.add_trace(go.Bar(x=heatmap_data.columns, y=np.round(monthly_percentage_changes,2),
-    marker_color='rgb(132, 172, 209)'))
+# Update layout
+percentage_changes_fig.update_layout(title_text ='Average monthly performance', height=700)
 
-percentage_changes_fig.update_layout(title=f"                 SEASONALITY {ticker}", xaxis_title="Month", yaxis_title="Change (%)", height=700)
-percentage_changes_fig.update_yaxes(zeroline=True, zerolinewidth=2, zerolinecolor='black')
+percentage_changes_fig.update_xaxes(title_text = "Avg monthly returns")
+percentage_changes_fig.add_annotation(
+    text = (f"@VanHelsing <br>Source: Economic Seasons ⟳")
+    , showarrow=False
+    , x = 1
+    , y = 0.1
+    , xref='paper'
+    , yref='paper' 
+    , xanchor='right'
+    , yanchor='bottom'
+    , font=dict(size=12, color="grey")
+    , align="left"
+    )
 
 # Streamlit integration
 st.plotly_chart(ret, use_container_width=True)
