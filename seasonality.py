@@ -113,7 +113,7 @@ percentage_changes_fig.add_trace(go.Bar(y=heatmap_data.columns,
                     )
 
 # Update layout
-percentage_changes_fig.update_layout(title_text ='Average monthly performance', height=700)
+percentage_changes_fig.update_layout(title_text ='Average monthly performance', height=500)
 
 percentage_changes_fig.update_xaxes(title_text = "Avg monthly returns")
 percentage_changes_fig.add_annotation(
