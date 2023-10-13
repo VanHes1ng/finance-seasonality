@@ -105,7 +105,7 @@ x = np.round(monthly_percentage_changes,2)
 percentage_changes_fig.add_trace(go.Bar(y=heatmap_data.columns, 
                         x=np.round(monthly_percentage_changes,2), 
                         orientation='h', 
-                        marker=go.bar.Marker(color=np.cos(x/3),
+                        marker=go.bar.Marker(color=x,
                                              colorscale="RdBu",
                                              colorbar=dict(title="value"),
                                              line=dict(color="rgb(0, 0, 0)",width=1))
