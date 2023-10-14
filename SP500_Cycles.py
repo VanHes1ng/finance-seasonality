@@ -139,8 +139,9 @@ negative_returns = day_returns[day_returns < 0]
 
 # Calculate indicators
 data["ROC"] = (((data["Adj Close"] - data["Adj Close"].shift(16)) / data["Adj Close"].shift(16)) * 100)
-data["SMA_15"] = data["Adj Close"].rolling(window=15).mean()
-data["STD_15"] = data["Adj Close"].rolling(window=15).std()
+z_length = 37
+data["SMA_15"] = data["Adj Close"].rolling(window=z_length).mean()
+data["STD_15"] = data["Adj Close"].rolling(window=z_length).std()
 data["Z Score"] = ((data["Adj Close"] - data["SMA_15"]) / data["STD_15"])
 data["DR_27"] = day_returns.rolling(window=27).mean()
 data["STD_27"] = day_returns.rolling(window=27).std()
