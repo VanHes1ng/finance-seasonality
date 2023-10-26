@@ -87,9 +87,10 @@ with col3:
             the system helps users consider strategies that account for potential market downturns.""")
     year = st.slider("  **Select Start Year:**", 1960, 2023, 2020)
     end_year = st.slider("  **Select End Year:**", 1960, 2030, 2024)
+    interval = st.selectbox("TimeFrame", ('1d','5d','1wk','1mo','3mo'))
 start_year = datetime.datetime(year, 1, 1)
 end_year = datetime.datetime(end_year, 1, 1)
-interval = st.selectbox("TimeFrame", ('1d','5d','1wk','1mo','3mo'))
+
 
 # Get data
 spy = download_data("^GSPC", start_year, end=end_year, interval=interval)
