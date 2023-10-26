@@ -32,8 +32,11 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # Define a function to download S&P 500 data
 @st.cache_data(ttl=3600)
-def download_data(ticker, start, end):
-    data = yf.download(ticker, start= start, end=end)
+def download_data(ticker, start, end, interval):
+    data = yf.download(ticker, 
+                       start= start, 
+                       end=end,
+                       interval =interval)
     return data
 
 def z_score(src, length):
@@ -86,10 +89,11 @@ with col3:
     end_year = st.slider("  **Select End Year:**", 1960, 2030, 2024)
 start_year = datetime.datetime(year, 1, 1)
 end_year = datetime.datetime(end_year, 1, 1)
+interval = st.selectbox("TimeFrame", ('1d','5d','1wk','1mo','3mo'))
 
 # Get data
-spy = download_data("^GSPC", start_year, end=end_year)
-vix = download_data("^VIX", start_year, end=end_year)
+spy = download_data("^GSPC", start_year, end=end_year, interval=interval)
+vix = download_data("^VIX", start_year, end=end_year, interval=interval)
 
 data = pd.DataFrame()
 data["SPY"] = spy["Adj Close"]
