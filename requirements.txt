@@ -6,7 +6,6 @@ monthly_returns_heatmap
 numpy
 Matplotlib
 Seaborn
-scipy
 Pillow
 
 datetime
