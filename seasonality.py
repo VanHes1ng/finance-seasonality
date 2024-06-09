@@ -99,7 +99,7 @@ heatmap_data.index.name = "Year"
 heatmap_fig = px.imshow(np.round(heatmap_data*100,2),
                        labels=dict(x="Month", y="Year", color="Monthly Return"),
                        title                  = f"Heatmap of Monthly Returns for {ticker}",
-                       color_continuous_scale = ["red", "white", "#3bb2f7"],
+                       color_continuous_scale = ["red", "green", "#3bb2f7"],
                        text_auto              = True,
                        height                 = 1000
                        )
@@ -118,7 +118,7 @@ percentage_changes_fig = go.Figure()
 percentage_changes_fig.add_trace(go.Bar(
                         y            = heatmap_data.columns, 
                         x            = np.round(monthly_percentage_changes,2), 
-                        orientation  = 'h', 
+                        orientation  = 'v', 
                         marker       = go.bar.Marker(
                                                     color       = monthly_percentage_changes,
                                                     colorscale  = "Greens",
@@ -134,7 +134,7 @@ percentage_changes_fig.update_layout(title_text ='Average monthly performance', 
 percentage_changes_fig.update_xaxes(title_text = "Avg monthly returns")
 percentage_changes_fig.add_vline(x=0)
 percentage_changes_fig.add_annotation(
-    text = (f"@VanHelsing <br>Source: Economic Seasons ⟳")
+    text = ("@VanHelsing")
     , showarrow=False
     , x = 1
     , y = 0.1
