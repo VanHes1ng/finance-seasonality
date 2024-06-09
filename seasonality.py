@@ -6,7 +6,8 @@ import plotly.express as px
 import numpy as np
 import datetime
 
-# Page Configurations----------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------
+# Page Configurations
 st.set_page_config(layout="wide", initial_sidebar_state="expanded", page_icon= "@")
 
 # Define a function to download S&P 500 data
@@ -20,15 +21,18 @@ st.header("Seasonality Performance", divider="gray")
 st.sidebar.header("Seasonality")
 
 
-
-# User Inputs
+#-------------------------------------------------------------------------------------------------------
+# INPUTS
 ticker = st.sidebar.selectbox(
     'Ticker:', ('^GSPC', 'ETH-USD', 'BTC-USD', "^IXIC"))
 
 max_value = 2035
 year = st.slider("Start Year", min_value=1960, max_value=max_value, value=2000, step=1)
 
-# Download S&P 500 data from Yahoo Finance
+
+
+#-------------------------------------------------------------------------------------------------------
+# GET DATA
 data = download_data(ticker, datetime.date(year, 1, 1), datetime.date(max_value, 1, 1))
 
 # Set the app title and sidebar description
@@ -37,6 +41,9 @@ if ticker == "^GSPC":
 if ticker == "^IXIC":
     ticker = "NASDAQ"
 
+
+#-------------------------------------------------------------------------------------------------------
+# RETURNS
 log_returns = data["Adj Close"].pct_change()
 
 # Resample to monthly frequency and calculate monthly returns
@@ -47,6 +54,9 @@ monthly_returns = monthly_returns.dropna()
 
 y=(1 + log_returns).cumprod()
 
+
+#-------------------------------------------------------------------------------------------------------
+# VISUALIZATION OF DATA
 # Plot the cumulative returns chart
 ret = go.Figure()
 
@@ -95,7 +105,8 @@ heatmap_fig = px.imshow(np.round(heatmap_data*100,2),
                        )
 
 # Customize the color scale and axis labels for the heatmap
-heatmap_fig.update_xaxes(tickvals=list(range(12)), ticktext=["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])
+heatmap_fig.update_xaxes(tickvals=list(range(12)), 
+                         ticktext = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"])
 heatmap_fig.update_yaxes(title_text="Year")
 
 
@@ -103,14 +114,17 @@ heatmap_fig.update_yaxes(title_text="Year")
 # Create a plot for monthly percentage changes
 percentage_changes_fig = go.Figure()
 
-# Add Value bars
-percentage_changes_fig.add_trace(go.Bar(y=heatmap_data.columns, 
-                        x=np.round(monthly_percentage_changes,2), 
-                        orientation='h', 
-                        marker=go.bar.Marker(color=monthly_percentage_changes,
-                                             colorscale="RdBu",
-                                             colorbar=dict(title="value"),
-                                             line=dict(color="rgb(0, 0, 0)",width=1))
+# Add Values to Monthly HeatMap
+percentage_changes_fig.add_trace(go.Bar(
+                        y            = heatmap_data.columns, 
+                        x            = np.round(monthly_percentage_changes,2), 
+                        orientation  = 'h', 
+                        marker       = go.bar.Marker(
+                                                    color       = monthly_percentage_changes,
+                                                    colorscale  = "Greens",
+                                                    colorbar    = dict(title="value"),
+                                                    line        = dict(color="rgb(0, 0, 0)", width = 1)
+                                                    )
                         )
                     )
 
