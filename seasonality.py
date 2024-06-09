@@ -171,7 +171,7 @@ percentage_changes_fig.add_annotation(
 # Streamlit integration
 st.plotly_chart(ret, use_container_width=True)
 st.plotly_chart(heatmap_fig, use_container_width=True)
-st.plotly_chart(percentage_changes_fig, use_container_width=True)
+st.plotly_chart(percentage_changes_fig, use_container_width=False)
 
 st.write(
     "About\n",
