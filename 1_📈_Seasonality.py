@@ -147,7 +147,8 @@ percentage_changes_fig.add_trace(go.Bar(
                                         orientation  = 'v', 
                                         marker       = go.bar.Marker(
                                                                     color       = monthly_percentage_changes,
-                                                                    colorscale  = "Greens",
+                                                                    colorscale  = "rdbu",
+                                                                    cmid        = 0,
                                                                     colorbar    = dict(title="value"),
                                                                     line        = dict(color="rgb(0, 0, 0)", width = 1)
                                                                     )
