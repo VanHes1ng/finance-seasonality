@@ -6,8 +6,8 @@ import plotly.express as px
 import numpy as np
 import datetime
 
-# Page Configurations
-st.set_page_config(layout="wide", initial_sidebar_state="expanded", page_icon= "〰️")
+# Page Configurations----------------------------------------------------------------------------------
+st.set_page_config(layout="wide", initial_sidebar_state="expanded", page_icon= "@")
 
 # Define a function to download S&P 500 data
 def download_data(ticker, start_date, end_date):
@@ -18,6 +18,8 @@ def download_data(ticker, start_date, end_date):
 st.header("Seasonality Performance", divider="gray")
 
 st.sidebar.header("Seasonality")
+
+
 
 # User Inputs
 ticker = st.sidebar.selectbox(
@@ -86,10 +88,10 @@ heatmap_data.index.name = "Year"
 # Create the heatmap using Plotly Express
 heatmap_fig = px.imshow(np.round(heatmap_data*100,2),
                        labels=dict(x="Month", y="Year", color="Monthly Return"),
-                       title=f"Heatmap of Monthly Returns for {ticker}",
-                       color_continuous_scale=["red", "white", "#3bb2f7"],
-                       text_auto=True,
-                       height=1000
+                       title                  = f"Heatmap of Monthly Returns for {ticker}",
+                       color_continuous_scale = ["red", "white", "#3bb2f7"],
+                       text_auto              = True,
+                       height                 = 1000
                        )
 
 # Customize the color scale and axis labels for the heatmap
