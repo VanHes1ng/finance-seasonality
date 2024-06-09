@@ -119,35 +119,37 @@ percentage_changes_fig = go.Figure()
 
 # Add Values to Monthly HeatMap
 percentage_changes_fig.add_trace(go.Bar(
-                        y            = heatmap_data.columns, 
-                        x            = np.round(monthly_percentage_changes,2), 
-                        orientation  = 'v', 
-                        marker       = go.bar.Marker(
-                                                    color       = monthly_percentage_changes,
-                                                    colorscale  = "Greens",
-                                                    colorbar    = dict(title="value"),
-                                                    line        = dict(color="rgb(0, 0, 0)", width = 1)
-                                                    )
-                        )
-                    )
+                                        x            = heatmap_data.columns, 
+                                        y            = np.round(monthly_percentage_changes,2), 
+                                        orientation  = 'v', 
+                                        marker       = go.bar.Marker(
+                                                                    color       = monthly_percentage_changes,
+                                                                    colorscale  = "Greens",
+                                                                    colorbar    = dict(title="value"),
+                                                                    line        = dict(color="rgb(0, 0, 0)", width = 1)
+                                                                    )
+                                        )
+                                )
 
 # Update layout
 percentage_changes_fig.update_layout(title_text ='Average monthly performance', height=500)
 
 percentage_changes_fig.update_xaxes(title_text = "Avg monthly returns")
-percentage_changes_fig.add_vline(x=0)
+
+percentage_changes_fig.add_hline(y=0)
+
 percentage_changes_fig.add_annotation(
-    text = ("@VanHelsing")
-    , showarrow=False
-    , x = 1
-    , y = 0.1
-    , xref='paper'
-    , yref='paper' 
-    , xanchor='right'
-    , yanchor='bottom'
-    , font=dict(size=12, color="grey")
-    , align="left"
-    )
+                                        text = ("@VanHelsing")
+                                        , showarrow=False
+                                        , x = 1
+                                        , y = 0.1
+                                        , xref='paper'
+                                        , yref='paper' 
+                                        , xanchor='right'
+                                        , yanchor='bottom'
+                                        , font=dict(size=12, color="grey")
+                                        , align="left"
+                                        )
 
 # Streamlit integration
 st.plotly_chart(ret, use_container_width=True)
