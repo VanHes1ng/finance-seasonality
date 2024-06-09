@@ -8,6 +8,8 @@ import datetime
 
 #-------------------------------------------------------------------------------------------------------
 # Page Configurations
+#-------------------------------------------------------------------------------------------------------
+
 st.set_page_config(layout="wide", initial_sidebar_state="expanded", page_icon= "@")
 
 # Define a function to download S&P 500 data
@@ -23,6 +25,8 @@ st.sidebar.header("Seasonality")
 
 #-------------------------------------------------------------------------------------------------------
 # INPUTS
+#-------------------------------------------------------------------------------------------------------
+
 ticker = st.sidebar.selectbox(
     'Ticker:', ('^GSPC', 'ETH-USD', 'BTC-USD', "^IXIC"))
 
@@ -33,6 +37,8 @@ year = st.slider("Start Year", min_value=1960, max_value=max_value, value=2000, 
 
 #-------------------------------------------------------------------------------------------------------
 # GET DATA
+#-------------------------------------------------------------------------------------------------------
+
 data = download_data(ticker, datetime.date(year, 1, 1), datetime.date(max_value, 1, 1))
 
 # Set the app title and sidebar description
@@ -44,6 +50,8 @@ if ticker == "^IXIC":
 
 #-------------------------------------------------------------------------------------------------------
 # RETURNS
+#-------------------------------------------------------------------------------------------------------
+
 log_returns = data["Adj Close"].pct_change()
 
 # Resample to monthly frequency and calculate monthly returns
@@ -57,14 +65,21 @@ y=(1 + log_returns).cumprod()
 
 #-------------------------------------------------------------------------------------------------------
 # VISUALIZATION OF DATA
-# Plot the cumulative returns chart
+#-------------------------------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------------------------------
+# CUMULATIVE RETURNS CHART
 ret = go.Figure()
 
 # Create and style traces for cumulative returns
-ret.add_trace(go.Scatter(x=data.index, y=y,
-                      mode='lines',
-                      name='Cumulative Returns',
-                      line=dict(color='gray', width=2)))
+ret.add_trace(go.Scatter(
+                        x       = data.index, 
+                        y       = y,
+                        mode    = 'lines',
+                        name    = 'Cumulative Returns',
+                        line    = dict(color='gray', width=2)
+                        )
+              )
 
 # Highlight the selected with a light gray background
 ret.add_trace(go.Scatter(x=data.index, y=y,
@@ -75,6 +90,8 @@ ret.add_trace(go.Scatter(x=data.index, y=y,
 
 ret.update_layout(title=ticker + " Cumulative Returns Chart")
 
+#-------------------------------------------------------------------------------------------------------
+# MONTHLY RETURNS HEAT MAP
 # Create a DataFrame for monthly returns
 monthly_returns_df = pd.DataFrame({'Date': monthly_returns.index, 'Monthly_Return': monthly_returns.values})
 
@@ -102,7 +119,7 @@ heatmap_fig = px.imshow(np.round(heatmap_data*100,2),
                                 y                      = "Year", 
                                 color                  = "Monthly Return"),
                                 title                  = f"Heatmap of Monthly Returns for {ticker}",
-                                color_continuous_scale = ["red", "green", "white"],
+                                color_continuous_scale = ["red", "white", "green"],
                                 text_auto              = True,
                                 height                 = 1000
                                 )
@@ -113,14 +130,14 @@ heatmap_fig.update_xaxes(tickvals=list(range(12)),
 heatmap_fig.update_yaxes(title_text="Year")
 
 
-
-# Create a plot for monthly percentage changes
+#-------------------------------------------------------------------------------------------------------
+#AVG MONTHLY RETURNS HISTOGRAM (for defined period)
 percentage_changes_fig = go.Figure()
 
 # Add Values to Monthly HeatMap
 percentage_changes_fig.add_trace(go.Bar(
                                         x            = heatmap_data.columns, 
-                                        y            = np.round(monthly_percentage_changes,2), 
+                                        y            = np.round(monthly_percentage_changes*100,2), 
                                         orientation  = 'v', 
                                         marker       = go.bar.Marker(
                                                                     color       = monthly_percentage_changes,
