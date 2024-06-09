@@ -154,3 +154,6 @@ st.write(
 ```
 
 - Adds footer information with a disclaimer and copyright notice.
+
+link to the app:
+https://seasonalityasset.streamlit.app/
