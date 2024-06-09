@@ -84,11 +84,14 @@ ret.add_trace(go.Scatter(
               )
 
 # Highlight the selected with a light gray background
-ret.add_trace(go.Scatter(x=data.index, y=y,
-                      mode='lines',
-                      fill='tozeroy',
-                      fillcolor='rgba(220, 220, 220, 0.5)',
-                      line=dict(color='rgba(255, 255, 255, 0)')))
+ret.add_trace(go.Scatter(x          = data.index, 
+                        y           = y,
+                        mode        = 'lines',
+                        fill        = 'tozeroy',
+                        fillcolor   = 'rgba(220, 220, 220, 0.5)',
+                        line        = dict(color='rgba(255, 255, 255, 0)')
+                        )
+                )
 
 ret.update_layout(title=ticker + " Cumulative Returns Chart")
 
@@ -98,7 +101,7 @@ ret.update_layout(title=ticker + " Cumulative Returns Chart")
 monthly_returns_df = pd.DataFrame({'Date': monthly_returns.index, 'Monthly_Return': monthly_returns.values})
 
 # Extract year and month from the Date column
-monthly_returns_df['Year'] = monthly_returns_df['Date'].dt.year
+monthly_returns_df['Year']  = monthly_returns_df['Date'].dt.year
 monthly_returns_df['Month'] = monthly_returns_df['Date'].dt.month
 
 # Calculate monthly avg returns
@@ -116,14 +119,15 @@ heatmap_data.index.name = "Year"
 
 # Create the heatmap using Plotly Express
 heatmap_fig = px.imshow(np.round(heatmap_data*100,2),
-                       labels=dict(
-                                x                      = "Month", 
-                                y                      = "Year", 
-                                color                  = "Monthly Return"),
-                                title                  = f"Heatmap of Monthly Returns for {ticker}",
-                                color_continuous_scale = ["red", "white", "green"],
-                                text_auto              = True,
-                                height                 = 1000
+                                labels=dict(x        = "Month", 
+                                            y        = "Year", 
+                                            color    = "Monthly Return"
+                                            ),
+                                title                       = f"Heatmap of Monthly Returns for {ticker}",
+                                color_continuous_scale      = ["red", "white", "green"],
+                                color_continuous_midpoint   = 0,
+                                text_auto                   = True,
+                                height                      = 1000
                                 )
 
 # Customize the color scale and axis labels for the heatmap
@@ -158,16 +162,16 @@ percentage_changes_fig.update_xaxes(title_text = "Avg monthly returns")
 percentage_changes_fig.add_hline(y=0)
 
 percentage_changes_fig.add_annotation(
-                                        text = ("@VanHelsing")
-                                        , showarrow=False
-                                        , x = 1
-                                        , y = 0.1
-                                        , xref='paper'
-                                        , yref='paper' 
-                                        , xanchor='right'
-                                        , yanchor='bottom'
-                                        , font=dict(size=12, color="grey")
-                                        , align="left"
+                                        text           = ("@VanHelsing")
+                                        , showarrow    = False
+                                        , x            = 1
+                                        , y            = 0.1
+                                        , xref         = 'paper'
+                                        , yref         = 'paper' 
+                                        , xanchor      = 'right'
+                                        , yanchor      = 'bottom'
+                                        , font         = dict(size=12, color="grey")
+                                        , align        = "left"
                                         )
 
 # Streamlit integration
